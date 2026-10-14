@@ -1,5 +1,8 @@
 | Date | Type | Change |
 |---|---|---|
+| 2026-10-14 | Changed | The apple now counts the moment a finger or mouse touches it, not when it lifts. If the finger then scrolls the page, that one press still counts. Keyboard and screen-reader presses work as before |
+| 2026-10-14 | Added | If the device asks for reduced motion, a small bar offers "Switch to Calm?" with Switch to Calm and No thanks. The game never switches on its own, and remembers the answer |
+| 2026-10-14 | Added | A Grown-ups door now stands in front of Start over, Save & load and the links to other JNFoo games: hold a round button for 3 seconds, then drag the apple into the basket (or tap the apple, then the basket). After that those three stay open for 2 minutes. Esc or Not now closes it |
 | 2026-10-14 | Added | The footer now says: no money, no ads, no accounts, and nothing leaves your device |
 | 2026-10-14 | Added | Save & load: a small dot shows on the button when there has never been a backup (or the last was over a week ago) and you have real progress. The panel says how old your last backup is, whether the browser has promised to keep your progress, and has a button to ask it to |
 | 2026-10-14 | Changed | Saves now carry a version number, so a future change to what a saved number means can convert old saves. A save from a newer version still opens |

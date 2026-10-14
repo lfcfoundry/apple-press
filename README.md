@@ -51,6 +51,9 @@ There is a one-page [playtest card](PLAYTEST-CARD.md) for a grown-up who sits wi
 - **Flash-safe celebrations.** The promotion celebrations are checked against flash-safety limits.
 - **Hold to press.** Hold the apple down and it keeps pressing for you, which helps tired hands and younger players who find rapid tapping hard. It can be switched off in the footer.
 - **Gentler effects.** The Calm effects setting tones down motion, and the game picks a lighter setting by itself on slower devices.
+- **Calm on request.** If your device asks for reduced motion, the game offers a one-tap switch to Calm and remembers your answer. It never switches on its own.
+- **Presses at once.** The apple counts the moment it is touched, not when the finger lifts.
+- **A Grown-ups door.** Start over, Save & load and the links to other games sit behind a hold-then-drag door that young children are unlikely to pass. It is a speed bump for small hands, not a lock.
 
 ## 💡 Playing tips
 
