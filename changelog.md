@@ -1,5 +1,11 @@
 | Date | Type | Change |
 |---|---|---|
+| 2026-10-14 | Added | After you start over, an Undo note stays on screen for ten seconds. Tap it to get the progress you just erased back. A copy is also kept in this browser until your next save of a new game, so a mistaken reset can be repaired by a grown-up too |
+| 2026-10-14 | Fixed | The Save & load text used to say that copies of the game opened from different folders keep separate saves. They actually share one save in the same browser, and the text now says so |
+| 2026-10-14 | Added | If Apple Press is open in two tabs or windows of one browser, only one keeps saving. The other shows a note with a Play here instead button, so two copies can no longer save over each other |
+| 2026-10-14 | Added | On a phone, the back swipe or back button now closes the top pop-up (help, the guide, the bonus shop, the promotion card, the book) instead of leaving the game |
+| 2026-10-14 | Fixed | In high-contrast (forced colors) mode, buttons, the apple, the counters and the pop-ups now use the system's colors and stay readable |
+| 2026-10-14 | Changed | The ending card now shows your best combo first among its facts, when it is 10 or more |
 | 2026-10-13 | Fixed | On a phone, the counters bar that stays at the top now counts as covering the play area, so the lighter special apple and the paused scenery apply when that bar hides part of the scene (before, only the screen edge was counted)
 | 2026-10-13 | Changed | The glow around special apples is now a soft halo drawn once behind the apple instead of a blur filter that had to be redrawn every frame while the little stars twinkle. It looks the same, and the glow now stays full even while you scroll through the upgrades. The twinkling and orbiting stars only hold still when less than half of the play area is on screen
 | 2026-10-13 | Added | A Buy switch above the upgrade list: x1, x10 (only when you can pay for all 10) or Max (as many as you can afford, up to 100 per tap). Your choice is remembered in this browser
