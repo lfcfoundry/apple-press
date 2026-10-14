@@ -11,7 +11,7 @@
 | 2026-10-13 | Added | A Buy switch above the upgrade list: x1, x10 (only when you can pay for all 10) or Max (as many as you can afford, up to 100 per tap). Your choice is remembered in this browser
 | 2026-10-13 | Added | Under the next upgrade you cannot afford yet, a small note says about how long until you can (using your passive speed, your live pressing speed, or two presses a second if neither applies)
 | 2026-10-13 | Added | Save & load now has a Slow-moment note: the game quietly keeps the last 30 errors, slow taps and slow frames on this device only, and a Copy note button lets a grown-up share them. Nothing is sent anywhere
-| 2026-10-13 | Changed | The lighter special apple (while only part of the play area is on screen) also applies in the unlockable mode, where it keeps its pixel look |
+| 2026-10-13 | Changed | The lighter special apple (while only part of the play area is on screen) also applies in the unlockable mode, where it keeps its own look |
 | 2026-10-13 | Fixed | On a phone, the right curtain could jump a hair just before the curtains part for a promotion. The curtain pictures are now smooth when scaled, and a finished slide is no longer swapped for a still picture at that moment |
 | 2026-10-13 | Added | When the small apple is showing in the top bar (you are looking through the upgrades) and a special apple flies into the play area, the small apple now glows and bounces twice so you know to look up |
 | 2026-10-13 | Changed | Special apples are lighter to draw while only part of the play area is on screen (one small glow, and the twinkling holds still), which fixes the slowdown when one arrived while you were looking through the upgrades |
