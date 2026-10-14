@@ -1,5 +1,12 @@
 | Date | Type | Change |
 |---|---|---|
+| 2026-10-14 | Added | The footer now says: no money, no ads, no accounts, and nothing leaves your device |
+| 2026-10-14 | Added | Save & load: a small dot shows on the button when there has never been a backup (or the last was over a week ago) and you have real progress. The panel says how old your last backup is, whether the browser has promised to keep your progress, and has a button to ask it to |
+| 2026-10-14 | Changed | Saves now carry a version number, so a future change to what a saved number means can convert old saves. A save from a newer version still opens |
+| 2026-10-14 | Fixed | On a computer, if the mouse button was let go outside the window while holding the apple, the apple kept pressing until the next click. It now stops when the mouse moves with no button down |
+| 2026-10-14 | Added | For a brand-new player who goes quiet for 20 seconds in the first two stages, a small hand taps the big apple (or the first upgrade they can afford) three times, then goes away. Any touch sends it away; at most three times a visit |
+| 2026-10-14 | Added | The FPS counter explains when a browser's privacy setting is holding the screen at 60 frames a second |
+| 2026-10-14 | Added | The slow-moment note starts with a plain-words start-up timeline (when the page was read, the game began, the saved game was read, the first frame was drawn) |
 | 2026-10-14 | Added | After you start over, an Undo note stays on screen for ten seconds. Tap it to get the progress you just erased back. A copy is also kept in this browser until your next save of a new game, so a mistaken reset can be repaired by a grown-up too |
 | 2026-10-14 | Fixed | The Save & load text used to say that copies of the game opened from different folders keep separate saves. They actually share one save in the same browser, and the text now says so |
 | 2026-10-14 | Added | If Apple Press is open in two tabs or windows of one browser, only one keeps saving. The other shows a note with a Play here instead button, so two copies can no longer save over each other |

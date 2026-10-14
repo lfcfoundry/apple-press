@@ -19,6 +19,10 @@ Each press earns apples. Upgrades add apples per press and per second. Every sta
 
 <p align="center"><img src="images/promotion.jpg" alt="The promotion party: confetti, a new stage name and new upgrades unlocked" width="860"></p>
 
+## 🧒 Testing with a child?
+
+There is a one-page [playtest card](PLAYTEST-CARD.md) for a grown-up who sits with a child while they try the game.
+
 ## ⭐ What's in the game
 
 - **A lively apple:** about 22 moods, eyes that follow your finger, and a spin now and then to show off. 
