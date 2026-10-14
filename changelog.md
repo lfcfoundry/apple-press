@@ -1,5 +1,6 @@
 | Date | Type | Change |
 |---|---|---|
+| 2026-10-13 | Fixed | On a phone, the counters bar that stays at the top now counts as covering the play area, so the lighter special apple and the paused scenery apply when that bar hides part of the scene (before, only the screen edge was counted)
 | 2026-10-13 | Changed | The glow around special apples is now a soft halo drawn once behind the apple instead of a blur filter that had to be redrawn every frame while the little stars twinkle. It looks the same, and the glow now stays full even while you scroll through the upgrades. The twinkling and orbiting stars only hold still when less than half of the play area is on screen
 | 2026-10-13 | Added | A Buy switch above the upgrade list: x1, x10 (only when you can pay for all 10) or Max (as many as you can afford, up to 100 per tap). Your choice is remembered in this browser
 | 2026-10-13 | Added | Under the next upgrade you cannot afford yet, a small note says about how long until you can (using your passive speed, your live pressing speed, or two presses a second if neither applies)
