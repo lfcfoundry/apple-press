@@ -77,4 +77,4 @@ See [changelog.md](changelog.md) for the full list of changes, newest first.
 
 ## © Ownership
 
-Copyright © 2026 JNFoo. All rights reserved. A license will be chosen once the game reaches version 1.0. The fonts are used under the SIL Open Font License.
+Copyright (c) 2026 LFC Foundry. Apple Press is open under the MIT License (see `LICENSE`), with a branding notice: the name "LFC Foundry" and its project identities are reserved, so a fork, a significant modification or a commercial redistribution must change the public product name and branding. The fonts are used under the SIL Open Font License.
