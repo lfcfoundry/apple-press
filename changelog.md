@@ -1,5 +1,12 @@
 | Date | Type | Change |
 |---|---|---|
+| 2026-10-16 | Added | A Rest button in the footer saves your game and shows a calm card. Helpers, boosts and special apples all wait behind it until you tap Keep playing, and it never closes by itself |
+| 2026-10-16 | Added | On a computer, press B to buy the cheapest upgrade (as many copies as the Buy switch says). If you cannot pay yet, a small note says what it costs |
+| 2026-10-16 | Added | A small Saved note shows at the bottom left now and then, after the game has really saved. It stays away when the browser refuses the save |
+| 2026-10-16 | Added | A Vibration button in the footer (on phones that can buzz) turns the buzzing off. Calm still keeps it off |
+| 2026-10-16 | Added | Save & load has a Share save code button where the browser offers a share sheet, so the code can go straight to a message or a note |
+| 2026-10-16 | Changed | The welcome-back note now says that helpers work for up to 8 hours while you are away, when you were gone longer than that |
+| 2026-10-16 | Changed | The footer link heading now says "More from LFC Foundry" |
 | 2026-10-16 | Fixed | The footer links to the Fancy, the Banana game and to this game's source now go to their new home (lfcfoundry), because the old addresses no longer open. |
 | 2026-10-15 | Fixed | The "free game code (MIT)" link in the footer now goes to the code library's new home (lfcfoundry), because the old address no longer opens. |
 | 2026-10-15 | Changed | Apple Press now carries the LFC Foundry notice (MIT License with a branding notice) at the top of the game file, the speed-test page and the small copy, and a LICENSE file joins the project. The footer now reads "Copyright © 2026 LFC Foundry. MIT License." Gameplay is unchanged. |
