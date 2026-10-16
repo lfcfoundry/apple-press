@@ -73,7 +73,7 @@ See [changelog.md](changelog.md) for the full list of changes, newest first.
 
 - [Fancy Banana](https://github.com/JNFoo/fancy-banana): a one-tap flying-banana arcade game ([play](https://jnfoo.github.io/fancy-banana/))
 - [Pineapple Defense](https://github.com/JNFoo/pineapple-defense): a flick-to-throw pineapples-at-penguins game ([play](https://jnfoo.github.io/pineapple-defense/))
-- [JS-modules](https://github.com/JNFoo/JS-modules): free (MIT) code pieces taken from this game ([demos](https://jnfoo.github.io/JS-modules/))
+- [JS-modules](https://github.com/lfcfoundry/JS-modules): free (MIT) code pieces taken from this game ([demos](https://lfcfoundry.github.io/JS-modules/))
 
 ## © Ownership
 
