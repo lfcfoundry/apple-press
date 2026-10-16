@@ -2,7 +2,7 @@
 
 > **BETA: for testers only.** This is a work-in-progress version of the game that friends and family are helping to test. Things will change, and some things may be rough. Your progress is saved in your own browser, and a new update could occasionally change how the game plays.
 
-**▶ Play it here: https://jnfoo.github.io/apple-press/**
+**▶ Play it here: https://lfcfoundry.github.io/apple-press/**
 
 <p align="center"><img src="images/play-desktop.jpg" alt="Apple Press on a computer: a big smiling apple on a scene, with upgrades on the right" width="860"></p>
 
@@ -72,7 +72,7 @@ See [changelog.md](changelog.md) for the full list of changes, newest first.
 ## More from LFC Foundry
 
 - [Fancy Banana](https://github.com/lfcfoundry/fancy-banana): a one-tap flying-banana arcade game ([play](https://lfcfoundry.github.io/fancy-banana/))
-- [Pineapple Defense](https://github.com/JNFoo/pineapple-defense): a flick-to-throw pineapples-at-penguins game ([play](https://jnfoo.github.io/pineapple-defense/))
+- [Pineapple Defense](https://github.com/lfcfoundry/pineapple-defense): a flick-to-throw pineapples-at-penguins game ([play](https://lfcfoundry.github.io/pineapple-defense/))
 - [JS-modules](https://github.com/lfcfoundry/JS-modules): free (MIT) code pieces taken from this game ([demos](https://lfcfoundry.github.io/JS-modules/))
 
 ## © Ownership

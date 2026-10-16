@@ -3,7 +3,7 @@
 One page for a grown-up sitting with a child (about 6 and up) who is trying the game. Takes about 15 minutes. You do not need to know anything about the game.
 
 **Before you start**
-- Open https://jnfoo.github.io/apple-press/ on the device the child will use. Note the device and browser, and the version number at the very bottom of the page.
+- Open https://lfcfoundry.github.io/apple-press/ on the device the child will use. Note the device and browser, and the version number at the very bottom of the page.
 - For a first-time test use a browser or device where the game has never been opened (a private window works). Do not show the child anything first.
 
 **While they play (watch, do not help)**
