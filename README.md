@@ -69,7 +69,7 @@ Please tell JNFoo what you find: anything confusing, anything too hard or too sl
 
 See [changelog.md](changelog.md) for the full list of changes, newest first.
 
-## More from JNFoo
+## More from LFC Foundry
 
 - [Fancy Banana](https://github.com/JNFoo/fancy-banana): a one-tap flying-banana arcade game ([play](https://jnfoo.github.io/fancy-banana/))
 - [Pineapple Defense](https://github.com/JNFoo/pineapple-defense): a flick-to-throw pineapples-at-penguins game ([play](https://jnfoo.github.io/pineapple-defense/))
