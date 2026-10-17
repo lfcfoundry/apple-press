@@ -1,6 +1,6 @@
 | Date | Type | Change |
 |---|---|---|
-| 2026-10-17 | Fixed | If the phone stops sending screen updates while the small apple is flying to the button (or back), the apple now still lands a moment later, and a flight that hits an error lands at once, so the big apple is never left invisible. |
+| 2026-10-17 | Fixed | If the phone stopped sending screen updates while the small apple was flying to the button (or back), the flight could freeze and leave the big apple invisible. Now the apple always lands by itself, at most 0.3 seconds after its planned landing (the flight takes 0.44 seconds down and 0.40 up, so 0.74 and 0.70 at the very most), and a flight that hits an error lands at once. A normal flight looks and takes exactly the same as before. |
 | 2026-10-16 | Added | A Rest button in the footer saves your game and shows a calm card. Helpers, boosts and special apples all wait behind it until you tap Keep playing, and it never closes by itself |
 | 2026-10-16 | Added | On a computer, press B to buy the cheapest upgrade (as many copies as the Buy switch says). If you cannot pay yet, a small note says what it costs |
 | 2026-10-16 | Added | A small Saved note shows at the bottom left now and then, after the game has really saved. It stays away when the browser refuses the save |
