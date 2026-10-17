@@ -13,6 +13,17 @@ Apple Press is a free clicker game for kids in a single web page. Tap a big cart
 - **For children and families.** No ads, no purchases, no accounts.
 - **Works offline.** After it loads once, no internet is needed. Open it in any modern browser on a phone, tablet or computer.
 
+## 📦 Sending the game to a friend
+
+The whole game is one file, and there are two smaller copies of the same game for sending by message or email. Both open by double-click and work offline, with no internet needed.
+
+| Copy | Size (smaller is better) | Opens in (smaller is better) |
+|---|---|---|
+| [apple-press-small.html](https://lfcfoundry.github.io/apple-press/apple-press-small.html) | 273,884 bytes | about 40 to 56 ms |
+| [apple-press-smallest.html](https://lfcfoundry.github.io/apple-press/apple-press-smallest.html) | 197,535 bytes (28% smaller) | about 97 to 99 ms |
+
+The regular page is 703,049 bytes. Opening times are from one test computer in four browsers; a phone may take longer.
+
 ## 🎮 How it plays
 
 Each press earns apples. Upgrades add apples per press and per second. Every stage brings a promotion party, a new animated scene, a new apple color and new upgrades. A first adventure ends after six stages; after that, the full 13-stage journey opens up, and the most dedicated players may find there is more to discover.
