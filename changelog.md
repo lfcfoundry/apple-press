@@ -1,5 +1,6 @@
 | Date | Type | Change |
 |---|---|---|
+| 2026-10-17 | Changed | Save & load now opens with one tap. Before, it first asked you to hold a round button for 3 seconds and then drag an apple into a basket (the "grown-ups door"), which took at least 3 seconds plus a drag every time. Start over and the links to other websites still ask, because those can erase progress or leave the game. |
 | 2026-10-17 | Fixed | If the phone stopped sending screen updates while the small apple was flying to the button (or back), the flight could freeze and leave the big apple invisible. Now the apple always lands by itself, at most 0.3 seconds after its planned landing (the flight takes 0.44 seconds down and 0.40 up, so 0.74 and 0.70 at the very most), and a flight that hits an error lands at once. A normal flight looks and takes exactly the same as before. |
 | 2026-10-16 | Added | A Rest button in the footer saves your game and shows a calm card. Helpers, boosts and special apples all wait behind it until you tap Keep playing, and it never closes by itself |
 | 2026-10-16 | Added | On a computer, press B to buy the cheapest upgrade (as many copies as the Buy switch says). If you cannot pay yet, a small note says what it costs |
@@ -151,6 +152,7 @@ Facts only, taken from the test runs that were actually recorded. "Not recorded"
 
 | Release | Browsers used | Not tested |
 |---|---|---|
+| 2026.10.17.0015 (Save & load opens at once; includes the flying-apple safety net; waiting to be published) | ungoogled Chromium 155.0.8059.39-1: the 40-check batch that covers the grown-ups door, the 4 flight checks and the 29-check batch (one welcome-back check failed on its first run and passed on the rerun). Firefox 158.0 (reports itself as 158.0b5) and WebKitGTK 2.52.6: 3 checks that Save & load opens at once and Start over still asks | GNOME Web, a real phone, the rest of the 26-check suite |
 | 2026.10.16.2059 (flying-apple safety net; waiting to be published) | Chromium 141 (stock, driven by Playwright) and Chromium 153 (not ungoogled): 4 flight checks, plus the 29-check batch for the 2026-10-16 features. Firefox 157.0.1 and WebKitGTK 2.52.6: the same 4 flight checks | Firefox 158, ungoogled Chromium 155, GNOME Web, a real phone |
 | 2026.10.16.1710 (Rest card, B key, Saved note, Vibration switch, share sheet, welcome-back note) | Chromium 141 (stock, Playwright): the new 29-check batch and a short regression subset, not the full 26 checks | Firefox, Safari-family browsers, a real phone |
 | 2026.10.16.1053 (rebuild check only, no game change) | No browser test; the rebuild was compared byte for byte with the published page | All browsers |
