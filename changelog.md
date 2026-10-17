@@ -151,7 +151,7 @@ Facts only, taken from the test runs that were actually recorded. "Not recorded"
 
 | Release | Browsers used | Not tested |
 |---|---|---|
-| 2026.10.16.2059 (flying-apple safety net; waiting to be published) | Chromium 141 (stock, driven by Playwright) and Chromium 153 (not ungoogled): 4 flight checks, plus the 29-check batch for the 2026-10-16 features. Firefox 157.0.1: the same 4 flight checks | Firefox 158, ungoogled Chromium 155, WebKitGTK / GNOME Web, a real phone |
+| 2026.10.16.2059 (flying-apple safety net; waiting to be published) | Chromium 141 (stock, driven by Playwright) and Chromium 153 (not ungoogled): 4 flight checks, plus the 29-check batch for the 2026-10-16 features. Firefox 157.0.1 and WebKitGTK 2.52.6: the same 4 flight checks | Firefox 158, ungoogled Chromium 155, GNOME Web, a real phone |
 | 2026.10.16.1710 (Rest card, B key, Saved note, Vibration switch, share sheet, welcome-back note) | Chromium 141 (stock, Playwright): the new 29-check batch and a short regression subset, not the full 26 checks | Firefox, Safari-family browsers, a real phone |
 | 2026.10.16.1053 (rebuild check only, no game change) | No browser test; the rebuild was compared byte for byte with the published page | All browsers |
 | 2026-10-02 to 2026-10-15 releases | Chromium and Firefox were used (the handoff mentions 26 of 26 checks in Chromium and the key checks in Firefox) but the versions are not recorded | Browser versions: not recorded. A real phone: not recorded per release |
