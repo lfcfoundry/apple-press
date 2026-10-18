@@ -1,14 +1,24 @@
 # 🍎 Apple Press
 
-> **BETA: for testers only.** This is a work-in-progress version of the game that friends and family are helping to test. Things will change, and some things may be rough. Your progress is saved in your own browser, and a new update could occasionally change how the game plays.
-
 **▶ Play it here: https://lfcfoundry.github.io/apple-press/**
 
 <p align="center"><img src="images/play-desktop.jpg" alt="Apple Press on a computer: a big smiling apple on a scene, with upgrades on the right" width="860"></p>
 
 Apple Press is a free clicker game for kids in a single web page. Tap a big cartoon apple to pick apples, buy upgrades, and grow a little backyard orchard into something far, far bigger.
 
+It works by putting the whole game, with its scenes, fonts and code, inside one HTML file written in plain JavaScript. Your browser runs that file by itself, with no server and no download, and keeps your progress in its own storage on your device, so after it loads once the game needs no internet.
+
 <p align="center"><img src="images/special-apples.jpg" alt="Special apples that fly across the scene: golden, crystal, jade, rainbow, comet, cosmic and poison" width="760"></p>
+
+## 🌱 Why it exists
+
+Apple Press is meant to be a gentle clicker for children and the grown-ups who sit with them: free, with no ads, purchases or accounts, no sounds, no timers or streaks, and nothing to trade. It is also a test of how much game fits in one small file that anyone can save, send to a friend and open offline. Pieces of its code that proved useful were cut out and shared as the free [JS-modules](https://github.com/lfcfoundry/JS-modules).
+
+## 🚧 Status
+
+> **BETA: for testers only.** This is a work-in-progress version of the game that friends and family are helping to test. Things will change, and some things may be rough. Your progress is saved in your own browser, and a new update could occasionally change how the game plays.
+
+## ✅ At a glance
 
 - **For children and families.** No ads, no purchases, no accounts.
 - **Works offline.** After it loads once, no internet is needed. Open it in any modern browser on a phone, tablet or computer.
@@ -87,6 +97,12 @@ See [changelog.md](changelog.md) for the full list of changes, newest first.
 - [Fancy Banana](https://github.com/lfcfoundry/fancy-banana): a one-tap flying-banana arcade game ([play](https://lfcfoundry.github.io/fancy-banana/))
 - [Pineapple Defense](https://github.com/lfcfoundry/pineapple-defense): a flick-to-throw pineapples-at-penguins game ([play](https://lfcfoundry.github.io/pineapple-defense/))
 - [JS-modules](https://github.com/lfcfoundry/JS-modules): free (MIT) code pieces taken from this game ([demos](https://lfcfoundry.github.io/JS-modules/))
+
+## 🙏 Credits and attributions
+
+- **Fonts.** Bricolage Grotesque (Copyright 2022 The Bricolage Grotesque Project Authors) and Figtree (Copyright 2022 The Figtree Project Authors), plus a few more listed in the notice inside the game file. All are used under the SIL Open Font License 1.1, and the full license text is included inside the game file.
+- **Shared code.** Several parts of the game (saving and loading, the small apple's flight, test isolation) come from [JS-modules](https://github.com/lfcfoundry/JS-modules), which is MIT-licensed.
+- **Smallest copy.** [apple-press-smallest.html](https://lfcfoundry.github.io/apple-press/apple-press-smallest.html) is packed with LZMA, the compression method of the 7-Zip program by Igor Pavlov, and unpacked by a 4,087-byte WebAssembly helper from JS-modules.
 
 ## © Ownership
 
