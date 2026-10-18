@@ -1,186 +1,112 @@
-| Date | Type | Change |
-|---|---|---|
-| 2026-10-18 | Changed | The documents now follow a new order: a few lines on what the thing is and how it works, then why it exists, then everything else, with credits and attributions in their own section. This covers the README (which gains a "Why it exists" part and a "Credits and attributions" part), the playtest card (gains a "Why it exists" line) and the house-rule hooks note. The game itself is unchanged (same build 2026.10.17.1806). |
-| 2026-10-17 | Changed | Firefox only: the floating "+N" numbers, combo words and the combo counter draw their outline as one 4 px text outline behind the letters instead of eight stacked text shadows plus the glow (the glow is kept). In Firefox 158.0 in the modern look at a deep stage (stage 8, tapping about 9 times a second, 412 x 892 window at screen scale 2) tapping runs about 1.1 to 1.2 times as fast, with fewer slow frames. Frames per second (higher is better; median of 5 alternating old/new pairs): 38.5 to 45.2 when tapping 10 seconds after a jump to stage 8 (1.17 times; slow frames in 5 seconds about 71 to 49, lower is better), 28.2 to 31.0 right after the jump (1.10 times), 22.1 to 25.4 with two special apples flying right after the jump (1.15 times). The old page itself swings between about 26 and 47 frames per second from run to run, so single runs land anywhere from 1.0 to 1.3 times (earlier runs gave 1.24 times on one setup and 1.03 times on another), which is why the gain is given as a range. Look: in Firefox the outline corners are slightly smoother and rounder (the earlier look check found 1.4 to 4.5 percent of the screen dots in the crops differ, an average of 1.0 to 3.6 out of 255); thickness, colors and glow are the same. The sugar-rush and disco-fever "+N" numbers, the unlockable mode and the "Juicy!" shine layers keep their own looks. Other browsers do not receive the rule, so they are unchanged: in Chromium 155.0.8059.39-1, WebKitGTK 2.52.6 and GNOME Web 46.5 the page reports no support for the rule and the computed text shadow and outline of the floating numbers, combo words and combo counter equal the old page (Chromium also had no changed screen dots in the earlier 10-crop check). Size (smaller is better): player copy 703,318 to 704,227 bytes (909 more, 0.13%), small copy 274,028 to 274,352, smallest copy 197,681 to 197,840, speed-test page 720,118 to 721,027. Checks: smoke, privacy, frozen saves, layers and the add-ons check pass in ungoogled Chromium 155.0.8059.39-1. *Tested: ungoogled Chromium 155.0.8059.39-1, Firefox 158.0 (reports 158.0b5), WebKitGTK 2.52.6 and GNOME Web 46.5, one at a time; not tested: Firefox on a phone, a real phone.* |
-| 2026-10-17 | Changed | Test tools only, the game is unchanged. (1) The full check run takes 95 seconds instead of 119 to 121 (smaller is better; 4 lanes, ungoogled Chromium 155.0.8059.39-1): the promotion-card check (promo2) no longer fails when the computer is busy and then gets re-run alone, which used to add about 30 seconds together with the touch check; it now redoes only the one window size whose test clicks were more than 400 ms apart and waits until the card closes instead of a fixed 200 ms. Using more than 4 lanes made it slower (131 s, with 2 re-runs), and turning the graphics chip off in the browser changed nothing, so neither was kept. (2) The old-save comparison takes less time (smaller is better; seconds): Chromium 84 to 56, Firefox 79 to 53, WebKitGTK 94 to 71, GNOME Web 122 to 93, with the same answers in all four (66 identical, 7 expected differences): it waits until the answer message appears instead of a fixed half second for each of its 23 code cases, and puts the saved slots into the page it loads instead of visiting a blank page first. (3) The check runner prints the processor time of each check, can run just some checks (QA_ONLY="promo2 xs"), and keeps the log of a check's first failure when it is re-run. (4) The speed test and the old-save comparison give a browser that will not close 2 seconds and then stop it: the GNOME Web speed run went from 300 seconds (cut off) to 22.7. *Tested: ungoogled Chromium 155.0.8059.39-1 for the check run; Chromium, Firefox 158.0, WebKitGTK 2.52.6 and GNOME Web 46.5 for the old-save comparison.* |
-| 2026-10-17 | Changed | Saving and loading now run on save-kit 1.2.1 (before: 1.2.0). The module used to read each field's rules again on every save and load; it now reads them once when the game starts. Nothing you see changes: the same saved text and the same loaded game (the old-save comparison, 73 cases against the 0246 build, again gives 66 identical results and the same 7 listed differences, in Chromium 155.0.8059.39, Firefox 158.0 WebKitGTK 2.52.6 and GNOME Web 46.5). Speed of one call, small saved game, 1.2.0 to 1.2.1 (microseconds; smaller is better, median of 5 page loads; 3 in GNOME Web): saving 22.2 to 19.0 in Chromium (17% faster), 7.5 to 5.0 in Firefox (50% faster), 12.5 to 7.5 in WebKitGTK (67% faster); loading 17.3 to 16.8, 20.0 to 10.0 (2x as fast) and 40.0 to 20.0 (2x as fast). A medium saved game (about 2.5 KB) loads 45.5 to 35.5 in Chromium, 50.0 to 35.0 in Firefox and 70.0 to 40.0 in WebKitGTK. Not faster: the large test save (about 25 KB, far beyond a real game) loads 647 to 587 in Chromium and 667 to 467 in Firefox but 1,067 to 1,400 in WebKitGTK (slower in that one browser, probably noise at 5 repeats, not re-measured), and GNOME Web's clock moves in steps too coarse to tell a difference at these sizes (small saved game 12.5 to 12.5, medium 25 to 40). Time from the start of the game script to the saved game loaded stays 1.6 to 3 ms in all four. Size (smaller is better): player copy 703,068 to 703,318 bytes (250 more, 0.04%), small copy 273,916 to 274,028, smallest copy 197,572 to 197,681, speed-test page 719,868 to 720,118. Checks: privacy 19 of 19, fixture 11 of 11, smart QA 29 of 29 (its saved privacy answer updated on purpose for the new page rules; the check on a save from a newer version failed once in 6 repeats on its own, as it also did once in the morning before this change) in ungoogled Chromium 155.0.8059.39-1; both small copies open in it. *Tested: ungoogled Chromium 155.0.8059.39-1, Firefox 158.0 (reports 158.0b5), WebKitGTK 2.52.6 and GNOME Web 46.5 for the old-save comparison and the speed numbers; not tested: a real phone. A second GNOME Web speed run gave different small-save numbers (save 20.0 to 10.0, load 42.5 to 17.5), so its clock is too coarse to trust here.* |
-| 2026-10-17 | Changed | The game's own page rules (its Content-Security-Policy) gain the one word 'wasm-unsafe-eval' in script-src, because every page of ours carries it now; nothing else in the rules changed (still no network, no unsafe-eval), and the game does not use WebAssembly itself yet. The same page now carries it in the speed-test page and inside both small copies. Size (smaller is better): player copy 703,049 to 703,068 bytes (19 more), small copy 273,884 to 273,916, smallest copy 197,535 to 197,572, speed-test page 716,253 to 719,868. The privacy check's frozen rules were updated on purpose to the new text; it passes (19 of 19), and the opening times in the row above were measured on the page before this word was added, which is 19 bytes different |
-| 2026-10-17 | Added | A second small copy of the game, apple-press-smallest.html, for sending the game to someone: the whole game packed with LZMA and unpacked by a 4,087-byte WebAssembly helper (the page's own security rules gain the one word 'wasm-unsafe-eval' so the helper may run; if a browser refuses it, a JavaScript unpacker in the same file takes over, checked by the packer's own test in four modes). The existing small copy, apple-press-small.html, stays. Sizes (smaller is better): player copy 703,049 bytes; small 273,884; smallest 197,535 (28% smaller than small, 72% smaller than the player copy). Opening time, from the start of the page to the game starting (smaller is better; median of 9 loads): small 56 ms in Chromium 155, 47 in Firefox 158, 38 in WebKitGTK 2.52.6 and 40 in GNOME Web 46.5; smallest 98, 97, 99 and 99 ms. So small opens about 1.8 to 2.6 times faster and smallest is 28% smaller. Without the WebAssembly helper the LZMA copy would be 191,502 bytes but open in 132, 117, 108 and 113 ms (the helper makes it 25%, 17%, 8% and 12% faster to open for 4,700 more bytes). The game inside is unchanged and plays the same in both copies (checked in all four browsers from a file address) |
-| 2026-10-17 | Changed | Saving, the backup copy, the Save & load codes and loading a save now run on the shared save-kit module (version 1.2.0, cut down to the parts the game uses) instead of the game's own copy of that code, so later fixes to the module reach the game by swapping one block. Every old save and every old save code still opens: a comparison of this build with the previous one (2026.10.17.0246) ran 73 cases and 66 gave exactly the same result (the other 7 are the differences listed below, each checked for what it should do). The cases were 37 saves in storage (the 2 frozen example saves plus numbers over their limits, renamed upgrades, odd names, 1,500 names in a list, broken main or backup slots and more), 23 pasted codes or texts (old-style codes with check endings of 6 and 7 characters, plain and squeezed, with spaces and line breaks, damaged, cut off, or not a code at all), 12 checks of codes made by each build and opened by the other, and Put my old game back. All 73 gave the same answers in all three test browsers (Chromium 155.0.8059.39, Firefox 158.0, WebKitGTK 2.52.6). The stored save has the same fields in the same order, and the codes this build makes still end in the old kind of check (without leading zeros), so older copies of the game can read them. Size (smaller is better): player copy 699,457 to 703,049 bytes (3,592 more, about 0.5%), small copy 271,776 to 273,884 (2,108 more), full copy 1,094,131 to 1,110,444 (16,313 more). Speed of saving and loading: not measured. Five small differences, all in odd cases (they make up the 7 cases above): (1) when one of the six main numbers (count, total, credits, caught, runs, seconds) is broken, for example text or negative, in a slot with no good backup, the game now keeps everything else; before, it threw the whole slot away and started a new game (2 cases); (2) if the main slot has a broken value inside one list and the backup is clean, the backup (up to a minute older) is now used (1 case); (3) a cut-off code now says "That code is not complete" where it used to say it is not a save code (2 cases); (4) words typed right after a code no longer stop it from opening (1 case); (5) a code that unpacks to more than 256 KB is refused as too big, where the two frozen example saves are 541 and 569 bytes (1 case, a 400 KB test save) |
-| 2026-10-17 | Changed | The speed-test page (a test build, not the game) now keeps its own saved keys apart from your real saved game by using the shared test-isolation module (version 1.1.0) instead of its own copy of that code. Nothing you can see changes in the game or the test. What improves is the guard itself: the module answers property-style reads and writes, `in`, delete, `Object.keys` and `JSON.stringify` like a real storage (the old copy got 7 of 7 of those checks wrong), and its loops over saved keys no longer rescan everything (module test: 3,000 keys took 53.4 seconds in Firefox 158 before and 13 milliseconds now; the speed test itself only writes 2 to 3 keys, so for this page the difference is not measurable). Cost: the page grows from 715,282 to 716,253 bytes (+971 bytes, 0.14%; +559 bytes when compressed). Checked by running the whole fast speed test and looking at a pre-filled real save: it answered in 27.8 seconds in Chromium, 25.3 in Firefox and 25.8 in WebKitGTK, the real save stayed unchanged in all three and no key outside the test's own prefix was written |
-| 2026-10-17 | Changed | The small apple's flight now runs on the shared fly-to-mini module (version 1.2.0) instead of the game's own copy of that code, so later fixes to the module reach the game by swapping one block. Nothing you can see changes: the flight still lasts 440 milliseconds down and 400 up, the small apple still comes in when less than half of the big one shows and goes away when more than 65% shows (measured: in at a scroll of 288 screen dots and out at 184, the same as before), and the alert pulse still lasts about 1.8 seconds. One small difference: the flying copy is now placed on the first frame it exists (before, it could sit in the top-left corner for one frame). The packed page is 2,516 bytes larger (269,260 to 271,776, about 0.9%). *Tested: ungoogled Chromium 155.0.8059.39-1, Firefox 158.0 (reports 158.0b5) and WebKitGTK 2.52.6 for the flying-apple checks; not tested: GNOME Web, a real phone.* |
-| 2026-10-17 | Fixed | On a phone, the counters bar slid up and away as you scrolled to the end of the upgrades, and slid back when you scrolled up again (the bar can only travel inside the box that holds it, and that box ended where the upgrades end). In the test on a phone-size window the bar's top edge went from 0 to -56 and then -106 screen dots over the last 150 dots of scrolling; it now stays at 0 all the way to the bottom of the page, and the page is no longer (the recorded phone report showed the bar at -65 screen dots there) |
-| 2026-10-17 | Changed | In the diagnostics copy, "Copy report" now copies a short report (at most about 160 lines): how each stage ran (seconds, average and lowest frames per second, seconds under 45, worst frame), then only the slow seconds and the noted moments. Holding the button for about 0.7 second before letting go still copies the full second-by-second list. The small apple's landing pop and alert pulse are no longer reported as the bar jumping |
-| 2026-10-17 | Fixed | The stage curtains glitched in the early stages, most of all on slower phones. They are painted ahead of time while you play, but while you tapped steadily that painting almost never got a turn: in a test on a phone-speed setting (4 times slower than a computer) the first curtains were still not ready after 40 seconds, so they were painted all at once as they began to close, which froze the game for about 0.2 to 0.35 seconds and made the slide jump. Now the first three stages start painting at once, a busy phone gets a bigger turn every quarter second instead of every 0.8 seconds, and in the same test the first curtains are ready in about 4 seconds. If they are still not ready when a promotion arrives, the game waits up to 2.5 seconds and paints them a little each frame, instead of freezing |
-| 2026-10-17 | Fixed | Safari and other WebKit browsers (they have no "idle moment" signal) never painted the curtains ahead of time at all, so every promotion there painted them in one go. They now paint ahead like the other browsers (checked on WebKitGTK 2.52.6: ready ahead of time; before, still not ready after 6 seconds) |
-| 2026-10-17 | Fixed | If a phone dropped or never finished the curtains' last zoom, a curtain half could stay over the promotion card. A timer now takes the curtains away 0.45 seconds after the planned end (2.0 seconds after the zoom starts), and a cancelled zoom takes them away at once |
-| 2026-10-17 | Fixed | The small apple flew back and forth when a scroll wobbled right at the edge (any finger movement or bounce near that line sent it away and back). It now comes in when less than 50% of the big apple shows and only leaves when more than 65% shows, so a wobble of up to 15% of the big apple's height no longer starts a flight |
-| 2026-10-17 | Changed | Turning Vibration on now sends a test buzz of 250 milliseconds in three pulses (90, pause 70, 90) instead of one pulse of 35 milliseconds, which was too faint to feel on some phones. If the browser refuses the buzz, the button says "Vibration: the browser refused" for 4 seconds, so you can tell a refusing browser from a quiet phone |
-| 2026-10-17 | Added | The diagnostics copy (the test file with the recording button) now also writes down, in its report, each time the top bar's numbers move inside the bar by more than half a screen dot, each flight of the small apple, when the curtains appear and go, where the two curtain halves are every 0.2 seconds, and every buzz with the browser's answer. This is for finding what a real phone does that a computer test cannot show |
-| 2026-10-17 | Changed | Save & load now opens with one tap. Before, it first asked you to hold a round button for 3 seconds and then drag an apple into a basket (the "grown-ups door"), which took at least 3 seconds plus a drag every time. Start over and the links to other websites still ask, because those can erase progress or leave the game. |
-| 2026-10-17 | Fixed | If the phone stopped sending screen updates while the small apple was flying to the button (or back), the flight could freeze and leave the big apple invisible. Now the apple always lands by itself, at most 0.3 seconds after its planned landing (the flight takes 0.44 seconds down and 0.40 up, so 0.74 and 0.70 at the very most), and a flight that hits an error lands at once. A normal flight looks and takes exactly the same as before. |
-| 2026-10-16 | Added | A Rest button in the footer saves your game and shows a calm card. Helpers, boosts and special apples all wait behind it until you tap Keep playing, and it never closes by itself |
-| 2026-10-16 | Added | On a computer, press B to buy the cheapest upgrade (as many copies as the Buy switch says). If you cannot pay yet, a small note says what it costs |
-| 2026-10-16 | Added | A small Saved note shows at the bottom left now and then, after the game has really saved. It stays away when the browser refuses the save |
-| 2026-10-16 | Added | A Vibration button in the footer (on phones that can buzz) turns the buzzing off. Calm still keeps it off |
-| 2026-10-16 | Added | Save & load has a Share save code button where the browser offers a share sheet, so the code can go straight to a message or a note |
-| 2026-10-16 | Changed | The welcome-back note now says that helpers work for up to 8 hours while you are away, when you were gone longer than that |
-| 2026-10-16 | Changed | The footer link heading now says "More from LFC Foundry" |
-| 2026-10-16 | Fixed | The footer links to the Fancy, the Banana game and to this game's source now go to their new home (lfcfoundry), because the old addresses no longer open. |
-| 2026-10-15 | Fixed | The "free game code (MIT)" link in the footer now goes to the code library's new home (lfcfoundry), because the old address no longer opens. |
-| 2026-10-15 | Changed | Apple Press now carries the LFC Foundry notice (MIT License with a branding notice) at the top of the game file, the speed-test page and the small copy, and a LICENSE file joins the project. The footer now reads "Copyright © 2026 LFC Foundry. MIT License." Gameplay is unchanged. |
-| 2026-10-14 | Fixed | The shading, shine and soft shadows drawn on every hat, helmet and prop (221 small pieces) had stopped showing for several releases, because a style rule meant for the floating petals and stars hid them. They are back, a little stronger, and Lite effects now keep the shading too (only the blurred shadows go) |
-| 2026-10-14 | Changed | The chef's hat, the medical mask and the viking helmet are redrawn in the glossy toy look: puffy shaded chef puffs and a pleated band, a pleated mask with a nose wire and shiny ear loops, and a chrome viking helmet with ringed horns and rivets. The chef's hat, the party hat and the flower also got their own gradients |
-| 2026-10-14 | Fixed | Finishing the last stage with a special apple made the game stutter as the ending opened on phones. The ending now opens behind a dark screen and starts its show a moment later, its rays and edge glow are drawn ahead of time during the last stage, a special apple that carries you over the line gets 0.7 of a second for its own burst first, and the laser moon and basketball stop their tricks when the ending opens |
-| 2026-10-14 | Changed | The apple now counts the moment a finger or mouse touches it, not when it lifts. If the finger then scrolls the page, that one press still counts. Keyboard and screen-reader presses work as before |
-| 2026-10-14 | Added | If the device asks for reduced motion, a small bar offers "Switch to Calm?" with Switch to Calm and No thanks. The game never switches on its own, and remembers the answer |
-| 2026-10-14 | Added | A Grown-ups door now stands in front of Start over, Save & load and the links to other JNFoo games: hold a round button for 3 seconds, then drag the apple into the basket (or tap the apple, then the basket). After that those three stay open for 2 minutes. Esc or Not now closes it |
-| 2026-10-14 | Added | The footer now says: no money, no ads, no accounts, and nothing leaves your device |
-| 2026-10-14 | Added | Save & load: a small dot shows on the button when there has never been a backup (or the last was over a week ago) and you have real progress. The panel says how old your last backup is, whether the browser has promised to keep your progress, and has a button to ask it to |
-| 2026-10-14 | Changed | Saves now carry a version number, so a future change to what a saved number means can convert old saves. A save from a newer version still opens |
-| 2026-10-14 | Fixed | On a computer, if the mouse button was let go outside the window while holding the apple, the apple kept pressing until the next click. It now stops when the mouse moves with no button down |
-| 2026-10-14 | Added | For a brand-new player who goes quiet for 20 seconds in the first two stages, a small hand taps the big apple (or the first upgrade they can afford) three times, then goes away. Any touch sends it away; at most three times a visit |
-| 2026-10-14 | Added | The FPS counter explains when a browser's privacy setting is holding the screen at 60 frames a second |
-| 2026-10-14 | Added | The slow-moment note starts with a plain-words start-up timeline (when the page was read, the game began, the saved game was read, the first frame was drawn) |
-| 2026-10-14 | Added | After you start over, an Undo note stays on screen for ten seconds. Tap it to get the progress you just erased back. A copy is also kept in this browser until your next save of a new game, so a mistaken reset can be repaired by a grown-up too |
-| 2026-10-14 | Fixed | The Save & load text used to say that copies of the game opened from different folders keep separate saves. They actually share one save in the same browser, and the text now says so |
-| 2026-10-14 | Added | If Apple Press is open in two tabs or windows of one browser, only one keeps saving. The other shows a note with a Play here instead button, so two copies can no longer save over each other |
-| 2026-10-14 | Added | On a phone, the back swipe or back button now closes the top pop-up (help, the guide, the bonus shop, the promotion card, the book) instead of leaving the game |
-| 2026-10-14 | Fixed | In high-contrast (forced colors) mode, buttons, the apple, the counters and the pop-ups now use the system's colors and stay readable |
-| 2026-10-14 | Changed | The ending card now shows your best combo first among its facts, when it is 10 or more |
-| 2026-10-13 | Fixed | On a phone, the counters bar that stays at the top now counts as covering the play area, so the lighter special apple and the paused scenery apply when that bar hides part of the scene (before, only the screen edge was counted)
-| 2026-10-13 | Changed | The glow around special apples is now a soft halo drawn once behind the apple instead of a blur filter that had to be redrawn every frame while the little stars twinkle. It looks the same, and the glow now stays full even while you scroll through the upgrades. The twinkling and orbiting stars only hold still when less than half of the play area is on screen
-| 2026-10-13 | Added | A Buy switch above the upgrade list: x1, x10 (only when you can pay for all 10) or Max (as many as you can afford, up to 100 per tap). Your choice is remembered in this browser
-| 2026-10-13 | Added | Under the next upgrade you cannot afford yet, a small note says about how long until you can (using your passive speed, your live pressing speed, or two presses a second if neither applies)
-| 2026-10-13 | Added | Save & load now has a Slow-moment note: the game quietly keeps the last 30 errors, slow taps and slow frames on this device only, and a Copy note button lets a grown-up share them. Nothing is sent anywhere
-| 2026-10-13 | Changed | The lighter special apple (while only part of the play area is on screen) also applies in the unlockable mode, where it keeps its own look |
-| 2026-10-13 | Fixed | On a phone, the right curtain could jump a hair just before the curtains part for a promotion. The curtain pictures are now smooth when scaled, and a finished slide is no longer swapped for a still picture at that moment |
-| 2026-10-13 | Added | When the small apple is showing in the top bar (you are looking through the upgrades) and a special apple flies into the play area, the small apple now glows and bounces twice so you know to look up |
-| 2026-10-13 | Changed | Special apples are lighter to draw while only part of the play area is on screen (one small glow, and the twinkling holds still), which fixes the slowdown when one arrived while you were looking through the upgrades |
-| 2026-10-13 | Changed | The promotion card's bonus shop is now folded away each time a card opens: tap "Bonus shop" to open it. The list of credits per special apple is only in How to play now |
-| 2026-10-12 | Changed | The copyright holder is now JNFoo, and the page footer has a "More from JNFoo" line linking to Fancy Banana, the free (MIT) game code taken from this game, and the source |
-| 2026-10-12 | Fixed | The stage curtains could stay shut for good (and earnings stop) if progress dropped, for example from a poison apple, while they were closing. They now open and the game carries on |
-| 2026-10-12 | Fixed | On the last bonus stage, every press failed partway through (a confetti color was missing), which also stopped the game clock's later steps, such as boost timers and stickers, whenever autoclickers were owned |
-| 2026-10-12 | Fixed | Autoclicker pop-up numbers were tripled or quintupled while a press boost was running, though what they earned was not |
-| 2026-10-12 | Changed | Time a phone or hidden tab spends frozen now counts at the "away" rate (at most 8 hours), the same as reopening the game, instead of full speed |
-| 2026-10-12 | Fixed | Starting a new run now clears special apples still flying from the old one, and a missing price can never turn bonus credits into a broken number |
-| 2026-10-12 | Fixed | On a phone, the stage curtains could glitch: the right curtain stayed parked off to the side instead of closing in the middle with the left one. Each curtain now puts itself in its final place when it finishes sliding, and a timer finishes any curtain that is running late |
-| 2026-10-09 | Changed | The small logo by the stage bar is now a scaled-down copy of the title-screen logo (the same apple overlapping the red "Apple" and green "Press" pill, with the leaf), not a separate drawing |
-| 2026-10-08 | Added | The small logo now includes the words ("Apple" over "Press", from the Title setting), left of the stage bar |
-| 2026-10-08 | Added | When the big apple scrolls out of view on a narrow window or phone, it now shrinks into the small apple in the top bar (a flying copy, 0.4 s); scrolling back up grows it back out of the small apple into the big one. Skipped in Calm effects and with reduced motion |
-| 2026-10-08 | Added | A version number (the build's date and time, USA Eastern, e.g. 2026.10.08.2323) shows at the bottom right of the title screen and above the font credits at the bottom of the page. Every new build gets a new one automatically |
-| 2026-10-08 | Added | A small game logo (the title-screen apple, never dressed for a season) sits to the left of the stage bar at the top |
-| 2026-10-08 | Changed | The fireworks over the city on the National Brand stage now show only on night (dark mode) scenes, not on daytime ones |
-| 2026-10-08 | Fixed | The chimney on the Cider Mill background now sits properly on the roof |
-| 2026-10-08 | Fixed | In the tour, the Click upgrades, Helper upgrades and Prices go up steps now light up one upgrade (or just its price) instead of the whole shop |
-| 2026-10-08 | Changed | The first-time tour is rewritten for children about 6 years old: short sentences and simple words, split into 18 small steps (was 7), with separate steps for each number under the apple, click upgrades, helper upgrades, new stages, and the special apples, sticker book, save and help buttons |
-| 2026-10-08 | Changed | The curtains' fly-through at the end of a promotion is lighter: it zooms to 1.5x instead of 1.9x and finishes 200 ms sooner, because a full-screen layer scaling while fading made the browser's compositor drop frames (profile of the hosted page showed long composites with texture-cache churn during that moment) |
-| 2026-10-08 | Changed | The title screen no longer comes back after the game has been left untouched for an hour (it did not work well on the online versions) |
-| 2026-10-08 | Changed | Smoother curtains and presses: the next stage's curtain is painted about five times faster (the same picture, checked to be identical), the falling-pieces layer no longer makes the browser do extra layout work on every press, and a press reads the page layout once instead of three times |
-| 2026-10-08 | Fixed | A thin strip under the gold hem at the bottom of the closing curtains was see-through, so the busy game behind it showed (and seemed to flicker); it is now a solid dark stage floor, in both looks |
-| 2026-10-08 | Added | Finishing the first-time tour (not skipping it) sends a golden apple floating across the scene as a gift, once per browser; it is bigger and slower than usual so a first-time player can catch it |
-| 2026-10-08 | Added | First-time tour: right after the title screen a brand-new player gets a short guided look at the page (the story of the game, the big apple, the counters, upgrades, stage bar and bottom buttons), with Skip and Back; "Show me around" in How to play brings it back |
-| 2026-10-08 | Changed | The font credits at the bottom and the How to play panel no longer name the hidden unlockable look until it has been unlocked |
-| 2026-10-08 | Fixed | Stage 3 and stage 11 curtains showed up solid black in the shared (player) copy of the game, because its compressed style sheet writes those two colors as names (maroon, coral) that the curtain painter could not read; the browser now converts the color first |
-| 2026-10-08 | Changed | The fiery ring and the dashed orbit ring now turn once per press-per-second shown on the counter (they used to turn twice) |
-| 2026-10-08 | Fixed | Stage 3's curtains are no longer nearly black: the very dark maroon is brightened to a rich crimson velvet with softer shading, in every look |
-| 2026-10-08 | Changed | The first adventure is shorter: a brand-new game ends after stage 6 (National Brand) with "The Orchard Is Famous!". "Start again" then gives the full 13 stages; "Start over" begins a short first adventure again; saves already in the middle of a run keep all 13 stages |
-| 2026-10-08 | Changed | Ending is gentler: the celebration card shows first with a "See my story" button; the Apple Story no longer pops up by itself and now opens with a "You did it!" cover page (a short first adventure ends it with "To be continued…") |
-| 2026-10-08 | Fixed | Progress bars on stages 5, 6 and 9 are deeper (gold, amber, teal) so the growing part shows clearly |
-| 2026-10-08 | Changed | Bonus shop: Auto Clicker now costs 35 credits (was 7) and Robot Arm 100 (was 16), and both sit at the end of the list |
-| 2026-10-08 | Fixed | Stage 13's progress bar fill is a deeper periwinkle so it shows against the light bar |
-| 2026-10-08 | Changed | Player copy 28 KB smaller: one flexible Figtree file instead of three, and the unused lighter Bricolage title weight removed; no visible change |
-| 2026-10-08 | Changed | Background petals, fireflies and stars are now small page pieces the browser moves itself, instead of a full-screen picture redrawn 60 times a second |
-| 2026-10-08 | Changed | Self-extracting small copy added (`apple-press-small.html`, 266 KB instead of 647 KB): the game is squeezed inside and the browser unpacks it as the page opens; older browsers (before 2023) get a short message pointing to the regular file |
-| 2026-10-08 | Changed | Player copy tidied: font layout features trimmed to the ones used (−6 KB), tags written more briefly (−15 KB raw) |
-| 2026-10-08 | Changed | The fiery ring around the apple no longer shows on stages 7 to 12, which already have the orbit ring |
-| 2026-10-08 | Fixed | Curtain colors checked on all 13 stages against their apples and backdrops: yellow (stage 5), lavender (stage 13) and magenta (stage 10) velvet now match their stage color more closely |
-| 2026-10-08 | Fixed | Stage 11's curtains no longer look chocolate brown: orange and coral velvet is shaded less deeply in the folds |
-| 2026-10-08 | Changed | During a promotion the background particles stop drawing until it closes, and the stage change is done in several small steps behind the shut curtains, to ease the stutter as the card appears |
-| 2026-10-08 | Changed | Only the current stage's background picture is kept in the page (about 30% fewer page elements); the progress bar moves in finer-grained steps; about 3 KB of unused style rules removed |
-| 2026-10-08 | Fixed | Stage 8 (World Apple Conglomerate): the backdrop behind the promotion card glowed sky blue while its curtains were purple; the glow is now violet to match (the other 12 stages were checked and already match) |
-| 2026-10-07 | Changed | The fiery ring around the apple now shows only while you press, on every stage, and spins at twice your clicks-per-second number; the dashed orbit ring is back to stages 7 to 12 only |
-| 2026-10-07 | Changed | The orbit ring now shows from the first stage (it still spins faster the faster you press); during a promotion everything behind the celebration is paused to ease the curtain and card stutter in Firefox |
-| 2026-10-07 | Changed | Stage curtains are prepared in smaller, spaced-out slivers and wait a moment behind closed curtains before opening, to remove the curtain stutter in Firefox |
-| 2026-10-07 | Changed | The player file is 16% smaller (fonts trimmed to the characters the game uses, pictures and script tightened) with no visible change |
-| 2026-10-07 | Added | A Capture button in the seasons test that records where the screen, title and buttons are from the moment the page opens, to find the drift on Android; the title screen also locks the page behind it from scrolling |
-| 2026-10-07 | Fixed | On Android phones the title screen no longer turns black in dark mode (it is always light), and zooming is turned off so the title screen and buttons cannot slide toward the bottom right |
-| 2026-10-07 | Changed | Title screens in the unlockable mode redrawn with hand-placed sprites for every season and holiday, moving in step with the apple (new sandwiches, dove, groundhog, sundae, paw prints, chocolates, lanterns, bags, gifts and a Food Day plate) |
-| 2026-10-07 | Added | A taco drawn as a golden shell on its side, and a sombrero, cactus and maracas for Cinco de Mayo on the modern look |
-| 2026-10-07 | Fixed | Fireworks on the title screen are visible again (they used white, which vanished on a light screen) and look right in the unlockable mode too |
-| 2026-10-07 | Fixed | The title screen waits for its fonts before showing, so the logo and props no longer jump around on load |
-| 2026-10-07 | Fixed | The unlockable mode's title screen is always light, so dark theme no longer washes out its art |
-| 2026-10-07 | Fixed | The unlockable mode's scenes and title props no longer turn into noise in browsers with strict privacy settings (such as Firefox with resist fingerprinting) |
-| 2026-10-07 | Added | If the game is left running untouched for over an hour, the title screen comes back when you return |
-| 2026-10-07 | Fixed | Tooltips no longer show through the title screen |
-| 2026-10-06 | Added | A "Hold to press" on/off switch at the bottom of the screen, for players who would rather tap |
-| 2026-10-06 | Fixed | Holding a finger on the apple now keeps pressing on Android phones, and the phone's long-press menu no longer pops up over the apple |
-| 2026-10-05 | Added | Hold your finger on the apple (or the small press button) to press it 5 times a second, with combos building as you hold |
-| 2026-10-05 | Added | Save backup panel: copy a save code or download a save file, then load it on any device to keep your progress |
-| 2026-10-05 | Fixed | Safer saving: the game never writes a broken save, keeps a backup copy, and saves whenever you switch away from it |
-| 2026-10-05 | Fixed | The ending no longer has a bright white flash; its background and card now fade in gently |
-| 2026-10-05 | Changed | Each of the 13 stages now has its own color, used for the apple, the curtains, the promotion glow and the buttons |
-| 2026-10-05 | Fixed | The moving parts of the background now move separately, which ended the hitch at big combo milestones in the later stages |
-| 2026-10-05 | Changed | The biggest combo milestone celebrations were toned down and spread out so they play smoothly |
-| 2026-10-05 | Fixed | The background holds still while you tap fast and starts moving again when you stop, which removed stutter in the later stages |
-| 2026-10-05 | Added | Velvet stage curtains in the new stage's color close and then part as you fly through to each promotion |
-| 2026-10-05 | Added | Promotion celebrations with confetti cannons, sparkle bursts and turning sun rays |
-| 2026-10-05 | Changed | The promotion card now drops in gently instead of the old oversized spinning, shaking slam |
-| 2026-10-05 | Fixed | Promotions no longer stutter: the busy game is hidden behind the promotion screen, which shows a deep glow in the stage's color |
-| 2026-10-05 | Fixed | Big combo counter announcements no longer stutter on phones |
-| 2026-10-05 | Fixed | Phones in dark mode no longer darken the apple's shine and the special apples |
-| 2026-10-05 | Fixed | The game no longer switches itself to lower effects by mistake after you switch to another app and come back |
-| 2026-10-05 | Fixed | Smoother play in the unlockable mode and with long shop lists, especially on phones |
-| 2026-10-05 | Changed | The game file got about 5% smaller by tidying the artwork, with no change to how anything looks |
-| 2026-10-05 | Changed | New costumes (a fishbowl space helmet, a "Rachel" hairdo, an emo look and a chinstrap beard) replaced the cowboy hat, fedora, towel and soul patch |
-| 2026-10-05 | Changed | Hats and helmets got soft shading and shadows in the modern look, and they stay on correctly when the apple turns around |
-| 2026-10-03 | Fixed | One damaged number in a save no longer throws away all of your progress |
-| 2026-10-03 | Fixed | Apples earned while the game was closed no longer get doubled by a Frenzy boost |
-| 2026-10-03 | Added | Scenery pets and friends: a cat, a dog, a garden gnome, a friendly UFO and a nicer rainbow |
-| 2026-10-03 | Added | A new bonus shop item that makes regular upgrades cost less |
-| 2026-10-03 | Added | Apple Paradise: an optional bonus 14th stage with its own scene and congratulations screen |
-| 2026-10-03 | Added | Many more costumes for the apple, including a starfighter helmet, chef, firefighter, secret agent, detective and halo |
-| 2026-10-03 | Added | A switch next to the counters for the unlockable mode, and a clicks-per-second readout |
-| 2026-10-03 | Added | "Lucky presses" Extra: now and then a press counts ten times over |
-| 2026-10-03 | Added | Extras: each time you start over and keep your bonus items, a new Extra opens (gold stars, hats, scenery, boosts, an apple almanac and a head start) |
-| 2026-10-03 | Added | Boosts: Frenzy doubles every apple for 30 seconds, and Golden Hour brings special apples more often |
-| 2026-10-03 | Added | The unlockable mode gets its own eyes, logo and fonts |
-| 2026-10-03 | Added | The game's logo shows as a splash screen when it opens |
-| 2026-10-03 | Added | Unlockable mode: a switchable special look for the whole game |
-| 2026-10-02 | Added | Jade special apple, an apple-shaped zeppelin, a sun (a moon in dark mode) and grass in the background |
-| 2026-10-02 | Added | Several special apples can fly by at once, plus a mini press button and an optional frames-per-second counter |
-| 2026-10-02 | Added | "Welcome back": helpers keep picking apples for up to 8 hours while the game is closed |
-| 2026-10-02 | Added | Light and dark themes, and Full, Lite and Calm effect settings (Lite is chosen automatically on slow machines) |
-| 2026-10-02 | Changed | The game only updates the screen when something actually changes, so it runs more smoothly on slower devices |
-| 2026-10-02 | Added | Fonts are built into the file, so the game works fully offline |
-| 2026-10-02 | Fixed | The game ignores damaged saved numbers instead of breaking |
-| 2026-10-02 | Added | Stages 9 to 13 and an ending, with a choice to start again and keep your bonus items |
-| 2026-10-02 | Added | Special apples, a combo counter that heats up as you tap fast, a help panel and an apple that spins to show off |
-| 2026-10-02 | Added | Animated background scenes for every stage, with birds, trucks, ships, satellites and more |
-| 2026-10-02 | Added | Bonus credits, a bonus shop and an autoclicker |
-| 2026-10-02 | Added | Faces and costumes for the apple, and descriptions that pop up for upgrades |
-| 2026-10-02 | Added | The apple's eyes follow your pointer and its face reacts, plus a golden apple to catch for a bonus |
-| 2026-10-02 | Added | A scene behind the apple with drifting petals, fireflies and stars |
-| 2026-10-02 | Added | First version: press the apple, buy upgrades across 8 stages, celebrate each promotion, and keep your progress saved |
+# What's new in Apple Press
 
-## Which browsers tested each release
+The newest changes are first. The version number is at the bottom of the page. The full, detailed list of changes and tests is kept separately by the people who build the game.
 
-Facts only, taken from the test runs that were actually recorded. "Not recorded" means the run happened (or may have) but the browser version was not written down; nothing here is guessed.
+**Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1, WebKitGTK 2.52.6 and GNOME Web 46.5, one at a time (latest version, 2026.10.17.1806).
 
-| Release | Browsers used | Not tested |
-|---|---|---|
-| 2026.10.17.1806 (Firefox-only text outline for floating numbers and combo words; includes everything in 1625; not yet published) | Firefox 158.0 (reports 158.0b5): speed (5 alternating pairs per scene, re-tested by the profiling thread on this exact build), and that the rule applies (text outline 4 px). ungoogled Chromium 155.0.8059.39-1, WebKitGTK 2.52.6 and GNOME Web 46.5, one at a time: the rule is not matched and the computed text shadow and outline of the floating numbers, combo words and combo counter equal the old page. Chromium 155 also ran smoke, privacy, frozen saves, layers and the add-ons check. | Firefox on a phone, a real phone, the full 29-check suite |
-| 2026.10.17.1625 (save-kit 1.2.1; includes everything in 1601; published) | ungoogled Chromium 155.0.8059.39-1: privacy 19 of 19, frozen saves 11 of 11, smart set 29 of 29. Old-save comparison (73 cases) in Chromium 155, Firefox 158.0, WebKitGTK 2.52.6 and GNOME Web 46.5, one at a time; speed numbers in the same four. | a real phone |
-| 2026.10.17.1601 (the wasm word added to the game's script rules; includes everything in 1445; waiting to be published) | ungoogled Chromium 155.0.8059.39-1 (Playwright): the privacy check (19 of 19), the 3-check quick set, the 11 frozen-save checks. Chromium 155, Firefox 158.0, WebKitGTK 2.52.6 and GNOME Web 46.5, one at a time: the player copy and both small copies open from a file address, show the right title and respond to taps | The full 29-check suite and the old-save comparison were not rerun for this one-word change (they ran on 1445, which differs only by that word). A real phone not tested |
-| 2026.10.17.1445 small copies (apple-press-small.html and the new apple-press-smallest.html; no game change; waiting to be published) | ungoogled Chromium 155.0.8059.39-1, Firefox 158.0 (reports 158.0b5), WebKitGTK 2.52.6 and GNOME Web 46.5, one at a time: both small copies opened from a file address, the title is right and tapping the apple changes the page; opening times of the gzip, LZMA, LZMA with WebAssembly and LZMA with WebAssembly plus security rules pages (9 loads each, median); WebAssembly confirmed used by a call counter in all four browsers | A real phone not tested. The WebAssembly refusal path was checked by the packer's Node test, not in a browser |
-| 2026.10.17.1445 (save-kit 1.2.0 for saving, backups and save codes; includes everything in 0246; waiting to be published) | ungoogled Chromium 155.0.8059.39-1 (Playwright): the full 29-check suite (one check, the Start over check, now prints the better result described in the changelog and its expected result was updated; the opening-card check passed on its one automatic retry) and the 66-check old-save comparison. Firefox 158.0 (reports 158.0b5) and WebKitGTK 2.52.6 (one at a time): the same 66-check old-save comparison with the real game pages loading without page errors, and the whole fast speed test with the real saved game untouched (26.5 and 27.2 seconds; Chromium 30.9 seconds) | GNOME Web 46.5 not tested. The 29-check suite was not repeated in Firefox or WebKitGTK. A real phone not tested |
-| 2026.10.17.0246 speed-test page only (save guard moved onto the test-isolation 1.1.0 module; no game change; not yet published) | ungoogled Chromium 155.0.8059.39-1, Firefox 158.0 (reports 158.0b5) and WebKitGTK 2.52.6, one at a time: the whole fast speed test with a pre-filled real save (answers in 27.8, 25.3 and 25.8 seconds; real save unchanged; 0 keys written outside the test prefix) | GNOME Web 46.5, a real phone |
-| 2026.10.17.0246 (small apple's flight moved onto the fly-to-mini module; includes everything in 0128; waiting to be published) | ungoogled Chromium 155.0.8059.39-1 (Playwright): the full 29-check suite (the opening-card check passed on its one automatic retry), the 30-line welcome-back batch, the 5 flying-apple checks and the 19 curtain, small-apple and Vibration checks. Firefox 158.0 (reports 158.0b5): the 5 flying-apple checks and the 13 curtain, small-apple and Vibration checks. WebKitGTK 2.52.6: the 4 flying-apple checks and the same 13 checks | A real Android phone in Chrome: waiting for the owner's test. GNOME Web 46.5: not tested. The older flight scripts (an1, an3, an4, st1 and similar): not run. The alert pulse was tested by calling it directly, not by waiting for a real special apple |
-| 2026.10.17.0128 (curtain painting ahead of time, curtain safety timer, small-apple edge, bar kept at the top, Vibration test buzz, short recorder report; includes everything in 0015; waiting to be published) | ungoogled Chromium 155.0.8059.39-1 (Playwright, phone-size window): 19 new checks (curtains, small apple, bar at the bottom of the page at two phone sizes, short report, tap-time curtain painting at 4x slower speed, Vibration), the 4 flight checks, the 40-check door batch and the 30-line welcome-back batch (one check in it failed once in an earlier run on the stock Chromium 141 shell and passed on every later run, including this one on 155; I did not capture which). Firefox 158.0: 13 new checks and the 4 flight checks. WebKitGTK 2.52.6: the same 13 new checks and the 4 flight checks | A real Android phone in Chrome: waiting for the owner's test. GNOME Web 46.5: not tested. The 4-times-slower setting was used in Chromium only |
-| 2026.10.17.0015 (Save & load opens at once; includes the flying-apple safety net; waiting to be published) | Chromium 141.0.7390.37 (the stock headless shell; the test helper replaced the ungoogled Chromium 155 that was asked for, found and fixed on 2026-10-17, and the build was rerun on 155 as release 0128): the 40-check batch that covers the grown-ups door, the 4 flight checks and the 29-check batch (one welcome-back check failed on its first run and passed on the rerun). Firefox 158.0 (reports itself as 158.0b5) and WebKitGTK 2.52.6: 3 checks that Save & load opens at once and Start over still asks | GNOME Web, a real phone, the rest of the 26-check suite |
-| 2026.10.16.2059 (flying-apple safety net; published 2026-10-17) | Chromium 141 (stock, driven by Playwright) and Chromium 153 (not ungoogled; the test helper may have swapped in the stock 141 shell for the 153 runs, which was not checked at the time): 4 flight checks, plus the 29-check batch for the 2026-10-16 features. Firefox 157.0.1 and WebKitGTK 2.52.6: the same 4 flight checks | Firefox 158, ungoogled Chromium 155, GNOME Web, a real phone |
-| 2026.10.16.1710 (Rest card, B key, Saved note, Vibration switch, share sheet, welcome-back note) | Chromium 141 (stock, Playwright): the new 29-check batch and a short regression subset, not the full 26 checks | Firefox, Safari-family browsers, a real phone |
-| 2026.10.16.1053 (rebuild check only, no game change) | No browser test; the rebuild was compared byte for byte with the published page | All browsers |
-| 2026-10-02 to 2026-10-15 releases | Chromium and Firefox were used (the handoff mentions 26 of 26 checks in Chromium and the key checks in Firefox) but the versions are not recorded | Browser versions: not recorded. A real phone: not recorded per release |
+## October 18
 
-From 2026-10-17 on, every test covers three browsers, one at a time: Firefox 158, ungoogled Chromium 155 and WebKitGTK 2.52.6 / GNOME Web 46.5, and the versions are written here.
+- This list is now short and plain. The game itself is unchanged.
+
+## October 17
+
+- Floating numbers and combo words run about 1.1 to 1.2 times faster in Firefox, with fewer choppy moments. Other browsers look and run the same.
+- Save & load now opens with one tap. Before, it needed a 3-second hold and a drag.
+- A new smallest copy of the game is available for sending to a friend: 197,840 bytes, about 28% smaller than the small copy.
+- The curtains between stages are smoother in the early stages, most of all on slower phones, and a curtain can no longer get stuck over the promotion card.
+- Safari and other WebKit browsers now get the smoother curtains too.
+- On a phone, the top bar with your counters no longer slides away when you scroll to the end of the upgrades.
+- The small apple in the top bar no longer flies back and forth when you scroll right at the edge, and it can no longer freeze mid-flight.
+- Turning Vibration on gives a stronger test buzz that is easy to feel.
+- Saving and loading got a little faster, with the same saves as before.
+
+## October 16
+
+- New Rest button: saves your game and shows a calm card while everything waits until you tap Keep playing.
+- On a computer, press B to buy the cheapest upgrade.
+- A small "Saved" note appears now and then after the game really saves.
+- A Vibration button in the footer turns buzzing off on phones that can buzz.
+- Save & load has a Share save code button where your device offers sharing.
+- The welcome-back note now tells you when helpers worked the full 8 hours while you were away.
+- The footer links to our other games and to the source now open the right pages.
+
+## October 15
+
+- The game now shows our LFC Foundry license notice, and the footer link to the free game code works again.
+
+## October 14
+
+- The apple counts the moment you touch it, not when you lift your finger.
+- If your device asks for less motion, a small bar offers to switch to Calm. The game never switches by itself.
+- Start over, Save & load and the links to other games now sit behind a hold-then-drag door for grown-ups.
+- A new player who goes quiet for 20 seconds gets a small hand that shows where to tap.
+- After you start over, an Undo note stays for ten seconds so a mistake can be taken back.
+- A dot shows on Save & load when you have no recent backup, and the panel says how old your last backup is.
+- If the game is open in two tabs, only one saves, so they can no longer overwrite each other.
+- On a phone, the back swipe closes the top pop-up instead of leaving the game.
+- Buttons and pop-ups stay readable in high-contrast mode.
+- Hats, helmets and props have their shading and shadows back, and the chef's hat, medical mask and viking helmet were redrawn.
+- Finishing the last stage no longer makes the game stutter on phones.
+- On a computer, letting go of the mouse outside the window no longer leaves the apple pressing.
+- The footer now says: no money, no ads, no accounts, and nothing leaves your device.
+
+## October 13
+
+- A Buy switch above the upgrades: x1, x10 or Max.
+- Under the next upgrade you cannot afford yet, a note says about how long until you can.
+- A Slow-moment note on Save & load keeps the last 30 slow moments on your device only, and a grown-up can copy it. Nothing is sent anywhere.
+- The small apple in the top bar glows and bounces when a special apple flies by while you look through the upgrades.
+- Special apples are lighter to draw while only part of the play area shows, which fixes the slowdown when one arrived mid-scroll.
+- The promotion card's bonus shop is folded away until you tap it.
+- The right curtain no longer jumps a hair just before the curtains part.
+
+## October 12
+
+- Fixed: the curtains could stay shut for good if progress dropped while they closed (for example from a poison apple).
+- Fixed: every press failed partway through on the last bonus stage.
+- Fixed: helper pop-up numbers were tripled or quintupled during a press boost, though what they earned was not.
+- Fixed: starting a new run now clears special apples still flying from the old one.
+- Time a phone or background tab spends frozen now counts at the away rate (at most 8 hours), like reopening the game.
+- Fixed: the curtains could glitch on phones.
+
+## October 8 to 9
+
+- A small game logo sits beside the stage bar.
+- When the big apple scrolls out of view on a phone, it shrinks into a small apple in the top bar and grows back when you scroll up.
+- A version number shows at the bottom of the page. Every new build gets a new one.
+- A first-time tour for new players, written for children about 6 years old: 18 short steps with simple words. Finishing it sends a golden apple floating by as a gift.
+- The first adventure is shorter: a new game ends after stage 6 with "The Orchard Is Famous!". Start again opens up the full 13 stages.
+- A gentler ending: the celebration card comes first, with a "See my story" button.
+- The bonus shop's Auto Clicker now costs 35 credits (was 7) and Robot Arm 100 (was 16).
+- Smoother curtains and presses: the next stage's curtain paints about five times faster, and the background petals, fireflies and stars use less power.
+- The game file is about 28 KB smaller from the fonts alone, and a small self-opening copy for sending (266 KB instead of 647 KB) was added.
+- Fixed colors: curtains and progress bars on several stages now match their stage colors, and stage 3's curtains are no longer nearly black.
+- Fixed: a see-through strip under the closing curtains, the Cider Mill chimney, the stage 8 backdrop glow, and the tour lighting up the whole shop.
+
+## October 5 to 7
+
+- Hold your finger on the apple to press 5 times a second, with combos building as you hold. A Hold to press switch turns it off.
+- Save backup: copy a save code or download a save file, then load it on any device.
+- Safer saving: the game never writes a broken save, keeps a backup copy, and saves whenever you switch away.
+- Each of the 13 stages has its own color for the apple, the curtains, the promotion glow and the buttons.
+- Velvet stage curtains close and part as you fly through to each promotion.
+- Promotion celebrations with confetti cannons, sparkle bursts and turning sun rays, and the card now drops in gently.
+- Many fixes for stutter in promotions, big combo announcements and the later stages.
+- Fixed: the title screen turning black in dark mode on Android phones, and its fonts and props jumping around on load.
+- New costumes, and hats and helmets with soft shading.
+- A taco, a sombrero, a cactus and maracas for Cinco de Mayo.
+- The player file is 16% smaller with no visible change.
+
+## October 2 to 3
+
+- First version: press the apple, buy upgrades across 8 stages, celebrate each promotion, and keep your progress saved.
+- Special apples, a combo counter that heats up as you tap fast, a help panel, and an apple that spins to show off.
+- Animated background scenes for every stage, with birds, trucks, ships, satellites and more.
+- Stages 9 to 13 and an ending, with a choice to start again and keep your bonus items.
+- Bonus credits, a bonus shop, an autoclicker, boosts (Frenzy doubles every apple for 30 seconds; Golden Hour brings special apples more often) and Extras that open each time you start over.
+- Apple Paradise, an optional bonus 14th stage.
+- Faces and many costumes for the apple, plus scenery friends: a cat, a dog, a garden gnome, a friendly UFO and a nicer rainbow.
+- Light and dark themes, and Full, Lite and Calm effect settings (Lite is chosen automatically on slow machines).
+- "Welcome back": helpers keep picking apples for up to 8 hours while the game is closed.
+- Fonts are built into the file, so the game works fully offline.
+- Fixed: one damaged number in a save no longer throws away all your progress.

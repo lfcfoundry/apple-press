@@ -86,11 +86,11 @@ There is a one-page [playtest card](PLAYTEST-CARD.md) for a grown-up who sits wi
 
 Please tell JNFoo what you find: anything confusing, anything too hard or too slow, anything that looks or runs badly, and which device and browser you used. If you have a GitHub account you can also open an issue on this page.
 
-Which browsers were used to test each release, with versions, is listed at the bottom of [changelog.md](changelog.md#which-browsers-tested-each-release). Older releases say "not recorded" where the version was never written down. From 2026-10-17 on, every test covers Firefox 158, ungoogled Chromium 155 and WebKitGTK 2.52.6 / GNOME Web 46.5, one at a time.
+The latest release was tested in Firefox 158.0, ungoogled Chromium 155.0.8059.39-1, WebKitGTK 2.52.6 and GNOME Web 46.5, one at a time (listed at the top of [changelog.md](changelog.md)). Every test from 2026-10-17 on covers these four browsers.
 
 ## 🆕 What's new
 
-See [changelog.md](changelog.md) for the full list of changes, newest first.
+See [changelog.md](changelog.md) for a short, plain list of what changed, newest first.
 
 ## More from LFC Foundry
 
