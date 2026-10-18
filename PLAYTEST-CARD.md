@@ -2,6 +2,8 @@
 
 One page for a grown-up sitting with a child (about 6 and up) who is trying the game. Takes about 15 minutes. You do not need to know anything about the game.
 
+**Why it exists:** the game is for children, so the most useful test is watching one child try it with no help. This card keeps those sessions alike, so what different children stumble on can be compared.
+
 **Before you start**
 - Open https://lfcfoundry.github.io/apple-press/ on the device the child will use. Note the device and browser, and the version number at the very bottom of the page.
 - For a first-time test use a browser or device where the game has never been opened (a private window works). Do not show the child anything first.
