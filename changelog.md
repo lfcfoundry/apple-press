@@ -2,7 +2,11 @@
 
 The newest changes are first. The version number is at the bottom of the page. The full, detailed list of changes and tests is kept separately by the people who build the game.
 
-**Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1, WebKitGTK 2.52.6 and GNOME Web 46.5, one at a time (latest version, 2026.10.18.2022).
+**Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1, WebKitGTK 2.52.6 and GNOME Web 46.5, one at a time (latest fully tested version: 2026.10.18.2022; the newest build, 2026.10.18.2050, only adds a page-rule word and was checked in Chromium).
+
+## October 19
+
+- The game's page rules now also allow small background helpers made on the spot. Nothing in the game uses them yet and nothing can reach the internet; this only makes room for later speed-ups.
 
 ## October 18
 
