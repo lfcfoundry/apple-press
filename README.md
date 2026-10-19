@@ -29,10 +29,10 @@ The whole game is one file, and there are two smaller copies of the same game fo
 
 | Copy | Size (smaller is better) | Opens in (smaller is better) |
 |---|---|---|
-| [apple-press-small.html](https://lfcfoundry.github.io/apple-press/apple-press-small.html) | 274,352 bytes | about 40 to 56 ms |
-| [apple-press-smallest.html](https://lfcfoundry.github.io/apple-press/apple-press-smallest.html) | 197,840 bytes (28% smaller) | about 97 to 99 ms |
+| [apple-press-small.html](https://lfcfoundry.github.io/apple-press/apple-press-small.html) | 277,360 bytes | about 40 to 56 ms |
+| [apple-press-smallest.html](https://lfcfoundry.github.io/apple-press/apple-press-smallest.html) | 199,733 bytes (28% smaller) | about 97 to 99 ms |
 
-The regular page is 704,227 bytes. Opening times are from one test computer in four browsers; a phone may take longer.
+The regular page is 708,578 bytes. Opening times are from one test computer in four browsers; a phone may take longer.
 
 ## 🎮 How it plays
 
@@ -101,7 +101,7 @@ See [changelog.md](changelog.md) for a short, plain list of what changed, newest
 ## 🙏 Credits and attributions
 
 - **Fonts.** Bricolage Grotesque (Copyright 2022 The Bricolage Grotesque Project Authors) and Figtree (Copyright 2022 The Figtree Project Authors), plus a few more listed in the notice inside the game file. All are used under the SIL Open Font License 1.1, and the full license text is included inside the game file.
-- **Shared code.** Several parts of the game (saving and loading, the small apple's flight, test isolation) come from [JS-modules](https://github.com/lfcfoundry/JS-modules), which is MIT-licensed.
+- **Shared code.** Several parts of the game (saving and loading, the small apple's flight, the curtain painter, test isolation) come from [JS-modules](https://github.com/lfcfoundry/JS-modules), which is MIT-licensed.
 - **Smallest copy.** [apple-press-smallest.html](https://lfcfoundry.github.io/apple-press/apple-press-smallest.html) is packed with LZMA, the compression method of the 7-Zip program by Igor Pavlov, and unpacked by a 4,087-byte WebAssembly helper from JS-modules.
 
 ## © Ownership
