@@ -6,7 +6,7 @@ The newest changes are first. The version number is at the bottom of the page. T
 
 ## October 19
 
-- Tapping is smoother in Chromium: about 10% more frames per second at a deep stage (51 to 56 FPS, higher is better), and the slowest frames are shorter (83 to 67 ms). Firefox, WebKitGTK and GNOME Web run the same as before. Nothing looks different: the screen matches the old one in all four browsers (39 of 40 comparisons exactly, the last 99.98%).
+- Tapping is smoother in Chromium: about 4% to 10% more frames per second at a deep stage (higher is better; 51 to 56 FPS in one test, 107 to 112 FPS in another), and far fewer slow frames (1.4% of frames to 0.4% in the second test). Firefox, WebKitGTK and GNOME Web run the same as before. Nothing looks different: the screen matches the old one in all four browsers (39 of 40 comparisons exactly, the last 99.98%).
 - The first screen shows sooner. The first game picture now appears 17 to 213 ms earlier depending on the browser (about 9% to 60% sooner: Chromium 195 to 178 ms, Firefox 180 to 146 ms, WebKitGTK 356 to 143 ms, GNOME Web 231 to 157 ms). The moving scene pieces are put together just after it. Nothing looks different: the whole screen matches the old one exactly in all four browsers.
 - The game's page rules now also allow small background helpers made on the spot. Nothing in the game uses them yet and nothing can reach the internet; this only makes room for later speed-ups.
 
