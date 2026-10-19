@@ -2,11 +2,12 @@
 
 The newest changes are first. The version number is at the bottom of the page. The full, detailed list of changes and tests is kept separately by the people who build the game.
 
-**Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1, WebKitGTK 2.52.6 and GNOME Web 46.5, one at a time (latest version, 2026.10.17.1806).
+**Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1, WebKitGTK 2.52.6 and GNOME Web 46.5, one at a time (latest version, 2026.10.18.2022).
 
 ## October 18
 
-- This list is now short and plain. The game itself is unchanged.
+- The velvet stage curtains are prepared about 1.3 to 1.6 times faster (one curtain half takes 16 to 24 ms instead of 26 to 36 ms), with exactly the same picture. The game uses a small speed-up helper (WebAssembly) for this, and paints the old way where the helper cannot run. The game file is about 4 KB bigger.
+- This list is now short and plain.
 
 ## October 17
 
