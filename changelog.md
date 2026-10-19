@@ -2,10 +2,11 @@
 
 The newest changes are first. The version number is at the bottom of the page. The full, detailed list of changes and tests is kept separately by the people who build the game.
 
-**Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1, WebKitGTK 2.52.6 and GNOME Web 46.5, one at a time (latest fully tested version: 2026.10.18.2022; the newest build, 2026.10.18.2050, only adds a page-rule word and was checked in Chromium).
+**Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1, WebKitGTK 2.52.6 and GNOME Web 46.5, one at a time (the newest build, 2026.10.18.2128, passed the full check set in Chromium and a screen-picture comparison in all four).
 
 ## October 19
 
+- The first screen shows sooner. The first game picture now appears 17 to 213 ms earlier depending on the browser (about 9% to 60% sooner: Chromium 195 to 178 ms, Firefox 180 to 146 ms, WebKitGTK 356 to 143 ms, GNOME Web 231 to 157 ms). The moving scene pieces are put together just after it. Nothing looks different: the whole screen matches the old one exactly in all four browsers.
 - The game's page rules now also allow small background helpers made on the spot. Nothing in the game uses them yet and nothing can reach the internet; this only makes room for later speed-ups.
 
 ## October 18
