@@ -2,10 +2,11 @@
 
 The newest changes are first. The version number is at the bottom of the page. The full, detailed list of changes and tests is kept separately by the people who build the game.
 
-**Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1, WebKitGTK 2.52.6 and GNOME Web 46.5, one at a time (the newest build, 2026.10.22.1801, passed the full check set in Chromium and a screen-picture comparison in all four).
+**Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1, WebKitGTK 2.52.6 and GNOME Web 46.5, one at a time (the newest build, 2026.10.22.1836, passed the full check set in Chromium and a screen-picture comparison in all four).
 
 ## October 22
 
+- The glow behind the combo counter is smaller (half as wide and half as tall), so tapping at deep stages is lighter for the page to draw. WebKitGTK runs about 35% more frames per second (15.6 to 21.0 FPS, higher is better) and GNOME Web about 26% more (13.6 to 17.1 FPS); Chromium and Firefox run the same. The look changes on purpose: the orange halo around the counter is tighter and a little lighter. Not tested on a real phone.
 - The stage curtains are now painted in a background helper instead of on the page's main thread, so the page does less work while a stage changes. The curtains look exactly the same (the painted curtain pictures match the old ones bit for bit in all four browsers). Tapping speed is unchanged (Chromium 115.2 to 117.8 FPS, Firefox 49.2 to 50.7, WebKitGTK 8.7 to 9.1, GNOME Web 5.5 to 5.7; higher is better). The file is about 2 KB bigger. Not tested on a real phone.
 - Firefox: Disco Fever runs about 2.9 times faster after you catch the apple (12.8 to 37.0 FPS, higher is better). The spinning light beams are now one picture made ahead of time. Only the beam edges look slightly softer (99.78% of the screen matches the old one). Chromium, WebKitGTK and GNOME Web keep the old beams. The game file is about 221 KB bigger, and the other browsers start the first game picture as fast or faster than before; in WebKitGTK the very first paint of the page comes about 54 ms later.
 - Tapping in Chromium runs about 12% more frames per second at a deep stage (71 to 79 FPS, higher is better) with fewer slow frames (10.2% of frames to 7.3%), because the game no longer makes the browser re-measure the page several times per press and mouse move. Firefox, WebKitGTK and GNOME Web run the same as before (Firefox within about 2%). Nothing looks different: the whole screen matches the old one exactly in all four browsers.
