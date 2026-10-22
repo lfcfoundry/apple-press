@@ -2,7 +2,11 @@
 
 The newest changes are first. The version number is at the bottom of the page. The full, detailed list of changes and tests is kept separately by the people who build the game.
 
-**Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1, WebKitGTK 2.52.6 and GNOME Web 46.5, one at a time (the newest build, 2026.10.18.2207, passed the full check set in Chromium and a screen-picture comparison in all four).
+**Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1, WebKitGTK 2.52.6 and GNOME Web 46.5, one at a time (the newest build, 2026.10.22.1259, passed the full check set in Chromium and a screen-picture comparison in all four).
+
+## October 22
+
+- Tapping in Chromium runs about 12% more frames per second at a deep stage (71 to 79 FPS, higher is better) with fewer slow frames (10.2% of frames to 7.3%), because the game no longer makes the browser re-measure the page several times per press and mouse move. Firefox, WebKitGTK and GNOME Web run the same as before (Firefox within about 2%). Nothing looks different: the whole screen matches the old one exactly in all four browsers.
 
 ## October 19
 
