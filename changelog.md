@@ -2,7 +2,12 @@
 
 The newest changes are first. The version number is at the bottom of the page. The full, detailed list of changes and tests is kept separately by the people who build the game.
 
-**Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1, WebKitGTK 2.52.6 and GNOME Web 46.5, one at a time (the newest build, 2026.10.23.0741, passed the full check set in Chromium and a screen-picture comparison in all four).
+**Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1, WebKitGTK 2.52.6 and GNOME Web 46.5, one at a time (the newest build, 2026.10.23.1554, passed the full check set in Chromium and a screen-picture comparison in all four).
+
+## October 23
+
+- Two hidden buttons for grown-ups and testers: tap five times quickly in the top-left corner and a small panel opens with Save speed report and Save error log. Each saves one small file on the device so a slow or broken moment can be shared. Nothing is sent anywhere, and the game looks and plays exactly the same (at least 99.998% identical in all four browsers). The file grows by about 14.7 KB (713,305 to 727,999 bytes); start-up time and tapping speed are the same within normal run-to-run swings.
+- The slow-moment note in Save & load now runs on the same shared code as the new buttons. It keeps the same list of up to 30 notes.
 
 ## October 22
 
