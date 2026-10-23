@@ -2,10 +2,11 @@
 
 The newest changes are first. The version number is at the bottom of the page. The full, detailed list of changes and tests is kept separately by the people who build the game.
 
-**Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1, WebKitGTK 2.52.6 and GNOME Web 46.5, one at a time (the newest build, 2026.10.23.0057, passed the full check set in Chromium and a screen-picture comparison in all four).
+**Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1, WebKitGTK 2.52.6 and GNOME Web 46.5, one at a time (the newest build, 2026.10.23.0741, passed the full check set in Chromium and a screen-picture comparison in all four).
 
 ## October 22
 
+- Safari, WebKitGTK and GNOME Web: tapping the apple runs about 40% smoother at late stages, because the game title is now drawn once instead of again on every tap. It looks exactly the same. Chrome and Firefox are unchanged.
 - Fixed: the smoother popup outline added for Safari and GNOME Web was also showing up in Chrome by mistake. Chrome has its old outline back; Safari, GNOME Web and Firefox keep the lighter one.
 - Safari, WebKitGTK and GNOME Web: the floating +N numbers and combo words now draw their outline the way Firefox already does, so tapping runs about 17% smoother in WebKitGTK and about 18% in GNOME Web. The outline corners are slightly smoother; Chrome and Firefox are unchanged.
 - The scene pieces that float behind the game are now set up in three short steps after the first screen, instead of one longer pause, so the game stays smooth while they appear. They look the same (at least 99.97% identical in all four browsers).
