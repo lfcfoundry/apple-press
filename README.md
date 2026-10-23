@@ -34,6 +34,10 @@ The whole game is one file, and there are two smaller copies of the same game fo
 
 The regular page is 713,263 bytes. Opening times were measured on an earlier build (before the Firefox-only Disco Fever picture was added) on one test computer in four browsers; a phone may take longer.
 
+## ⚡ How fast it runs
+
+Measured on the current page (build 2026.10.22.2336) on one test computer, one browser at a time: Firefox 158.0, ungoogled Chromium 155.0.8059.39-1, WebKitGTK 2.52.6 and GNOME Web 46.5. Tapping the apple at a late stage with lots of effects on screen, in frames per second (higher is better): Chromium 120, Firefox 93, WebKitGTK 24, GNOME Web 22. The first game picture appears after about 90 to 180 ms (smaller is better). The game's own scripts use about 6 MB of memory. A phone may be slower.
+
 ## 🎮 How it plays
 
 Each press earns apples. Upgrades add apples per press and per second. Every stage brings a promotion party, a new animated scene, a new apple color and new upgrades. A first adventure ends after six stages; after that, the full 13-stage journey opens up, and the most dedicated players may find there is more to discover.
