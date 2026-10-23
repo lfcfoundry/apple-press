@@ -29,14 +29,14 @@ The whole game is one file, and there are two smaller copies of the same game fo
 
 | Copy | Size (smaller is better) | Opens in (smaller is better) |
 |---|---|---|
-| [apple-press-small.html](https://lfcfoundry.github.io/apple-press/apple-press-small.html) | 279,836 bytes | about 40 to 56 ms |
-| [apple-press-smallest.html](https://lfcfoundry.github.io/apple-press/apple-press-smallest.html) | 201,196 bytes (28% smaller) | about 97 to 99 ms |
+| [apple-press-small.html](https://lfcfoundry.github.io/apple-press/apple-press-small.html) | 279840 bytes | about 40 to 56 ms |
+| [apple-press-smallest.html](https://lfcfoundry.github.io/apple-press/apple-press-smallest.html) | 201139 bytes (28% smaller) | about 97 to 99 ms |
 
-The regular page is 713,281 bytes. Opening times were measured on an earlier build (before the Firefox-only Disco Fever picture was added) on one test computer in four browsers; a phone may take longer.
+The regular page is 713,305 bytes. Opening times were measured on an earlier build (before the Firefox-only Disco Fever picture was added) on one test computer in four browsers; a phone may take longer.
 
 ## ⚡ How fast it runs
 
-Measured on the current page (build 2026.10.23.0057) on one test computer, one browser at a time: Firefox 158.0, ungoogled Chromium 155.0.8059.39-1, WebKitGTK 2.52.6 and GNOME Web 46.5. Tapping the apple at a late stage with lots of effects on screen, in frames per second (higher is better): Chromium 120, Firefox 93, WebKitGTK 24, GNOME Web 22. The first game picture appears after about 90 to 180 ms (smaller is better). The game's own scripts use about 6 MB of memory. A phone may be slower.
+Measured on the current page (build 2026.10.23.0741) on one test computer, one browser at a time: Firefox 158.0, ungoogled Chromium 155.0.8059.39-1, WebKitGTK 2.52.6 and GNOME Web 46.5. Tapping the apple at a late stage with lots of effects on screen, in frames per second (higher is better): Chromium 120, Firefox 93, WebKitGTK 24, GNOME Web 22. The first game picture appears after about 90 to 180 ms (smaller is better). The game's own scripts use about 6 MB of memory. A phone may be slower.
 
 ## 🎮 How it plays
 
