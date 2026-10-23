@@ -2,10 +2,11 @@
 
 The newest changes are first. The version number is at the bottom of the page. The full, detailed list of changes and tests is kept separately by the people who build the game.
 
-**Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1, WebKitGTK 2.52.6 and GNOME Web 46.5, one at a time (the newest build, 2026.10.22.2336, passed the full check set in Chromium and a screen-picture comparison in all four).
+**Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1, WebKitGTK 2.52.6 and GNOME Web 46.5, one at a time (the newest build, 2026.10.23.0057, passed the full check set in Chromium and a screen-picture comparison in all four).
 
 ## October 22
 
+- Fixed: the smoother popup outline added for Safari and GNOME Web was also showing up in Chrome by mistake. Chrome has its old outline back; Safari, GNOME Web and Firefox keep the lighter one.
 - Safari, WebKitGTK and GNOME Web: the floating +N numbers and combo words now draw their outline the way Firefox already does, so tapping runs about 17% smoother in WebKitGTK and about 18% in GNOME Web. The outline corners are slightly smoother; Chrome and Firefox are unchanged.
 - The scene pieces that float behind the game are now set up in three short steps after the first screen, instead of one longer pause, so the game stays smooth while they appear. They look the same (at least 99.97% identical in all four browsers).
 - The first screen shows a little sooner: setting up the stage curtains now waits until the first screen is showing. The first game picture appears about 5 ms earlier in Chromium (110.7 to 105.7 ms) and about the same in Firefox (105 to 104 ms); the two WebKit browsers saved 18 ms (WebKitGTK) and 6 ms (GNOME Web) of work before the first screen (their start-up times swing a lot from run to run: 165 to 87 and 178 to 93 ms in this test). Nothing looks different. Not tested on a real phone.
