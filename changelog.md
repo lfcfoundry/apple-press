@@ -2,10 +2,11 @@
 
 The newest changes are first. The version number is at the bottom of the page. The full, detailed list of changes and tests is kept separately by the people who build the game.
 
-**Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1 and WebKitGTK 2.52.6, one at a time (the newest build, 2026.10.23.2114, passed the full check set in Chromium and a screen-picture comparison in all three).
+**Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1 and WebKitGTK 2.52.6, one at a time (the newest build, 2026.10.24.1419, passed the full check set in Chromium and a screen-picture comparison in all three).
 
 ## October 24
 
+- The Grown-ups door and the first-time tour now run on the shared LFC Foundry code (grown-ups-door 1.0.0 and spotlight-tour 1.1.1) instead of the game's own copies. They look and work the same: the same texts, the same apple and basket, and nobody sees the tour twice or gets a second gift. In a picture comparison of every tour step and every door step, the screens matched the old ones at 99.5% or better in Chrome, Firefox and WebKit. Scrolling was no slower (Chrome 6.78 s against 6.85 s for the same 420 frames).
 - On a slow device, the game now also holds the moving background still once it has switched to lighter effects by itself. In a test with the processor slowed to phone speed, tapping ran about 14% smoother in Chrome (25.2 to 28.7 FPS; higher is better). Fast devices are unchanged and look exactly the same (at least 99.97% identical in Firefox, Chrome and WebKitGTK). Choosing an Effects setting yourself puts the movement back.
 
 ## October 23
