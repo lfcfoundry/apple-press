@@ -2,7 +2,11 @@
 
 The newest changes are first. The version number is at the bottom of the page. The full, detailed list of changes and tests is kept separately by the people who build the game.
 
-**Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1, WebKitGTK 2.52.6 and GNOME Web 46.5, one at a time (the newest build, 2026.10.23.1554, passed the full check set in Chromium and a screen-picture comparison in all four).
+**Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1 and WebKitGTK 2.52.6, one at a time (the newest build, 2026.10.23.2114, passed the full check set in Chromium and a screen-picture comparison in all three).
+
+## October 24
+
+- On a slow device, the game now also holds the moving background still once it has switched to lighter effects by itself. In a test with the processor slowed to phone speed, tapping ran about 14% smoother in Chrome (25.2 to 28.7 FPS; higher is better). Fast devices are unchanged and look exactly the same (at least 99.97% identical in Firefox, Chrome and WebKitGTK). Choosing an Effects setting yourself puts the movement back.
 
 ## October 23
 
