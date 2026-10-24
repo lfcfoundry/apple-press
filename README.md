@@ -32,13 +32,13 @@ The whole game is one file, and there are two smaller copies of the same game fo
 | [apple-press-small.html](https://lfcfoundry.github.io/apple-press/apple-press-small.html) | 286,976 bytes | about 40 to 56 ms |
 | [apple-press-smallest.html](https://lfcfoundry.github.io/apple-press/apple-press-smallest.html) | 206,015 bytes (28% smaller) | about 97 to 99 ms |
 
-The regular page is 728,225 bytes. Opening times were measured on an earlier build (before the Firefox-only Disco Fever picture was added) on one test computer in four browsers; a phone may take longer.
+The regular page is 728,225 bytes. Opening times were measured on an earlier build (before the Firefox-only Disco Fever picture was added) on one test computer in four browsers (GNOME Web was dropped from testing on 2026-10-24); a phone may take longer.
 
 If the game ever feels slow or breaks on your device, tap five times quickly in the top-left corner of the page. A small panel opens with **Save speed report** and **Save error log**; each saves one small file on your device that you can share. Nothing is sent anywhere. (Made with the shared [field-report](https://github.com/lfcfoundry/js-modules/tree/main/modules/field-report) module.)
 
 ## ⚡ How fast it runs
 
-Measured on the current page (build 2026.10.23.0741) on one test computer, one browser at a time: Firefox 158.0, ungoogled Chromium 155.0.8059.39-1, WebKitGTK 2.52.6 and GNOME Web 46.5. Tapping the apple at a late stage with lots of effects on screen, in frames per second (higher is better): Chromium 120, Firefox 93, WebKitGTK 24, GNOME Web 22. The first game picture appears after about 90 to 180 ms (smaller is better). The game's own scripts use about 6 MB of memory. A phone may be slower.
+Measured on the current page (build 2026.10.23.2114) on one test computer, one browser at a time: Firefox 158.0, ungoogled Chromium 155.0.8059.39-1 and WebKitGTK 2.52.6. Tapping the apple at a late stage with lots of effects on screen, in frames per second (higher is better): Chromium 120, Firefox about 70 to 95 (it varies from run to run), WebKitGTK 23 to 26. The first game picture appears after about 100 to 175 ms (smaller is better). The game's own scripts use about 6 MB of memory. On a slow device the game steps its effects down by itself and holds the background scene still. A phone may be slower.
 
 ## 🎮 How it plays
 
@@ -92,7 +92,7 @@ There is a one-page [playtest card](PLAYTEST-CARD.md) for a grown-up who sits wi
 
 Please tell JNFoo what you find: anything confusing, anything too hard or too slow, anything that looks or runs badly, and which device and browser you used. If you have a GitHub account you can also open an issue on this page.
 
-The latest release was tested in Firefox 158.0, ungoogled Chromium 155.0.8059.39-1, WebKitGTK 2.52.6 and GNOME Web 46.5, one at a time (listed at the top of [changelog.md](changelog.md)). Every test from 2026-10-17 on covers these four browsers.
+The latest release was tested in Firefox 158.0, ungoogled Chromium 155.0.8059.39-1 and WebKitGTK 2.52.6, one at a time (listed at the top of [changelog.md](changelog.md)). Every test from 2026-10-24 on covers these three browsers (GNOME Web 46.5 was part of earlier tests).
 
 ## 🆕 What's new
 
