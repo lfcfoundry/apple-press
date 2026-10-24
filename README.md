@@ -29,10 +29,10 @@ The whole game is one file, and there are two smaller copies of the same game fo
 
 | Copy | Size (smaller is better) | Opens in (smaller is better) |
 |---|---|---|
-| [apple-press-small.html](https://lfcfoundry.github.io/apple-press/apple-press-small.html) | 286,932 bytes | about 40 to 56 ms |
-| [apple-press-smallest.html](https://lfcfoundry.github.io/apple-press/apple-press-smallest.html) | 206,030 bytes (28% smaller) | about 97 to 99 ms |
+| [apple-press-small.html](https://lfcfoundry.github.io/apple-press/apple-press-small.html) | 286,976 bytes | about 40 to 56 ms |
+| [apple-press-smallest.html](https://lfcfoundry.github.io/apple-press/apple-press-smallest.html) | 206,015 bytes (28% smaller) | about 97 to 99 ms |
 
-The regular page is 727,999 bytes. Opening times were measured on an earlier build (before the Firefox-only Disco Fever picture was added) on one test computer in four browsers; a phone may take longer.
+The regular page is 728,225 bytes. Opening times were measured on an earlier build (before the Firefox-only Disco Fever picture was added) on one test computer in four browsers; a phone may take longer.
 
 If the game ever feels slow or breaks on your device, tap five times quickly in the top-left corner of the page. A small panel opens with **Save speed report** and **Save error log**; each saves one small file on your device that you can share. Nothing is sent anywhere. (Made with the shared [field-report](https://github.com/lfcfoundry/js-modules/tree/main/modules/field-report) module.)
 
