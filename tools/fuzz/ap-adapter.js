@@ -52,7 +52,12 @@ window.__fuzzConfig = function (seed) {
         return T.code().then(function (code) { return T.read(code); }).then(function (back) {
           var a = JSON.parse(before), b = JSON.parse(JSON.stringify(back)), bad = [];
           ['count', 'total', 'credits', 'taps'].forEach(function (k) { if (Math.abs(a[k] - b[k]) > Math.abs(a[k]) * 1e-9 + 1e-6) bad.push(k + ' ' + a[k] + ' -> ' + b[k]); });
-          Object.keys(a.owned).forEach(function (k) { if (a.owned[k] !== (b.owned || {})[k]) bad.push('owned ' + k + ' ' + a.owned[k] + ' -> ' + (b.owned || {})[k]); });
+          var ownedKeys = Object.assign({}, a.owned || {}, b.owned || {});
+          Object.keys(ownedKeys).forEach(function (k) {
+            var before = (a.owned || {})[k] || 0,
+              after = (b.owned || {})[k] || 0;
+            if (before !== after) bad.push('owned ' + k + ' ' + before + ' -> ' + after);
+          });
           if (bad.length) throw new Error('save code round trip changed: ' + bad.slice(0, 4).join('; '));
         });
       } }
