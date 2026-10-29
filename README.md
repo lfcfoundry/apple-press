@@ -15,7 +15,17 @@
 Apple Press is a free clicker game for kids in a single web page. Tap the apple to pick apples, buy upgrades, and move through stages that each bring a promotion party, a new animated scene and new upgrades. The whole game, with scenes, fonts and code, is one HTML file. It runs with no server and keeps progress in your browser, so after one load it needs no internet.
 
 
-<p align="center"><img src="images/play-desktop.jpg" alt="Apple Press on a computer: a big smiling apple on a scene, with upgrades on the right" width="860"></p>
+<div align="center">
+
+<table>
+<tr>
+<td align="center" valign="top"><img src="images/phone-play.jpg" alt="Apple Press on a phone: a big smiling apple, the score and the first upgrades" width="250"><br><sub>Play</sub></td>
+<td align="center" valign="top"><img src="images/phone-shop.jpg" alt="The upgrade list on a phone, with per click and per second gains" width="250"><br><sub>Upgrades</sub></td>
+<td align="center" valign="top"><img src="images/phone-dark.jpg" alt="Apple Press on a phone in dark mode, with a night scene" width="250"><br><sub>Dark mode</sub></td>
+</tr>
+</table>
+
+</div>
 
 ## Why it exists
 
@@ -59,7 +69,16 @@ Measured on build 2026.10.23.2114 (the later swap of the Grown-ups door and the 
 
 Each press earns apples. Upgrades add apples per press and per second. Every stage brings a promotion party, a new animated scene, a new apple color and new upgrades. A first adventure ends after six stages; after that, the full 13-stage journey opens up, and the most dedicated players may find there is more to discover.
 
-<p align="center"><img src="images/promotion.jpg" alt="The promotion party: confetti, a new stage name and new upgrades unlocked" width="860"></p>
+<div align="center">
+
+<table>
+<tr>
+<td align="center" valign="top"><img src="images/phone-promotion.jpg" alt="The promotion party on a phone: a new stage name and new upgrades to buy" width="250"><br><sub>A promotion party when a new stage opens</sub></td>
+<td align="center" valign="top"><img src="images/phone-stickers.jpg" alt="The sticker book on a phone, with apple faces to collect" width="250"><br><sub>The sticker book: 49 to collect</sub></td>
+</tr>
+</table>
+
+</div>
 
 ## 🧒 Testing with a child?
 
@@ -78,14 +97,7 @@ There is a one-page [playtest card](PLAYTEST-CARD.md) for a grown-up who sits wi
 - **A quick tour:** new players get a friendly guided look at the page the first time they play, in short steps with simple words that young children can follow. It can be skipped, and opened again from the How to play button.
 - **Built for kids:** big tap targets, no timers or streaks, and nothing to trade.
 
-<table>
-<tr>
-<td align="center" valign="top"><img src="images/play-phone.jpg" alt="Apple Press on a phone held upright" width="300"><br><sub>On a phone</sub></td>
-<td align="center" valign="top"><img src="images/sticker-book.jpg" alt="The sticker book with nine apple faces to collect" width="340"><br><sub>The sticker book: 49 to collect</sub></td>
-</tr>
-</table>
-
-<p align="center"><img src="images/play-dark.jpg" alt="Apple Press in dark mode at night" width="760"><br><sub>Dark mode, with a night scene</sub></p>
+<p align="center"><img src="images/play-desktop.jpg" alt="Apple Press on a computer: the apple on the left, upgrades on the right" width="760"><br><sub>It fills a bigger screen too</sub></p>
 
 ## ♿ Accessibility
 
