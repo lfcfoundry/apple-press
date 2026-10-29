@@ -66,14 +66,77 @@ footer{background:var(--soft);padding-block:36px;color:var(--muted);font-size:15
 footer a{margin-right:16px}
 @media (prefers-reduced-motion:no-preference){.btn,.mod{transition:filter .15s,border-color .15s}}
 
-body{margin:0}</style>
+body{margin:0}
+.shot{margin:0;background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:10px;min-width:0}
+.shot img{display:block;width:100%;height:auto;border-radius:4px}
+.shot figcaption{font-size:14px;color:var(--muted);margin-top:8px}
+.shots{align-items:start;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:22px}
+.shots.two{grid-template-columns:minmax(0,3fr) minmax(0,1fr)}
+@media (max-width:640px){.shots.two{grid-template-columns:1fr}.shot.phone{max-width:240px}}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:26px}
+.stat{background:var(--soft);border-radius:8px;padding:18px;min-width:0}
+.stat b{display:block;font:800 clamp(26px,4vw,34px) var(--display);letter-spacing:-.01em}
+.stat span{display:block;color:var(--muted);font-size:15px;margin-top:4px}
+.bar.neutral{background:var(--bar-other)}
+.bar.good{background:var(--good)}
+.bar.acc{background:var(--accent)}
+.row .lab{min-width:0}
+.ups{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:24px}
+.up{border:1px solid var(--line);border-radius:8px;padding:16px;min-width:0}
+.up h3{font-size:18px;margin-bottom:2px}
+.up .fx{font:600 14px var(--mono);color:var(--good)}
+.up .cost{font:500 13px var(--mono);color:var(--muted);float:right}
+.up p{margin:8px 0 0;font-size:15px;color:var(--muted)}
+ol.stages{list-style:none;counter-reset:s;margin:24px 0 0;padding:0;display:grid;gap:12px}
+ol.stages li{counter-increment:s;display:grid;grid-template-columns:2.4rem minmax(0,1fr) auto;gap:6px 14px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:12px}
+ol.stages li::before{content:counter(s);font:800 22px var(--display);color:var(--accent)}
+ol.stages b{font:700 18px var(--display)}
+ol.stages small{display:block;color:var(--muted);font-size:15px}
+ol.stages .need{font:600 13px var(--mono);color:var(--muted);white-space:nowrap}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px 28px;margin-top:26px}
+.feat h3{font-size:18px;margin-bottom:4px}.feat p{margin:0;color:var(--muted);font-size:16px}
+.hero .shotline{margin-top:36px;max-width:760px}
+.hero .shotline img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid #35557a}
+</style>
 <header class="hero"><div class="wrap">
-<nav class="nav"><b>LFC Foundry</b><a href="https://lfcfoundry.github.io/apple-press/">Play it here</a><a href="https://github.com/lfcfoundry/apple-press">Source code</a><a href="https://github.com/lfcfoundry">All projects</a></nav>
+<nav class="nav"><b>LFC Foundry</b><a href="#numbers">Numbers</a><a href="#play">How it plays</a><a href="https://lfcfoundry.github.io/apple-press/">Play it here</a><a href="https://github.com/lfcfoundry/apple-press">Source code</a><a href="https://github.com/lfcfoundry">All projects</a></nav>
 <h1>Apple Press</h1><p class="pitch">A gentle clicker for kids. Tap a big cartoon apple and grow a backyard orchard into something far bigger.</p><div class="btns">
 <a class="btn" href="https://lfcfoundry.github.io/apple-press/">Play it here</a>
 <a class="btn alt" href="https://github.com/lfcfoundry/apple-press">Source code</a>
-</div><div class="badges"><span class="badge">beta</span><span class="badge">MIT</span><span class="badge">no ads</span><span class="badge">no accounts</span><span class="badge">works offline</span></div></div></header>
-<section><div class="wrap"><h2>What it is and how it works</h2><p class="lead">Apple Press is a free clicker game for kids in a single web page. Tap the apple to pick apples, buy upgrades, and move through stages that each bring a promotion party, a new animated scene and new upgrades. The whole game, with scenes, fonts and code, is one HTML file. It runs with no server and keeps progress in your browser, so after one load it needs no internet.</p><div class="tiles"><div class="tile"><h3>Built for kids</h3><p>Big tap targets, no timers or streaks, and a Grown-ups door in front of links.</p></div><div class="tile"><h3>13 stages</h3><p>A first adventure of six stages, then a longer journey, with a sticker book of 49 stickers.</p></div><div class="tile"><h3>No noise</h3><p>No sounds or music, so no volume to manage. Calm effects tone down motion.</p></div><div class="tile"><h3>Send it to a friend</h3><p>One file, or two smaller copies for messages and email. Double-click to open.</p></div></div></div></section>
+</div><div class="badges"><span class="badge">beta</span><span class="badge">MIT</span><span class="badge">no ads</span><span class="badge">no accounts</span><span class="badge">works offline</span></div><div class="shotline"><img src="images/play-desktop.jpg" width="1280" height="716" alt="Apple Press on a computer: a big smiling apple on a scene, with upgrades on the right"></div></div></header>
+
+<section><div class="wrap"><h2>What it is and how it works</h2><p class="lead">Apple Press is a free clicker game for kids in a single web page. Tap the apple to pick apples, buy upgrades, and move through stages that each bring a promotion party, a new animated scene and new upgrades. The whole game, with scenes, fonts and code, is one HTML file. It runs with no server and keeps progress in your browser, so after one load it needs no internet.</p><div class="tiles"><div class="tile"><h3>Built for kids</h3><p>Big tap targets, no timers or streaks, and a Grown-ups door in front of links.</p></div><div class="tile"><h3>13 stages</h3><p>A first adventure of six stages, then a longer journey, with a sticker book of 49 stickers.</p></div><div class="tile"><h3>No noise</h3><p>No sounds or music, so no volume to manage. Calm effects tone down motion.</p></div><div class="tile"><h3>Send it to a friend</h3><p>One file, or two smaller copies for messages and email. Double-click to open.</p></div></div>
+<div class="shots two"><figure class="shot"><img src="images/promotion.jpg" width="1280" height="584" loading="lazy" alt="The promotion party: confetti, a new stage name and new upgrades to buy"><figcaption>A promotion party when a new stage opens.</figcaption></figure><figure class="shot phone"><img src="images/play-phone.jpg" width="500" height="910" loading="lazy" alt="Apple Press on a phone held upright"><figcaption>On a phone.</figcaption></figure></div></div></section>
+<section id="play"><div class="wrap"><h2>How it plays</h2><p class="lead">Each press earns apples. Upgrades add apples per press and per second. Own 10, 25 or 50 of the same upgrade and every copy gets twice as strong. Each copy of an upgrade costs 17% more than the last, so there is always a next thing to save for. Helpers keep picking at half speed while the game is closed, for up to 8 hours.</p>
+<h3 style="margin-top:28px">Upgrades, from the first stage</h3><div class="ups">
+<div class="up"><span class="cost">15 apples</span><h3>Sturdy Basket</h3><div class="fx">+1 per click</div><p>A bigger basket carries more apples with every press.</p></div>
+<div class="up"><span class="cost">60 apples</span><h3>Step Ladder</h3><div class="fx">+1 per second</div><p>Reach the high branches while you press.</p></div>
+<div class="up"><span class="cost">250 apples</span><h3>Neighbor's Kid</h3><div class="fx">+2.8 per second and +1.2 per click</div><p>Works for pocket money and a slice of pie.</p></div>
+<div class="up"><span class="cost">700 apples</span><h3>Hand Crank Press</h3><div class="fx">+6 per click</div><p>Cast iron, a long handle and a lot of elbow grease.</p></div></div>
+<h3 style="margin-top:34px">The first adventure: six stages</h3><p class="lead">Each stage has its own animated scene, apple color and four new upgrades. Seven more stages open after the first adventure.</p>
+<ol class="stages">
+<li><div><b>Home Orchard</b><small>You, a ladder and a dozen trees behind the house.</small></div><span class="need">start</span></li>
+<li><div><b>Roadside Stand</b><small>A folding table at the end of the driveway. Cash only.</small></div><span class="need">1K apples</span></li>
+<li><div><b>Cider Mill</b><small>Neighbors drive out for the cider. Some stay for the donuts.</small></div><span class="need">15K apples</span></li>
+<li><div><b>Regional Orchard Co.</b><small>You have a logo, a warehouse, a mission statement and a very serious mascot.</small></div><span class="need">250K apples</span></li>
+<li><div><b>Statewide Distributor</b><small>Your apples are on every shelf in the state. The state has noticed.</small></div><span class="need">4M apples</span></li>
+<li><div><b>National Brand</b><small>A jingle, a mascot and a spot during the big game.</small></div><span class="need">70M apples</span></li></ol>
+<div class="shots" style="margin-top:28px"><figure class="shot"><img src="images/special-apples.jpg" width="1540" height="228" loading="lazy" alt="Special apples that fly across the scene: golden, crystal, jade, rainbow, comet, cosmic and poison"><figcaption>Special apples fly across the scene. Catch them for bursts of apples and bonus credits.</figcaption></figure><figure class="shot"><img src="images/sticker-book.jpg" width="640" height="767" loading="lazy" alt="The sticker book with nine apple faces to collect"><figcaption>The sticker book: 49 stickers to earn.</figcaption></figure></div></div></section>
+<section id="numbers"><div class="wrap"><h2>The numbers</h2><p class="lead">Measured on build 2026.10.23.2114 on one test computer, one browser at a time: Firefox 158.0, ungoogled Chromium 155.0.8059.39-1 and WebKitGTK 2.52.6. A phone may be slower.</p>
+<div class="stats"><div class="stat"><b>100 to 175 ms</b><span>until the first game picture appears</span></div><div class="stat"><b>about 6 MB</b><span>of memory used by the game's own scripts</span></div><div class="stat"><b>0 findings</b><span>in 30,000 random game operations across the three browsers, on the latest build</span></div><div class="stat"><b>29 checks</b><span>in the full test set, all passing on the latest build</span></div></div>
+<div class="bench"><div><h3>Tapping the apple at a late stage with lots of effects on screen</h3><div class="note" style="margin:0 0 10px">Frames per second, higher is better. Bars show the middle of each range.</div>
+<div class="row"><div class="lab">Chromium</div><div class="track"><div class="bar acc" style="width:100%">120</div></div></div><div class="row"><div class="lab">Firefox</div><div class="track"><div class="bar acc" style="width:68.8%">70 to 95</div></div></div><div class="row"><div class="lab">WebKitGTK</div><div class="track"><div class="bar acc" style="width:20.4%">23 to 26</div></div></div></div>
+<div><h3>Which copy to send</h3><div class="note" style="margin:0 0 10px">Size in bytes, smaller is better. The smallest copy opens in about 97 to 99 ms, the small copy in about 40 to 56 ms.</div>
+<div class="row"><div class="lab">Regular page</div><div class="track"><div class="bar neutral" style="width:100%">738,577</div></div></div><div class="row"><div class="lab">Small copy</div><div class="track"><div class="bar acc" style="width:39.6%">292,196</div></div></div><div class="row"><div class="lab">Smallest copy</div><div class="track"><div class="bar good" style="width:28.3%">208,945</div></div></div></div>
+<div><h3>On a slow device, the game holds the background scene still</h3><div class="note" style="margin:0 0 10px">Frames per second while tapping in Chrome with the processor slowed to phone speed, higher is better.</div>
+<div class="row"><div class="lab">Before</div><div class="track"><div class="bar neutral" style="width:87.8%">25.2</div></div></div><div class="row"><div class="lab">After</div><div class="track"><div class="bar good" style="width:100%">28.7</div></div></div></div></div></div></section>
+<section><div class="wrap"><h2>Features for grown-ups</h2><div class="feat">
+<div><h3>Safe saving</h3><p>Progress autosaves in your browser and keeps a backup copy. Save a code or a file to move to another device, and load it again anywhere.</p></div>
+<div><h3>A Grown-ups door</h3><p>Start over and the links to other games ask for a 3-second hold and a drag first. A small child is unlikely to pass; it is a speed bump, not a lock.</p></div>
+<div><h3>Effects that adapt</h3><p>Full, Lite and Calm effects. The game steps down by itself on a slow device, and offers Calm if your device asks for reduced motion. It never switches on its own.</p></div>
+<div><h3>A quick tour</h3><p>New players get a short guided look at the page in simple words. It can be skipped, and opened again from the How to play button.</p></div>
+<div><h3>Hold to press</h3><p>Hold the apple down and it keeps pressing, which helps tired hands and younger players. It can be switched off in the footer.</p></div>
+<div><h3>Help when something is slow</h3><p>Tap five times in the top-left corner to save a speed report or an error log as a small file. Nothing is sent anywhere.</p></div></div></div></section>
 <section><div class="wrap"><h2>Why it exists</h2><p class="lead">A gentle clicker for children and the grown-ups who sit with them: free, with no ads, purchases or accounts, no sounds, no timers or streaks, and nothing to trade. It also tests how much game fits in one small file anyone can save, send to a friend and open offline.</p></div></section>
 <section><div class="wrap"><h2>Copies you can send</h2><div class="scroll"><table><thead><tr><th>Copy</th><th>Size</th><th>Opens in</th></tr></thead><tbody><tr><td>Regular page</td><td>738,577 bytes</td><td>-</td></tr><tr><td>apple-press-small.html</td><td>292,196 bytes</td><td>about 40 to 56 ms</td></tr><tr><td>apple-press-smallest.html</td><td>208,945 bytes (28% smaller than small)</td><td>about 97 to 99 ms</td></tr></tbody></table></div><p class="note">Opening times were measured on an earlier build on one test computer; a phone may take longer.</p></div></section>
 <footer><div class="wrap"><div class="cols"><div><h3>More from LFC Foundry</h3><a href="https://github.com/lfcfoundry/fancy-banana">Fancy Banana</a><a href="https://github.com/lfcfoundry/pineapple-defense">Pineapple Defense</a><a href="https://github.com/lfcfoundry/story-editor">Story Editor</a><a href="https://github.com/lfcfoundry/JS-modules">JS-modules</a></div></div><p>MIT License. Copyright (c) 2026 LFC Foundry.</p></div></footer>
