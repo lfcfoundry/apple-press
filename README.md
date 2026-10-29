@@ -1,18 +1,33 @@
-# 🍎 Apple Press
+<div align="center">
 
-**▶ Play it here: https://lfcfoundry.github.io/apple-press/**
+# Apple Press
+
+**A gentle clicker for kids. Tap a big cartoon apple and grow a backyard orchard into something far bigger.**
+
+[**Play it here**](https://lfcfoundry.github.io/apple-press/) · [**About**](https://lfcfoundry.github.io/apple-press/about.html) · [**Source code**](https://github.com/lfcfoundry/apple-press)
+
+![beta](https://img.shields.io/badge/beta-informational) ![MIT](https://img.shields.io/badge/MIT-informational) ![no ads](https://img.shields.io/badge/no%20ads-informational) ![no accounts](https://img.shields.io/badge/no%20accounts-informational) ![works offline](https://img.shields.io/badge/works%20offline-informational)
+
+</div>
+
+## What it is and how it works
+
+Apple Press is a free clicker game for kids in a single web page. Tap the apple to pick apples, buy upgrades, and move through stages that each bring a promotion party, a new animated scene and new upgrades. The whole game, with scenes, fonts and code, is one HTML file. It runs with no server and keeps progress in your browser, so after one load it needs no internet.
+
 
 <p align="center"><img src="images/play-desktop.jpg" alt="Apple Press on a computer: a big smiling apple on a scene, with upgrades on the right" width="860"></p>
 
-Apple Press is a free clicker game for kids in a single web page. Tap a big cartoon apple to pick apples, buy upgrades, and grow a little backyard orchard into something far, far bigger.
+## Why it exists
 
-It works by putting the whole game, with its scenes, fonts and code, inside one HTML file written in plain JavaScript. Your browser runs that file by itself, with no server and no download, and keeps your progress in its own storage on your device, so after it loads once the game needs no internet.
+A gentle clicker for children and the grown-ups who sit with them: free, with no ads, purchases or accounts, no sounds, no timers or streaks, and nothing to trade. It also tests how much game fits in one small file anyone can save, send to a friend and open offline.
 
 <p align="center"><img src="images/special-apples.jpg" alt="Special apples that fly across the scene: golden, crystal, jade, rainbow, comet, cosmic and poison" width="760"></p>
 
-## 🌱 Why it exists
+## Highlights
 
-Apple Press is meant to be a gentle clicker for children and the grown-ups who sit with them: free, with no ads, purchases or accounts, no sounds, no timers or streaks, and nothing to trade. It is also a test of how much game fits in one small file that anyone can save, send to a friend and open offline. Pieces of its code that proved useful were cut out and shared as the free [JS-modules](https://github.com/lfcfoundry/JS-modules).
+| Built for kids | 13 stages | No noise | Send it to a friend |
+|---|---|---|---|
+| Big tap targets, no timers or streaks, and a Grown-ups door in front of links. | A first adventure of six stages, then a longer journey, with a sticker book of 49 stickers. | No sounds or music, so no volume to manage. Calm effects tone down motion. | One file, or two smaller copies for messages and email. Double-click to open. |
 
 ## 🚧 Status
 
