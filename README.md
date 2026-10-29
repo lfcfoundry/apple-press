@@ -25,9 +25,9 @@ A gentle clicker for children and the grown-ups who sit with them: free, with no
 
 ## Highlights
 
-| Built for kids | 13 stages | No noise | Send it to a friend |
+| Built for kids | 13 stages | No sound | Send it to a friend |
 |---|---|---|---|
-| Big tap targets, no timers or streaks, and a Grown-ups door in front of links. | A first adventure of six stages, then a longer journey, with a sticker book of 49 stickers. | No sounds or music, so no volume to manage. Calm effects tone down motion. | One file, or two smaller copies for messages and email. Double-click to open. |
+| Big tap targets, no timers or streaks, and a Grown-ups door in front of links. | A first adventure of six stages, then a longer journey, with a sticker book of 49 stickers. | No sound: a visual and tactile game with less stimulation for sensory challenges. Calm effects tone down motion. | One file, or two smaller copies for messages and email. Double-click to open. |
 
 ## 🚧 Status
 
@@ -89,7 +89,7 @@ There is a one-page [playtest card](PLAYTEST-CARD.md) for a grown-up who sits wi
 
 ## ♿ Accessibility
 
-- **No noise.** There are no sounds or music, so there is no volume to manage. That suits kids with sensory challenges, and parents who have heard enough beeping for one day.
+- **No sound, by design.** There are no sounds or music, so the game is a visual and tactile experience (the apple squishes under a finger, things sparkle and move) with less stimulation for players with sensory challenges. There is no volume to manage, and parents have heard enough beeping for one day.
 - **Flash-safe celebrations.** The promotion celebrations are checked against flash-safety limits.
 - **Hold to press.** Hold the apple down and it keeps pressing for you, which helps tired hands and younger players who find rapid tapping hard. It can be switched off in the footer.
 - **Gentler effects.** The Calm effects setting tones down motion, and the game picks a lighter setting by itself on slower devices.
