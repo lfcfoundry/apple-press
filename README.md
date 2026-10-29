@@ -38,7 +38,7 @@ If the game ever feels slow or breaks on your device, tap five times quickly in 
 
 ## ⚡ How fast it runs
 
-Measured on the current page (build 2026.10.23.2114) on one test computer, one browser at a time: Firefox 158.0, ungoogled Chromium 155.0.8059.39-1 and WebKitGTK 2.52.6. Tapping the apple at a late stage with lots of effects on screen, in frames per second (higher is better): Chromium 120, Firefox about 70 to 95 (it varies from run to run), WebKitGTK 23 to 26. The first game picture appears after about 100 to 175 ms (smaller is better). The game's own scripts use about 6 MB of memory. On a slow device the game steps its effects down by itself and holds the background scene still. A phone may be slower.
+Measured on build 2026.10.23.2114 (the later swap of the Grown-ups door and the tour to shared code was timed separately: scrolling was no slower) on one test computer, one browser at a time: Firefox 158.0, ungoogled Chromium 155.0.8059.39-1 and WebKitGTK 2.52.6. Tapping the apple at a late stage with lots of effects on screen, in frames per second (higher is better): Chromium 120, Firefox about 70 to 95 (it varies from run to run), WebKitGTK 23 to 26. The first game picture appears after about 100 to 175 ms (smaller is better). The game's own scripts use about 6 MB of memory. On a slow device the game steps its effects down by itself and holds the background scene still. A phone may be slower.
 
 ## 🎮 How it plays
 
@@ -80,7 +80,7 @@ There is a one-page [playtest card](PLAYTEST-CARD.md) for a grown-up who sits wi
 - **Gentler effects.** The Calm effects setting tones down motion, and the game picks a lighter setting by itself on slower devices.
 - **Calm on request.** If your device asks for reduced motion, the game offers a one-tap switch to Calm and remembers your answer. It never switches on its own.
 - **Presses at once.** The apple counts the moment it is touched, not when the finger lifts.
-- **A Grown-ups door.** Start over, Save & load and the links to other games sit behind a hold-then-drag door that young children are unlikely to pass. It is a speed bump for small hands, not a lock.
+- **A Grown-ups door.** Start over and the links to other games sit behind a hold-then-drag door that young children are unlikely to pass. It is a speed bump for small hands, not a lock.
 
 ## 💡 Playing tips
 
@@ -107,7 +107,7 @@ See [changelog.md](changelog.md) for a short, plain list of what changed, newest
 ## 🙏 Credits and attributions
 
 - **Fonts.** Bricolage Grotesque (Copyright 2022 The Bricolage Grotesque Project Authors) and Figtree (Copyright 2022 The Figtree Project Authors), plus a few more listed in the notice inside the game file. All are used under the SIL Open Font License 1.1, and the full license text is included inside the game file.
-- **Shared code.** Several parts of the game (saving and loading, the small apple's flight, the curtain painter, test isolation) come from [JS-modules](https://github.com/lfcfoundry/JS-modules), which is MIT-licensed.
+- **Shared code.** Several parts of the game (saving and loading, the small apple's flight, the curtain painter, the Grown-ups door, the first-time tour, the hidden speed and error buttons, the slow-moment note, test isolation) come from [JS-modules](https://github.com/lfcfoundry/JS-modules), which is MIT-licensed.
 - **Smallest copy.** [apple-press-smallest.html](https://lfcfoundry.github.io/apple-press/apple-press-smallest.html) is packed with LZMA, the compression method of the 7-Zip program by Igor Pavlov, and unpacked by a 4,087-byte WebAssembly helper from JS-modules.
 
 ## © Ownership
