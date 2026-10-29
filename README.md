@@ -1,12 +1,13 @@
 <div align="center">
 
-<h1><img src="images/logo.png" alt="Apple Press" width="340"></h1>
-
 **A gentle clicker for kids. Tap a big cartoon apple and grow a backyard orchard into something far bigger.**
 
 [**Play it here**](https://lfcfoundry.github.io/apple-press/) · [**About**](https://lfcfoundry.github.io/apple-press/about.html) · [**Source code**](https://github.com/lfcfoundry/apple-press)
 
 ![beta](https://img.shields.io/badge/beta-informational) ![MIT](https://img.shields.io/badge/MIT-informational) ![no ads](https://img.shields.io/badge/no%20ads-informational) ![no accounts](https://img.shields.io/badge/no%20accounts-informational) ![works offline](https://img.shields.io/badge/works%20offline-informational)
+
+
+<h1><img src="images/logo.png" alt="Apple Press" width="340"></h1>
 
 </div>
 
