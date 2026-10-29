@@ -1,6 +1,6 @@
 <div align="center">
 
-# Apple Press
+<h1><img src="images/logo.png" alt="Apple Press" width="340"></h1>
 
 **A gentle clicker for kids. Tap a big cartoon apple and grow a backyard orchard into something far bigger.**
 
