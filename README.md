@@ -1,18 +1,60 @@
-# 🍎 Apple Press
+<div align="center">
 
-**▶ Play it here: https://lfcfoundry.github.io/apple-press/**
+# Apple Press
 
-<p align="center"><img src="images/play-desktop.jpg" alt="Apple Press on a computer: a big smiling apple on a scene, with upgrades on the right" width="860"></p>
+**A gentle clicker for kids. Tap a big cartoon apple and grow a backyard orchard into something far bigger.**
 
-Apple Press is a free clicker game for kids in a single web page. Tap a big cartoon apple to pick apples, buy upgrades, and grow a little backyard orchard into something far, far bigger.
+[**Play it here**](https://lfcfoundry.github.io/apple-press/) · [**About**](https://lfcfoundry.github.io/apple-press/about.html) · [**Source code**](https://github.com/lfcfoundry/apple-press)
 
-It works by putting the whole game, with its scenes, fonts and code, inside one HTML file written in plain JavaScript. Your browser runs that file by itself, with no server and no download, and keeps your progress in its own storage on your device, so after it loads once the game needs no internet.
+![beta](https://img.shields.io/badge/beta-informational) ![MIT](https://img.shields.io/badge/MIT-informational) ![no ads](https://img.shields.io/badge/no%20ads-informational) ![no accounts](https://img.shields.io/badge/no%20accounts-informational) ![no data sent](https://img.shields.io/badge/no%20data%20sent-informational) ![no purchases](https://img.shields.io/badge/no%20purchases-informational) ![no install](https://img.shields.io/badge/no%20install-informational) ![single player](https://img.shields.io/badge/single%20player-informational) ![first-time tour](https://img.shields.io/badge/first--time%20tour-informational) ![works offline](https://img.shields.io/badge/works%20offline-informational)
+
+
+<img src="images/logo.png" alt="Apple Press logo" width="340">
+
+</div>
+
+## What it is and how it works
+
+Apple Press is a free clicker game for kids in a single web page. Tap the apple to pick apples, buy upgrades, and move through stages that each bring a promotion party, a new animated scene and new upgrades. The whole game, with scenes, fonts and code, is one HTML file. It runs with no server and keeps progress in your browser, so once the page is open, or saved as one file, it needs no internet. New players get a short guided tour the first time they play, and it can be skipped.
+
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center" valign="top"><img src="images/phone-play.jpg" alt="Apple Press on a phone: a big smiling apple, the score and the first upgrades" width="250"><br><sub>Play</sub></td>
+<td align="center" valign="top"><img src="images/phone-shop.jpg" alt="The upgrade list on a phone, with per click and per second gains" width="250"><br><sub>Upgrades</sub></td>
+<td align="center" valign="top"><img src="images/phone-dark.jpg" alt="Apple Press on a phone in dark mode, with a night scene" width="250"><br><sub>Dark mode</sub></td>
+</tr>
+</table>
+
+</div>
+
+## Why it exists
+
+A gentle clicker for children and the grown-ups who sit with them: free, with no ads, purchases or accounts, no sounds, no timers or streaks, and nothing to trade. It also tests how much game fits in one small file anyone can save, send to a friend and open offline.
 
 <p align="center"><img src="images/special-apples.jpg" alt="Special apples that fly across the scene: golden, crystal, jade, rainbow, comet, cosmic and poison" width="760"></p>
 
-## 🌱 Why it exists
+## Highlights
 
-Apple Press is meant to be a gentle clicker for children and the grown-ups who sit with them: free, with no ads, purchases or accounts, no sounds, no timers or streaks, and nothing to trade. It is also a test of how much game fits in one small file that anyone can save, send to a friend and open offline. Pieces of its code that proved useful were cut out and shared as the free [JS-modules](https://github.com/lfcfoundry/JS-modules).
+| Built for kids | 13 stages | No sound | Send it to a friend |
+|---|---|---|---|
+| Big tap targets, no timers or streaks, and a Grown-ups door in front of links. | A first adventure of six stages, then a longer journey, with a sticker book of 49 stickers. | No sound: a visual and tactile game with less stimulation for sensory challenges. Calm effects tone down motion. | One file, or two smaller copies for messages and email. Double-click to open. |
+
+## Safe, free and open
+
+Apple Press is made for children, so it is built to be easy to trust.
+
+- **No ads.** Nothing in the game tries to sell, show or sneak in anything.
+- **No accounts.** No sign-up, no log-in, no email, no age questions. Open it and play.
+- **No data sent anywhere.** Progress stays in your own browser. The game sends nothing to any server, and a grown-up can check that in the open code.
+- **No microtransactions.** Nothing to buy, no coins to top up and no timers that push a purchase. Every upgrade is earned by playing.
+- **Fully open source.** The whole game is free to read, copy and change under the MIT License.
+- **Nothing to install.** No download, no installer and no administrator rights. Open the page in your browser and play. No computer know-how needed: if you can tap an apple, you can play.
+- **Works offline.** Once the page is open, or saved to your device as one file, the game needs no internet at all, so it plays on a plane, in a car or anywhere with no signal.
+- **Single player.** One child, one apple. There is no chat, no friends list, no leaderboard and no way to meet strangers.
+- **Any modern browser, most standard screens.** Tested in Chromium, Firefox and WebKitGTK, on screens from a small 320-pixel-wide phone up to a 1920-pixel-wide computer, with no sideways scrolling.
 
 ## 🚧 Status
 
@@ -21,7 +63,7 @@ Apple Press is meant to be a gentle clicker for children and the grown-ups who s
 ## ✅ At a glance
 
 - **For children and families.** No ads, no purchases, no accounts.
-- **Works offline.** After it loads once, no internet is needed. Open it in any modern browser on a phone, tablet or computer.
+- **Works offline.** Once the page is open, or saved as one file, no internet is needed. Open it in any modern browser on a phone, tablet or computer.
 
 ## 📦 Sending the game to a friend
 
@@ -29,10 +71,10 @@ The whole game is one file, and there are two smaller copies of the same game fo
 
 | Copy | Size (smaller is better) | Opens in (smaller is better) |
 |---|---|---|
-| [apple-press-small.html](https://lfcfoundry.github.io/apple-press/apple-press-small.html) | 292,196 bytes | about 40 to 56 ms |
-| [apple-press-smallest.html](https://lfcfoundry.github.io/apple-press/apple-press-smallest.html) | 208,945 bytes (28% smaller) | about 97 to 99 ms |
+| [apple-press-small.html](https://lfcfoundry.github.io/apple-press/apple-press-small.html) | 292,208 bytes | about 40 to 56 ms |
+| [apple-press-smallest.html](https://lfcfoundry.github.io/apple-press/apple-press-smallest.html) | 208,964 bytes (28% smaller) | about 97 to 99 ms |
 
-The regular page is 738,577 bytes. Opening times were measured on an earlier build (before the Firefox-only Disco Fever picture was added) on one test computer in four browsers (GNOME Web was dropped from testing on 2026-10-24); a phone may take longer.
+The regular page is 738,598 bytes. Opening times were measured on an earlier build (before the Firefox-only Disco Fever picture was added) on one test computer in four browsers (GNOME Web was dropped from testing on 2026-10-24); a phone may take longer.
 
 If the game ever feels slow or breaks on your device, tap five times quickly in the top-left corner of the page. A small panel opens with **Save speed report** and **Save error log**; each saves one small file on your device that you can share. Nothing is sent anywhere. (Made with the shared [field-report](https://github.com/lfcfoundry/js-modules/tree/main/modules/field-report) module.)
 
@@ -44,7 +86,16 @@ Measured on build 2026.10.23.2114 (the later swap of the Grown-ups door and the 
 
 Each press earns apples. Upgrades add apples per press and per second. Every stage brings a promotion party, a new animated scene, a new apple color and new upgrades. A first adventure ends after six stages; after that, the full 13-stage journey opens up, and the most dedicated players may find there is more to discover.
 
-<p align="center"><img src="images/promotion.jpg" alt="The promotion party: confetti, a new stage name and new upgrades unlocked" width="860"></p>
+<div align="center">
+
+<table>
+<tr>
+<td align="center" valign="top"><img src="images/phone-promotion.jpg" alt="The promotion party on a phone: a new stage name and new upgrades to buy" width="250"><br><sub>A promotion party when a new stage opens</sub></td>
+<td align="center" valign="top"><img src="images/phone-stickers.jpg" alt="The sticker book on a phone, with apple faces to collect" width="250"><br><sub>The sticker book: 49 to collect</sub></td>
+</tr>
+</table>
+
+</div>
 
 ## 🧒 Testing with a child?
 
@@ -63,18 +114,11 @@ There is a one-page [playtest card](PLAYTEST-CARD.md) for a grown-up who sits wi
 - **A quick tour:** new players get a friendly guided look at the page the first time they play, in short steps with simple words that young children can follow. It can be skipped, and opened again from the How to play button.
 - **Built for kids:** big tap targets, no timers or streaks, and nothing to trade.
 
-<table>
-<tr>
-<td align="center" valign="top"><img src="images/play-phone.jpg" alt="Apple Press on a phone held upright" width="300"><br><sub>On a phone</sub></td>
-<td align="center" valign="top"><img src="images/sticker-book.jpg" alt="The sticker book with nine apple faces to collect" width="340"><br><sub>The sticker book: 49 to collect</sub></td>
-</tr>
-</table>
-
-<p align="center"><img src="images/play-dark.jpg" alt="Apple Press in dark mode at night" width="760"><br><sub>Dark mode, with a night scene</sub></p>
+<p align="center"><img src="images/play-desktop.jpg" alt="Apple Press on a computer: the apple on the left, upgrades on the right" width="760"><br><sub>It fills a bigger screen too</sub></p>
 
 ## ♿ Accessibility
 
-- **No noise.** There are no sounds or music, so there is no volume to manage. That suits kids with sensory challenges, and parents who have heard enough beeping for one day.
+- **No sound, by design.** There are no sounds or music, so the game is a visual and tactile experience (the apple squishes under a finger, things sparkle and move) with less stimulation for players with sensory challenges. There is no volume to manage, and parents have heard enough beeping for one day.
 - **Flash-safe celebrations.** The promotion celebrations are checked against flash-safety limits.
 - **Hold to press.** Hold the apple down and it keeps pressing for you, which helps tired hands and younger players who find rapid tapping hard. It can be switched off in the footer.
 - **Gentler effects.** The Calm effects setting tones down motion, and the game picks a lighter setting by itself on slower devices.
