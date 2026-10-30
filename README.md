@@ -6,7 +6,7 @@
 
 [**Play it here**](https://lfcfoundry.github.io/apple-press/) · [**About**](https://lfcfoundry.github.io/apple-press/about.html) · [**Source code**](https://github.com/lfcfoundry/apple-press)
 
-![beta](https://img.shields.io/badge/beta-informational) ![MIT](https://img.shields.io/badge/MIT-informational) ![no ads](https://img.shields.io/badge/no%20ads-informational) ![no accounts](https://img.shields.io/badge/no%20accounts-informational) ![no data sent](https://img.shields.io/badge/no%20data%20sent-informational) ![no purchases](https://img.shields.io/badge/no%20purchases-informational) ![single player](https://img.shields.io/badge/single%20player-informational) ![works offline](https://img.shields.io/badge/works%20offline-informational)
+![beta](https://img.shields.io/badge/beta-informational) ![MIT](https://img.shields.io/badge/MIT-informational) ![no ads](https://img.shields.io/badge/no%20ads-informational) ![no accounts](https://img.shields.io/badge/no%20accounts-informational) ![no data sent](https://img.shields.io/badge/no%20data%20sent-informational) ![no purchases](https://img.shields.io/badge/no%20purchases-informational) ![single player](https://img.shields.io/badge/single%20player-informational) ![first-time tour](https://img.shields.io/badge/first--time%20tour-informational) ![works offline](https://img.shields.io/badge/works%20offline-informational)
 
 
 <img src="images/logo.png" alt="Apple Press logo" width="340">
@@ -15,7 +15,7 @@
 
 ## What it is and how it works
 
-Apple Press is a free clicker game for kids in a single web page. Tap the apple to pick apples, buy upgrades, and move through stages that each bring a promotion party, a new animated scene and new upgrades. The whole game, with scenes, fonts and code, is one HTML file. It runs with no server and keeps progress in your browser, so once the page is open, or saved as one file, it needs no internet.
+Apple Press is a free clicker game for kids in a single web page. Tap the apple to pick apples, buy upgrades, and move through stages that each bring a promotion party, a new animated scene and new upgrades. The whole game, with scenes, fonts and code, is one HTML file. It runs with no server and keeps progress in your browser, so once the page is open, or saved as one file, it needs no internet. New players get a short guided tour the first time they play, and it can be skipped.
 
 
 <div align="center">
@@ -70,10 +70,10 @@ The whole game is one file, and there are two smaller copies of the same game fo
 
 | Copy | Size (smaller is better) | Opens in (smaller is better) |
 |---|---|---|
-| [apple-press-small.html](https://lfcfoundry.github.io/apple-press/apple-press-small.html) | 292,196 bytes | about 40 to 56 ms |
-| [apple-press-smallest.html](https://lfcfoundry.github.io/apple-press/apple-press-smallest.html) | 208,945 bytes (28% smaller) | about 97 to 99 ms |
+| [apple-press-small.html](https://lfcfoundry.github.io/apple-press/apple-press-small.html) | 292,208 bytes | about 40 to 56 ms |
+| [apple-press-smallest.html](https://lfcfoundry.github.io/apple-press/apple-press-smallest.html) | 208,964 bytes (28% smaller) | about 97 to 99 ms |
 
-The regular page is 738,577 bytes. Opening times were measured on an earlier build (before the Firefox-only Disco Fever picture was added) on one test computer in four browsers (GNOME Web was dropped from testing on 2026-10-24); a phone may take longer.
+The regular page is 738,598 bytes. Opening times were measured on an earlier build (before the Firefox-only Disco Fever picture was added) on one test computer in four browsers (GNOME Web was dropped from testing on 2026-10-24); a phone may take longer.
 
 If the game ever feels slow or breaks on your device, tap five times quickly in the top-left corner of the page. A small panel opens with **Save speed report** and **Save error log**; each saves one small file on your device that you can share. Nothing is sent anywhere. (Made with the shared [field-report](https://github.com/lfcfoundry/js-modules/tree/main/modules/field-report) module.)
 
