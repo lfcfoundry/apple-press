@@ -6,7 +6,7 @@
 
 [**Play it here**](https://lfcfoundry.github.io/apple-press/) · [**About**](https://lfcfoundry.github.io/apple-press/about.html) · [**Source code**](https://github.com/lfcfoundry/apple-press)
 
-![beta](https://img.shields.io/badge/beta-informational) ![MIT](https://img.shields.io/badge/MIT-informational) ![no ads](https://img.shields.io/badge/no%20ads-informational) ![no accounts](https://img.shields.io/badge/no%20accounts-informational) ![works offline](https://img.shields.io/badge/works%20offline-informational)
+![beta](https://img.shields.io/badge/beta-informational) ![MIT](https://img.shields.io/badge/MIT-informational) ![no ads](https://img.shields.io/badge/no%20ads-informational) ![no accounts](https://img.shields.io/badge/no%20accounts-informational) ![no data sent](https://img.shields.io/badge/no%20data%20sent-informational) ![no purchases](https://img.shields.io/badge/no%20purchases-informational) ![works offline](https://img.shields.io/badge/works%20offline-informational)
 
 
 <img src="images/logo.png" alt="Apple Press logo" width="340">
@@ -41,6 +41,17 @@ A gentle clicker for children and the grown-ups who sit with them: free, with no
 | Built for kids | 13 stages | No sound | Send it to a friend |
 |---|---|---|---|
 | Big tap targets, no timers or streaks, and a Grown-ups door in front of links. | A first adventure of six stages, then a longer journey, with a sticker book of 49 stickers. | No sound: a visual and tactile game with less stimulation for sensory challenges. Calm effects tone down motion. | One file, or two smaller copies for messages and email. Double-click to open. |
+
+## Safe, free and open
+
+Apple Press is made for children, so it is built to be easy to trust.
+
+- **No ads.** Nothing in the game tries to sell, show or sneak in anything.
+- **No accounts.** No sign-up, no log-in, no email, no age questions. Open it and play.
+- **No data sent anywhere.** Progress stays in your own browser. The game sends nothing to any server, and a grown-up can check that in the open code.
+- **No microtransactions.** Nothing to buy, no coins to top up and no timers that push a purchase. Every upgrade is earned by playing.
+- **Fully open source.** The whole game is free to read, copy and change under the MIT License.
+- **Any modern browser, any screen.** Tested in Chromium, Firefox and WebKitGTK, on screens from a small 320-pixel-wide phone up to a 1920-pixel-wide computer, with no sideways scrolling.
 
 ## 🚧 Status
 
