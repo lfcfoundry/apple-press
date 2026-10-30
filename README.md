@@ -4,7 +4,7 @@
 
 **A gentle clicker for kids. Tap a big cartoon apple and grow a backyard orchard into something far bigger.**
 
-[**Play it here**](https://lfcfoundry.github.io/apple-press/) · [**About**](https://lfcfoundry.github.io/apple-press/about.html) · [**Source code**](https://github.com/lfcfoundry/apple-press)
+[**Play it here**](https://lfcfoundry.github.io/apple-press/play/) · [**About**](https://lfcfoundry.github.io/apple-press/) · [**Source code**](https://github.com/lfcfoundry/apple-press)
 
 ![beta](https://img.shields.io/badge/beta-informational) ![MIT](https://img.shields.io/badge/MIT-informational) ![no ads](https://img.shields.io/badge/no%20ads-informational) ![no accounts](https://img.shields.io/badge/no%20accounts-informational) ![no data sent](https://img.shields.io/badge/no%20data%20sent-informational) ![no purchases](https://img.shields.io/badge/no%20purchases-informational) ![no install](https://img.shields.io/badge/no%20install-informational) ![single player](https://img.shields.io/badge/single%20player-informational) ![first-time tour](https://img.shields.io/badge/first--time%20tour-informational) ![works offline](https://img.shields.io/badge/works%20offline-informational)
 
