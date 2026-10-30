@@ -2,7 +2,11 @@
 
 The newest changes are first. The version number is at the bottom of the page. The full, detailed list of changes and tests is kept separately by the people who build the game.
 
-**Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1 and WebKitGTK 2.52.6, one at a time (the newest build, 2026.10.24.1419, passed the full check set in Chromium and a screen-picture comparison in all three).
+**Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1 and WebKitGTK 2.52.6, one at a time (the newest build, 2026.10.29.2010, passed the full check set in Chromium and a screen-picture comparison in all three).
+
+## October 29
+
+- Fixed a 1-pixel sideways wobble in WebKitGTK at 768 pixels wide (a tablet held upright): the background scene was a hair wider than the page and the page could be nudged sideways. It no longer can. Nothing else looks or runs differently (picture check 99.95% or better in all three browsers; scrolling the same speed).
 
 ## October 24
 
