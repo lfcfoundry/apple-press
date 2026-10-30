@@ -6,7 +6,7 @@
 
 [**Play it here**](https://lfcfoundry.github.io/apple-press/) · [**About**](https://lfcfoundry.github.io/apple-press/about.html) · [**Source code**](https://github.com/lfcfoundry/apple-press)
 
-![beta](https://img.shields.io/badge/beta-informational) ![MIT](https://img.shields.io/badge/MIT-informational) ![no ads](https://img.shields.io/badge/no%20ads-informational) ![no accounts](https://img.shields.io/badge/no%20accounts-informational) ![no data sent](https://img.shields.io/badge/no%20data%20sent-informational) ![no purchases](https://img.shields.io/badge/no%20purchases-informational) ![works offline](https://img.shields.io/badge/works%20offline-informational)
+![beta](https://img.shields.io/badge/beta-informational) ![MIT](https://img.shields.io/badge/MIT-informational) ![no ads](https://img.shields.io/badge/no%20ads-informational) ![no accounts](https://img.shields.io/badge/no%20accounts-informational) ![no data sent](https://img.shields.io/badge/no%20data%20sent-informational) ![no purchases](https://img.shields.io/badge/no%20purchases-informational) ![single player](https://img.shields.io/badge/single%20player-informational) ![works offline](https://img.shields.io/badge/works%20offline-informational)
 
 
 <img src="images/logo.png" alt="Apple Press logo" width="340">
@@ -15,7 +15,7 @@
 
 ## What it is and how it works
 
-Apple Press is a free clicker game for kids in a single web page. Tap the apple to pick apples, buy upgrades, and move through stages that each bring a promotion party, a new animated scene and new upgrades. The whole game, with scenes, fonts and code, is one HTML file. It runs with no server and keeps progress in your browser, so after one load it needs no internet.
+Apple Press is a free clicker game for kids in a single web page. Tap the apple to pick apples, buy upgrades, and move through stages that each bring a promotion party, a new animated scene and new upgrades. The whole game, with scenes, fonts and code, is one HTML file. It runs with no server and keeps progress in your browser, so once the page is open, or saved as one file, it needs no internet.
 
 
 <div align="center">
@@ -51,7 +51,9 @@ Apple Press is made for children, so it is built to be easy to trust.
 - **No data sent anywhere.** Progress stays in your own browser. The game sends nothing to any server, and a grown-up can check that in the open code.
 - **No microtransactions.** Nothing to buy, no coins to top up and no timers that push a purchase. Every upgrade is earned by playing.
 - **Fully open source.** The whole game is free to read, copy and change under the MIT License.
-- **Any modern browser, any screen.** Tested in Chromium, Firefox and WebKitGTK, on screens from a small 320-pixel-wide phone up to a 1920-pixel-wide computer, with no sideways scrolling.
+- **Works offline.** Once the page is open, or saved to your device as one file, the game needs no internet at all, so it plays on a plane, in a car or anywhere with no signal.
+- **Single player.** One child, one apple. There is no chat, no friends list, no leaderboard and no way to meet strangers.
+- **Any modern browser, most standard screens.** Tested in Chromium, Firefox and WebKitGTK, on screens from a small 320-pixel-wide phone up to a 1920-pixel-wide computer, with no sideways scrolling.
 
 ## 🚧 Status
 
@@ -60,7 +62,7 @@ Apple Press is made for children, so it is built to be easy to trust.
 ## ✅ At a glance
 
 - **For children and families.** No ads, no purchases, no accounts.
-- **Works offline.** After it loads once, no internet is needed. Open it in any modern browser on a phone, tablet or computer.
+- **Works offline.** Once the page is open, or saved as one file, no internet is needed. Open it in any modern browser on a phone, tablet or computer.
 
 ## 📦 Sending the game to a friend
 
