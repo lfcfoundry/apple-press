@@ -2,6 +2,22 @@
 
 What changed on each date, newest first, for developers, in three depths: **Quick** (what changed), **Details** (what each change did, with the test browsers named where measured) and **Deep** (the full entry: reasons, numbers, tests). People who just play read [changelog.md](changelog.md). The game's source is private; this file describes the shipped single file.
 
+## 2026-10-31 · build 2026.10.31.1330
+
+### Quick
+
+Saves are crash-safe: save-kit 1.4.0 (lean build) with `durable: true` keeps each save in IndexedDB too; after `load()` the game calls `kit.recover()` and restarts once from a newer copy. Only happens after a crash or kill.
+
+### Details
+
+- **Changed.** Vendored save-kit 1.2.1 lean to 1.4.0 lean (same cut list, `durable` kept; 20,116 to 36,243 bytes before the build's squeeze). `recover()` runs right after the first `load()`. If it returns a save, saving is switched off, a one-time session flag is set and the page reloads, so every part of the game starts from the recovered save; the flag prevents any loop. Test and preview builds skip it.
+- Hard-kill test (ungoogled Chromium 155.0.8059.39-1, 60 taps, count about 92.7): kill 3 s after: 16.10 to 92.75; kill 15 s after: 20.11 to 92.76 (kept).
+- Sizes: play 739,263 to 746,240 bytes (+0.9%), small 292,404 to 295,252, smallest 209,035 to 210,797.
+
+### Deep
+
+- **Changed.** A bug found on the way: without switching saving off before the reload, the page closing (pagehide) wrote its older in-memory progress over the recovered save and the loss came back. Start-up in Chromium, 15 fresh loads each, noisy (spread about 100 ms): rest-only build 445 ms median, with the safety copy 451 ms (+1.5%, inside the noise). Firefox 158.0: inconclusive, because the old build also kept everything at a 3 s kill in that headless profile (round 18 saw losses only at 10 s). WebKitGTK 2.52.6: not run, its test sessions cannot keep a profile.
+
 ## 2026-10-31 · build 2026.10.31.0840
 
 ### Quick
