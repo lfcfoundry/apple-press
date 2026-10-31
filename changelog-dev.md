@@ -2,6 +2,22 @@
 
 What changed on each date, newest first, for developers, in three depths: **Quick** (what changed), **Details** (what each change did, with the test browsers named where measured) and **Deep** (the full entry: reasons, numbers, tests). People who just play read [changelog.md](changelog.md). The game's source is private; this file describes the shipped single file.
 
+## 2026-10-31 · build 2026.10.31.1336
+
+### Quick
+
+Scene-layer build (`liftBuild`) split into mark and plan tasks, one frame apart, so the second start-up long task (about 54 ms) is gone. No look or behavior change.
+
+### Details
+
+- **Changed.** `gen` and `later()` now come before marking; planning (rects, travel, units) runs in `later()`, then the existing two later steps. The generation guard drops a stale build as before.
+- ungoogled Chromium 155.0.8059.39-1, 12 fresh loads each: second-longest task over 50 ms in 10 of 12 runs before (median 54 ms) and 0 of 12 after; total long-task time median 217 to 180 ms. The 126-189 ms setup task is unchanged.
+- Sizes: play 746,240 to 746,251 bytes, small 295,252 to 295,232, smallest 210,797 to 210,747.
+
+### Deep
+
+- **Changed.** The cost that lands in the marking task is mostly the first style pass over the scene (getComputedStyle on every element) plus reading all stylesheet rules once (liftKeyframes, about 17 of the 25 ms of script), so the split moves the planning work out of that task rather than shrinking the style pass. Picture check (scene with animations paused at 0, tour skipped): Chromium 99.906%; Firefox 158.0 99.542% and WebKitGTK 2.52.6 98.725%, both inside their own run-to-run noise (old build against itself 99.544% and 98.413%); 32 layers and 32 lifted parts in all three. Timing is Chromium only (no long-task measure in Firefox or WebKitGTK).
+
 ## 2026-10-31 · build 2026.10.31.1330
 
 ### Quick

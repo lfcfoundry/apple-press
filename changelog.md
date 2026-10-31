@@ -6,6 +6,7 @@ The newest changes are first. The version number is at the bottom of the page. T
 
 ## October 31
 
+- The game's first moments are smoother: building the moving background layers is now split into two short steps, so the page no longer freezes for over 50 ms right after it opens. In Chromium that long freeze disappeared in 12 of 12 start-ups (it was there in 10 of 12). It looks exactly the same.
 - Your newest saves now survive a crash: each save is also kept in the browser's own database, and if the browser is killed or crashes, the game starts once more from the newer copy. In a hard-kill test in Chromium, a kill 3 seconds after the last taps used to bring the game back at 16 apples out of about 93; it now comes back at all 93.
 - The background scene and the falling petals now hold still after 30 seconds without a touch, and while a card is open over them (the first-time tour, the Grown-ups door). Touch anything and they pick up where they stopped. In Chromium the page's work with the tour open dropped from about 306 to 178 ms of every second, and about 388 to 244 ms after a minute of waiting with no card.
 
