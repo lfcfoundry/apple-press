@@ -6,40 +6,40 @@ The newest changes are first. The version number is at the bottom of the page. T
 
 ## October 29
 
-- Fixed a 1-pixel sideways wobble in WebKitGTK at 768 pixels wide (a tablet held upright): the background scene was a hair wider than the page and the page could be nudged sideways. It no longer can. Nothing else looks or runs differently (picture check 99.95% or better in all three browsers; scrolling the same speed).
+- Fixed a 1-pixel sideways wobble in WebKitGTK at 768 pixels wide (a tablet held upright): the background scene was a hair wider than the page and the page could be nudged sideways. It no longer can.
 
 ## October 24
 
-- The Grown-ups door and the first-time tour now run on the shared LFC Foundry code (grown-ups-door 1.0.0 and spotlight-tour 1.1.1) instead of the game's own copies. They look and work the same: the same texts, the same apple and basket, and nobody sees the tour twice or gets a second gift. In a picture comparison of every tour step and every door step, the screens matched the old ones at 99.5% or better in Chrome, Firefox and WebKit. Scrolling was no slower (Chrome 6.78 s against 6.85 s for the same 420 frames).
-- On a slow device, the game now also holds the moving background still once it has switched to lighter effects by itself. In a test with the processor slowed to phone speed, tapping ran about 14% smoother in Chrome (25.2 to 28.7 FPS; higher is better). Fast devices are unchanged and look exactly the same (at least 99.97% identical in Firefox, Chrome and WebKitGTK). Choosing an Effects setting yourself puts the movement back.
+- The Grown-ups door and the first-time tour now run on the shared LFC Foundry code (grown-ups-door 1.0.0 and spotlight-tour 1.1.1) instead of the game's own copies.
+- On a slow device, the game now also holds the moving background still once it has switched to lighter effects by itself.
 
 ## October 23
 
-- Two hidden buttons for grown-ups and testers: tap five times quickly in the top-left corner and a small panel opens with Save speed report and Save error log. Each saves one small file on the device so a slow or broken moment can be shared. Nothing is sent anywhere, and the game looks and plays exactly the same (at least 99.998% identical in all four browsers). The file grows by about 14.7 KB (713,305 to 727,999 bytes); start-up time and tapping speed are the same within normal run-to-run swings.
+- Two hidden buttons for grown-ups and testers: tap five times quickly in the top-left corner and a small panel opens with Save speed report and Save error log.
 - The slow-moment note in Save & load now runs on the same shared code as the new buttons. It keeps the same list of up to 30 notes.
 
 ## October 22
 
 - Safari, WebKitGTK and GNOME Web: tapping the apple runs about 40% smoother at late stages, because the game title is now drawn once instead of again on every tap. It looks exactly the same. Chrome and Firefox are unchanged.
 - Fixed: the smoother popup outline added for Safari and GNOME Web was also showing up in Chrome by mistake. Chrome has its old outline back; Safari, GNOME Web and Firefox keep the lighter one.
-- Safari, WebKitGTK and GNOME Web: the floating +N numbers and combo words now draw their outline the way Firefox already does, so tapping runs about 17% smoother in WebKitGTK and about 18% in GNOME Web. The outline corners are slightly smoother; Chrome and Firefox are unchanged.
-- The scene pieces that float behind the game are now set up in three short steps after the first screen, instead of one longer pause, so the game stays smooth while they appear. They look the same (at least 99.97% identical in all four browsers).
-- The first screen shows a little sooner: setting up the stage curtains now waits until the first screen is showing. The first game picture appears about 5 ms earlier in Chromium (110.7 to 105.7 ms) and about the same in Firefox (105 to 104 ms); the two WebKit browsers saved 18 ms (WebKitGTK) and 6 ms (GNOME Web) of work before the first screen (their start-up times swing a lot from run to run: 165 to 87 and 178 to 93 ms in this test). Nothing looks different. Not tested on a real phone.
-- Firefox: the Disco Fever light-beams picture is now drawn by the page itself, once, in a background helper right after the first screen, instead of being stored in the file. The file is about 219 KB smaller again (932,376 to 712,949 bytes), Disco Fever runs just as fast (about 59 FPS after catching a disco apple, 20.6 without the fix; higher is better) and the beams look exactly as in the last version. Other browsers never run it. Not tested on a real phone or Firefox for Android.
-- The glow behind the combo counter is smaller (half as wide and half as tall), so tapping at deep stages is lighter for the page to draw. WebKitGTK runs about 35% more frames per second (15.6 to 21.0 FPS, higher is better) and GNOME Web about 26% more (13.6 to 17.1 FPS); Chromium and Firefox run the same. The look changes on purpose: the orange halo around the counter is tighter and a little lighter. Not tested on a real phone.
-- The stage curtains are now painted in a background helper instead of on the page's main thread, so the page does less work while a stage changes. The curtains look exactly the same (the painted curtain pictures match the old ones bit for bit in all four browsers). Tapping speed is unchanged (Chromium 115.2 to 117.8 FPS, Firefox 49.2 to 50.7, WebKitGTK 8.7 to 9.1, GNOME Web 5.5 to 5.7; higher is better). The file is about 2 KB bigger. Not tested on a real phone.
-- Firefox: Disco Fever runs about 2.9 times faster after you catch the apple (12.8 to 37.0 FPS, higher is better). The spinning light beams are now one picture made ahead of time. Only the beam edges look slightly softer (99.78% of the screen matches the old one). Chromium, WebKitGTK and GNOME Web keep the old beams. The game file is about 221 KB bigger, and the other browsers start the first game picture as fast or faster than before; in WebKitGTK the very first paint of the page comes about 54 ms later.
-- Tapping in Chromium runs about 12% more frames per second at a deep stage (71 to 79 FPS, higher is better) with fewer slow frames (10.2% of frames to 7.3%), because the game no longer makes the browser re-measure the page several times per press and mouse move. Firefox, WebKitGTK and GNOME Web run the same as before (Firefox within about 2%). Nothing looks different: the whole screen matches the old one exactly in all four browsers.
+- Safari, WebKitGTK and GNOME Web: the floating +N numbers and combo words now draw their outline the way Firefox already does, so tapping runs about 17% smoother in WebKitGTK and about 18% in GNOME Web.
+- The scene pieces that float behind the game are now set up in three short steps after the first screen, instead of one longer pause, so the game stays smooth while they appear.
+- The first screen shows a little sooner: setting up the stage curtains now waits until the first screen is showing.
+- Firefox: the Disco Fever light-beams picture is now drawn by the page itself, once, in a background helper right after the first screen, instead of being stored in the file.
+- The glow behind the combo counter is smaller (half as wide and half as tall), so tapping at deep stages is lighter for the page to draw.
+- The stage curtains are now painted in a background helper instead of on the page's main thread, so the page does less work while a stage changes.
+- Firefox: Disco Fever runs about 2.9 times faster after you catch the apple (12.8 to 37.0 FPS, higher is better). The spinning light beams are now one picture made ahead of time.
+- Tapping in Chromium runs about 12% more frames per second at a deep stage (71 to 79 FPS, higher is better) with fewer slow frames (10.2% of frames to 7.3%), because the game no longer makes the browser re-measure the page several times 
 
 ## October 19
 
-- Tapping is smoother in Chromium: about 4% to 10% more frames per second at a deep stage (higher is better; 51 to 56 FPS in one test, 107 to 112 FPS in another), and far fewer slow frames (1.4% of frames to 0.4% in the second test). Firefox, WebKitGTK and GNOME Web run the same as before. Nothing looks different: the screen matches the old one in all four browsers (39 of 40 comparisons exactly, the last 99.98%).
-- The first screen shows sooner. The first game picture now appears 17 to 213 ms earlier depending on the browser (about 9% to 60% sooner: Chromium 195 to 178 ms, Firefox 180 to 146 ms, WebKitGTK 356 to 143 ms, GNOME Web 231 to 157 ms). The moving scene pieces are put together just after it. Nothing looks different: the whole screen matches the old one exactly in all four browsers.
+- Tapping is smoother in Chromium: about 4% to 10% more frames per second at a deep stage (higher is better; 51 to 56 FPS in one test, 107 to 112 FPS in another), and far fewer slow frames (1.4% of frames to 0.4% in the second test).
+- The first screen shows sooner. The first game picture now appears 17 to 213 ms earlier depending on the browser (about 9% to 60% sooner: Chromium 195 to 178 ms, Firefox 180 to 146 ms, WebKitGTK 356 to 143 ms, GNOME Web 231 to 157 ms).
 - The game's page rules now also allow small background helpers made on the spot. Nothing in the game uses them yet and nothing can reach the internet; this only makes room for later speed-ups.
 
 ## October 18
 
-- The velvet stage curtains are prepared about 1.3 to 1.6 times faster (one curtain half takes 16 to 24 ms instead of 26 to 36 ms), with exactly the same picture. The game uses a small speed-up helper (WebAssembly) for this, and paints the old way where the helper cannot run. The game file is about 4 KB bigger.
+- The velvet stage curtains are prepared about 1.3 to 1.6 times faster (one curtain half takes 16 to 24 ms instead of 26 to 36 ms), with exactly the same picture.
 - This list is now short and plain.
 
 ## October 17
