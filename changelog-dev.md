@@ -2,6 +2,22 @@
 
 What changed on each date, newest first, for developers, in three depths: **Quick** (what changed), **Details** (what each change did, with the test browsers named where measured) and **Deep** (the full entry: reasons, numbers, tests). People who just play read [changelog.md](changelog.md). The game's source is private; this file describes the shipped single file.
 
+## 2026-10-31 · build 2026.10.31.0840
+
+### Quick
+
+The scene rests: `data-rest="on"` on the page pauses the scene, scene layers and petals after 30 s with no input or while any dialog is open. Any pointer, key, wheel or touch input wakes it (unless a dialog is open).
+
+### Details
+
+- **Changed.** One new style rule (same pause list as the slow-device rule, plus the petals) and a 30-line script: input listeners (passive) set a timestamp; a 1 s timer sets or clears the attribute. Retro mode is excluded as for the other holds.
+- Chromium, 1280x800, busy main-thread ms per second: tour open, 4 s: 316 to 209; tour open after 38 s: 306 to 178; tour closed after 34 s with no input: 388 to 244 (style work 97 to 28). One mouse move wakes it (372, as before).
+- Size: play +665 bytes, small +196, smallest +71.
+
+### Deep
+
+- **Changed.** Why a timer and not a per-frame check: the 1 s interval costs nothing measurable; a per-frame check would add an animation-frame callback, which is what the round-13 idle study tried to remove. Why dialogs count: the first-time tour and the Grown-ups door dim the whole scene, so nothing behind them is readable. The Chromium run used software drawing, so absolute numbers on a phone with a graphics chip will differ; the direction is the point. Checked in ungoogled Chromium 155.0.8059.39-1 (numbers above, rerun there: tour closed, no input 34 s, 359 to 271 ms busy per second, style 93 to 32), Firefox 158.0 (60 animations running awake, 7 resting, 4 with the tour open, all back to about 60 on a mouse move) and WebKitGTK 2.52.6 (the switch turns on and off correctly; its own slow-device guard had already paused the scene in that software-drawn run, so the animation counts match the build before). With the scene resting, what is left is the apple's own idle animations (20 running: bob, wiggle, glint, aura, spin, 8 sparkles) and drawing work, with 9 ms per second of script. It is a look change (a frozen scene while nobody plays), so it ships only on the owner's OK.
+
 ## 2026-10-29 · build 2026.10.29.2010
 
 ### Quick

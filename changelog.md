@@ -4,6 +4,10 @@ The newest changes are first. The version number is at the bottom of the page. T
 
 **Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1 and WebKitGTK 2.52.6, one at a time (the newest build, 2026.10.29.2010, passed the full check set in Chromium and a screen-picture comparison in all three).
 
+## October 31
+
+- The background scene and the falling petals now hold still after 30 seconds without a touch, and while a card is open over them (the first-time tour, the Grown-ups door). Touch anything and they pick up where they stopped. In Chromium the page's work with the tour open dropped from about 306 to 178 ms of every second, and about 388 to 244 ms after a minute of waiting with no card.
+
 ## October 29
 
 - Fixed a 1-pixel sideways wobble in WebKitGTK at 768 pixels wide (a tablet held upright): the background scene was a hair wider than the page and the page could be nudged sideways. It no longer can.
