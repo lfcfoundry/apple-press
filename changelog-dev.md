@@ -2,6 +2,23 @@
 
 What changed on each date, newest first, for developers, in three depths: **Quick** (what changed), **Details** (what each change did, with the test browsers named where measured) and **Deep** (the full entry: reasons, numbers, tests). People who just play read [changelog.md](changelog.md). The game's source is private; this file describes the shipped single file.
 
+## 2026-10-31 · build 2026.10.31.1627
+
+### Quick
+
+`velvetPainter` drops its working pixel buffers (`img`, `core`, the worker job's `buf`) as soon as the painting is done; only the canvas is kept. Invisible.
+
+### Details
+
+- **Changed.** Two lines: when a half-curtain finishes (worker path and page path) `img`, `core` and `job.buf` are set to null. `step()` returns early once `done`, so nothing reads them afterwards; `mirrorCanvas` only uses the canvas.
+- Heap snapshot, ungoogled Chromium 155.0.8059.39-1, 900x800, after 30 taps and 15 s: four 1,459,200-byte ArrayBuffers kept before, none after (about 8.3 MB at a real window size, per round 26).
+- Curtain flow (1,100 presses to the stage change) in Chromium, Firefox 158.0 and WebKitGTK 2.52.6: the same canvases appear before and after, no page errors.
+- Sizes: play 746,516 to 746,569 bytes, small 295,211 to 295,288, smallest 210,844 to 210,909.
+
+### Deep
+
+- Tried and dropped in the same round: caching the press handler's two `getBoundingClientRect()` reads (round 25): 88.8 vs 87.7 ms busy per press, noise; removing every style rule that matches nothing at start (604 of 1,076): 597 vs 668 ms layout plus style, no gain. The animation object in the orbit code was already cached.
+
 ## 2026-10-31 · build 2026.10.31.1550
 
 ### Quick
