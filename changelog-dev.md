@@ -2,6 +2,24 @@
 
 What changed on each date, newest first, for developers, in three depths: **Quick** (what changed), **Details** (what each change did, with the test browsers named where measured) and **Deep** (the full entry: reasons, numbers, tests). People who just play read [changelog.md](changelog.md). The game's source is private; this file describes the shipped single file.
 
+## 2026-10-31 · build 2026.10.31.1550
+
+### Quick
+
+The apple rests too: the `data-rest` pause rule now also covers `.apple`, `.bob`, `.aura` and `.golden` (apple animations and golden sparkles). Same trigger and wake as before.
+
+### Details
+
+- **Changed.** One selector group added to the existing `data-rest` rule; no script change. Retro mode still excluded.
+- Ungoogled Chromium 155.0.8059.39-1, built file, 1280x800, 5 s resting window, 3 runs each: busy ms/s 133, 118, 119 to 67, 62, 62 (injected rule), 67, 57, 63 (built file). Running animations while resting: aura, bob, wiggle, glint, blink or licklips to none.
+- Firefox 158.0 and WebKitGTK 2.52.6: rest leaves zero running animations (14 to 20 running before); a real input wakes it (Chromium).
+- Sizes: play 746,240 to 746,516 bytes, small 295,252 to 295,211, smallest 210,797 to 210,844.
+
+### Deep
+
+- Tried and dropped in the same round (no gain): `content-visibility:auto` on the footer and legal block (650 vs 664 ms layout plus style), `contain: layout style paint` on the scene (656), both (686); the hidden sections are already `display:none`. Scene-layer build split (PR 42) closed: no clear gain on the laptop.
+- Gotcha: the first-time tour (a `dialog[open]`) opens by itself and keeps the page resting, so a wake test must close it first.
+
 ## 2026-10-31 · build 2026.10.31.1330
 
 ### Quick
