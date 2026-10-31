@@ -140,7 +140,7 @@ The latest release was tested in Firefox 158.0, ungoogled Chromium 155.0.8059.39
 
 ## 🆕 What's new
 
-See [changelog.md](changelog.md) for a short, plain list of what changed, newest first.
+See [changelog.md](changelog.md) for a short, plain list of what changed, newest first. Developers: [changelog-dev.md](changelog-dev.md) has the same changes in three depths (Quick, Details, Deep).
 
 ## More from LFC Foundry
 
