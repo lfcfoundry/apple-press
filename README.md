@@ -72,7 +72,7 @@ The whole game is one file, and there are two smaller copies of the same game fo
 | Copy | Size (smaller is better) | Opens in (smaller is better) |
 |---|---|---|
 | [apple-press-small.html](https://lfcfoundry.github.io/apple-press/apple-press-small.html) | 295,654 bytes | about 40 to 56 ms |
-| [apple-press-smallest.html](https://lfcfoundry.github.io/apple-press/apple-press-smallest.html) | 211,333 bytes (28% smaller) | about 97 to 99 ms |
+| [apple-press-smallest.html](https://lfcfoundry.github.io/apple-press/apple-press-smallest.html) | 211,332 bytes (28% smaller) | about 97 to 99 ms |
 
 The regular page is 747,467 bytes. Opening times were measured on an earlier build (before the Firefox-only Disco Fever picture was added) on one test computer in four browsers (GNOME Web was dropped from testing on 2026-10-24); a phone may take longer.
 
