@@ -11,6 +11,21 @@ for v in GIT_AUTHOR_IDENT GIT_COMMITTER_IDENT; do
   esac
 done
 [ "$bad" = 0 ] || exit 1
+# Latin-1 only: one character above U+00FF in a shipped page makes the browser keep its whole text at 2 bytes per character.
+# Escape it (\uXXXX in scripts, \XXXX in styles, &#x...; in markup). Pages stored as bytes (not UTF-8) are skipped.
+for f in $(git diff --cached --name-only --diff-filter=AM -- '*.html'); do
+  git show ":$f" | python3 -c '
+import sys
+b = sys.stdin.buffer.read()
+try: t = b.decode("utf-8")
+except UnicodeDecodeError: sys.exit(0)
+bad = [(n, c) for n, l in enumerate(t.split("\n"), 1) for c in l if ord(c) > 255]
+if bad:
+    print("pre-commit: %s has %d character(s) above U+00FF, first U+%04X on line %d. Escape them (JS-modules tools/single-file-tools/latin1.py)." % (sys.argv[1], len(bad), ord(bad[0][1]), bad[0][0]), file=sys.stderr)
+    sys.exit(1)
+' "$f" || bad=1
+done
+[ "$bad" = 0 ] || exit 1
 words='colour|behaviour|centre|centred|grey|favourite|neighbour|honour|flavour|organis(e|ed|es|ing|ation)|realis(e|ed|es|ing)|recognis(e|ed|es|ing)|analyse|catalogue|defence|licence|programme|whilst'
 git diff --cached -U0 --diff-filter=AM --no-color | grep -E '^\+' | grep -vE '^\+\+\+' | grep -v 'spelling-ok' | grep -iwE "$words" | head -5 | while IFS= read -r line; do
   echo "pre-commit (warning, not blocking): British spelling? $line" | cut -c1-160 >&2

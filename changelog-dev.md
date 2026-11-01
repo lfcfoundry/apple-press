@@ -2,6 +2,26 @@
 
 What changed on each date, newest first, for developers, in three depths: **Quick** (what changed), **Details** (what each change did, with the test browsers named where measured) and **Deep** (the full entry: reasons, numbers, tests). People who just play read [changelog.md](changelog.md). The game's source is private; this file describes the shipped single file.
 
+## 2026-11-01 · build 2026.11.01.2330
+
+### Quick
+
+Every shipped page is Latin-1 only (no character above U+00FF), and the pre-commit hook now blocks any staged page that is not. The emoji in the license header are gone (plain words kept). Invisible.
+
+### Details
+
+- **Changed.** play/index.html and speedtest.html: 48 characters escaped in scripts (`\uXXXX`), 1 in the style (`\XXXX `), 10 in markup (`&#x...;`), with JS-modules tools/single-file-tools/latin1.py (PR 400). The 🛠 🏭 📜 emoji left the header, as in every JS-modules page. index.html and about.html already were Latin-1.
+- apple-press-small.html: "Opening Apple Press&#x2026;", and `Uint8Array.fromBase64` when the browser has it (the old `atob` loop otherwise). apple-press-smallest.html: rebuilt with lzma-pack (terser), whose output is now Latin-1 by itself.
+- Same look: body text, style rule count and a hash of every style rule match the old page in ungoogled Chromium 155.0.8059.39-1, Firefox 158.0 and WebKitGTK 2.52.6 (only the build number differs); small and smallest match the play page in all three.
+- Early-stop A/B, start to ready: Chromium 0.968 (ok), Firefox 1.003 (inconclusive, within noise), WebKitGTK 1.000 and 0.998 (ok). Chromium memory after start: 90.56 to 89.18 MB, of which the text heap (partition_alloc) 5.54 to 4.32 MB.
+- **Hook.** `tools/hooks/pre-commit` fails on a staged UTF-8 `.html` with a character above U+00FF and names the first one; byte pages (smallest) are skipped.
+- Sizes: play 746,569 to 746,750 bytes, small 295,288 to 295,222, smallest 210,909 to 211,098.
+
+### Deep
+
+- The research round had measured WebKitGTK starting in 0.66 to 0.89 of the time with the escaped page; this run did not repeat it (1.000 and 0.998), so the change ships for the memory and as a rule, not for a WebKit speedup.
+- The probe gotcha: the smallest copy finishes opening later, so a check that reads the text too early sees the tour half drawn (1,520 instead of 1,561 characters). Waiting for the text to settle shows the same page.
+
 ## 2026-10-31 · build 2026.10.31.1627
 
 ### Quick
