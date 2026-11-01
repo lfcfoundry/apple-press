@@ -6,6 +6,7 @@ The newest changes are first. The version number is at the bottom of the page. T
 
 ## November 1
 
+- The sticker book opens and turns pages faster: each sticker now copies only the apple face and hat it shows, not every face and hat. Reopening the book went from about 56 to 17 ms in Chromium, 26 to 16 ms in Firefox and 90 to 33 ms in WebKitGTK. It looks exactly the same.
 - The game file now uses only plain characters: the few emoji, arrows and curly quotes inside it are written as codes the browser reads back as the same characters. Nothing looks or plays differently. Chromium can then keep the page text at half the size, and the page used about 1.4 MB less memory (90.6 to 89.2 MB).
 - The small copy now unpacks the game with the browser's own built-in reader where the browser has one, and the old way elsewhere.
 
