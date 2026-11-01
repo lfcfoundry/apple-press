@@ -12,5 +12,6 @@ The owner had to repeat these rules over and over; a hook checks them every time
 
 - `commit-msg` blocks a commit whose message has a `Claude-Session:` line or a claude.ai link, or whose author or committer is not `JNFoo <45110762+JNFoo@users.noreply.github.com>`. A `Co-Authored-By` trailer is fine.
 - `pre-commit` blocks the wrong author or committer early, and warns (never blocks) about British spellings in added lines. Put `spelling-ok` on a line to silence it.
+- `pre-commit` also blocks a staged `.html` page with any character above U+00FF (an emoji, arrow or curly quote). One such character makes the browser keep the whole page text at 2 bytes per character. Write it as an escape instead. Pages stored as bytes rather than UTF-8, such as apple-press-smallest.html, are skipped.
 
 Copyright (c) 2026 LFC Foundry. MIT License (see `LICENSE` at the top of the repository).

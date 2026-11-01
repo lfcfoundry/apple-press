@@ -4,6 +4,11 @@ The newest changes are first. The version number is at the bottom of the page. T
 
 **Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1 and WebKitGTK 2.52.6, one at a time (the newest build, 2026.10.29.2010, passed the full check set in Chromium and a screen-picture comparison in all three).
 
+## November 1
+
+- The game file now uses only plain characters: the few emoji, arrows and curly quotes inside it are written as codes the browser reads back as the same characters. Nothing looks or plays differently. Chromium can then keep the page text at half the size, and the page used about 1.4 MB less memory (90.6 to 89.2 MB).
+- The small copy now unpacks the game with the browser's own built-in reader where the browser has one, and the old way elsewhere.
+
 ## October 31
 
 - The game now lets go of the curtain pictures it painted in advance for the next stage once they are finished, which frees about 8 MB of memory in a long session. Nothing looks or plays differently.
