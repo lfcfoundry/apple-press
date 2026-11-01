@@ -2,7 +2,7 @@
 
 What changed on each date, newest first, for developers, in three depths: **Quick** (what changed), **Details** (what each change did, with the test browsers named where measured) and **Deep** (the full entry: reasons, numbers, tests). People who just play read [changelog.md](changelog.md). The game's source is private; this file describes the shipped single file.
 
-## 2026-11-01 · build 2026.11.01.2352
+## 2026-10-31 · build 2026.10.31.2352
 
 ### Quick
 
@@ -14,14 +14,14 @@ Sticker book: each sticker's apple copy keeps only the parts its mood and hat sh
 - Same look: on all 12 pages, every rendered element's box, fill, opacity and transform match in ungoogled Chromium 155.0.8059.39-1, Firefox 158.0 and WebKitGTK 2.52.6. Elements per page: 7,542 to 1,329.
 - Reopen (click to forced layout, median of 7): Chromium 56 to 17 ms, Firefox 26 to 16, WebKitGTK 90 to 33. First visit to a page: Chromium 58 to 41, Firefox 28 to 23, WebKitGTK 102 to 65.
 - First open of a fresh page, early-stop A/B: Chromium 1.156 and then 1.035 (both inconclusive, noisy), Firefox 1.015 (inconclusive), WebKitGTK 1.021 (ok). The work on a miss is the same as before, and the key costs 0.011 ms.
-- Sizes: play 746,750 to 747,467 bytes, small 295,222 to 295,654, smallest 211,098 to 211,333.
+- Sizes: play 746,750 to 747,467 bytes, small 295,222 to 295,654, smallest 211,098 to 211,332.
 
 ### Deep
 
 - Found by research round 37 (the time between a press and the next paint for each app's buttons). Every other button in the five apps responds in under about 30 ms. The book was 62 to 105 ms of processing on every open, mostly style work forced by `focus()` over 7,542 hidden-heavy elements.
 - First try: trimming synchronously on a miss, with `getComputedStyle` on each part. Correct, but the first open got slower (Chromium 63 to 94 ms, Firefox 31 to 63), because the book is still hidden at that point and each read computes style on demand. So the trim now waits until after the book has drawn.
 
-## 2026-11-01 · build 2026.11.01.2330
+## 2026-10-31 · build 2026.10.31.2330
 
 ### Quick
 
