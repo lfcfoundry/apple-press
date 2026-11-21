@@ -1,0 +1,206 @@
+<title>Apple Press</title>
+<!--
+  APPLE PRESS, a clicker game in a single file.
+  Copyright (c) 2026 LFC Foundry. MIT License (the full notice is at the top of this file).
+  Uses the fonts Bricolage Grotesque, Figtree, Jersey 15, Tiny5 and VT323
+  (SIL Open Font License 1.1;
+  the license text is at the end of this file). Everything else was written
+  for this game.
+
+  ==================================================================
+  EDIT HERE. Everything inside the box below is plain text.
+  Change the words and numbers, save the file, and reload the page.
+  You do not need to touch anything below the box.
+
+  Lines that start with # are notes to yourself and are ignored.
+  Big numbers can be written short: 15K = 15,000   1.5M = 1,500,000
+  4B = 4,000,000,000   2T = 2,000,000,000,000
+  1Qa = 1,000,000,000,000,000   1Qi = 1,000,000,000,000,000,000   1Sx = 1,000Qi
+
+  HOW THE STAGES WORK
+  Each Stage line starts a new stage of the company. The Upgrade
+  lines that follow it belong to that stage and appear in the shop
+  once the stage is reached.
+      Stage: Name | total apples needed to reach it | description
+  Each Upgrade is one line with four parts separated by | marks:
+      Upgrade: Name | Price | What it gives | Short description
+  "What it gives" must look like one of these three:
+      +2 per click
+      +5 per second
+      +7 per second + 3 per click   (an upgrade that gives both)
+  Every upgrade needs its own name.
+
+  THE ENDING
+  One optional line decides how the game ends. When the player has
+  picked this many in total, a finale appears and they choose to
+  start over (keeping or losing their bonus shop items):
+      Finish: 30Qi | Title of the finale | A line about it
+  Remove the line to make the game go on forever.
+
+  APPLE PARADISE (a bonus stage)
+  Lines starting with "Paradise" describe one more stage after the
+  last. It stays hidden until the player buys it in the bonus shop's
+  Extras. They look just like the Stage, Upgrade and Finish lines:
+      Paradise: Name | total apples needed | description
+      Paradise upgrade: Name | Price | What it gives | Short description
+      Paradise finish: 1Sx | Title of the finale | A line about it
+  (1Sx = 1,000Qi.)
+
+  SECRET STAGES (placeholders, not built yet)
+  Lines starting with "Secret stage" keep a name and an idea for a hidden
+  stage that is planned but does not exist in the game yet. Nothing
+  reads them while playing: players never see them, and they do not
+  change the game. When one is built it gets its own lines, like Paradise:
+      Secret stage: Name | How it might unlock | The idea for it
+
+  HOW THE BONUS SHOP WORKS
+  Now and then a special apple flies across the scene. Catching one
+  earns credits (golden, crystal, jade, rainbow, comet and cosmic pay more and more).
+  Credits are spent in the bonus shop, which opens when you finish
+  a stage (and any time from the gold credits badge). One line each:
+      Bonus: Name | Price in credits | What it does | Description | max 3
+  "What it does" must look like one of these:
+      autoclick 1 per second
+      +25% per click
+      +15% per second
+      bonus apples come 20% sooner
+      bonus apples pay +50%
+      bonus apples stay 40% longer
+      rare apples 30% more often   (every kind except golden)
+      upgrades cost 10% less       (the shop upgrades, up to 60% off in all)
+  "max 3" is how many times it can be bought (leave it off for 1).
+      Credits: 1 | 4 | 7 | 12 | 30 | 80   (golden | crystal | jade | rainbow | comet | cosmic)
+      Bonus price increase: 60  (each copy costs this % more)
+  OTHER SETTINGS
+      Away earnings: 50   (percent of normal speed your helpers keep
+                           picking while the game is closed; 0 = off)
+      Copyright: the line shown at the bottom of the page
+  The first stage should need 0 apples, and every stage after it
+  should need more than the one before.
+  ==================================================================
+-->
+<script type="text/plain" id="settings">
+Title: Apple Press
+# A line under the title. Leave it out for no line.
+# Tagline: Grow a few trees into a company that sells apples to the whole planet.
+Thing: apples
+Button: Press
+# How much more an upgrade costs each time you buy it (percent)
+Price increase: 17
+# While the game is closed, helpers keep picking at this percent of their speed (up to 8 hours). 0 turns it off.
+Away earnings: 50
+# Shown at the bottom of the page
+Copyright: Copyright © 2026 LFC Foundry. MIT License.
+
+Stage: Home Orchard | 0 | You, a ladder and a dozen trees behind the house.
+Upgrade: Sturdy Basket | 15 | +1 per click | A bigger basket carries more apples with every press.
+Upgrade: Step Ladder | 60 | +1 per second | Reach the high branches while you press.
+Upgrade: Neighbor's Kid | 250 | +2.8 per second + 1.2 per click | Works for pocket money and a slice of pie.
+Upgrade: Hand Crank Press | 700 | +6 per click | Cast iron, a long handle and a lot of elbow grease.
+
+Stage: Roadside Stand | 1K | A folding table at the end of the driveway. Cash only.
+Upgrade: Painted Sign | 450 | +3 per second | APPLES. CIDER. HONK IF OPEN.
+Upgrade: Cider Jugs | 1K | +4 per click | Sell by the jug instead of by the apple.
+Upgrade: Weekend Helper | 2.2K | +9.8 per second + 4.2 per click | A cousin who works Saturdays and takes cider as wages.
+Upgrade: Pickup Truck | 5.5K | +35 per second | Missing one door. Hauls the whole harvest anyway.
+
+Stage: Cider Mill | 15K | Neighbors drive out for the cider. Some stay for the donuts. One has moved in.
+Upgrade: Oak Press | 7K | +18 per click | A proper mill press. The whole building smells like fall.
+Upgrade: Creek Wheel | 15K | +95 per second | The creek turns a wheel and the wheel turns the press. The creek did not agree to this.
+Upgrade: Donut Fryer | 33K | +147 per second + 63 per click | Fresh cider donuts. The line is out the door and around the pond.
+Upgrade: Mill Crew | 80K | +500 per second | Six people in matching aprons and one very committed goat.
+
+Stage: Regional Orchard Co. | 250K | You have a logo, a warehouse, a mission statement and a very serious mascot.
+Upgrade: Orchard Row | 110K | +280 per click | Five hundred new trees, each wearing a tiny name tag.
+Upgrade: Cold Storage | 250K | +1.5K per second | Keeps the harvest crisp until January. Do not ask about the intern.
+Upgrade: Delivery Vans | 550K | +2.45K per second + 1.05K per click | Painted with your logo and driving to forty towns. Two are lost.
+Upgrade: Singing Harvest Crews | 1.4M | +9K per second | Seasonal pickers arrive by the busload, harmonizing.
+
+Stage: Statewide Distributor | 4M | Your apples are on every shelf in the state. The state has noticed.
+Upgrade: Packing Line | 1.7M | +4.4K per click | Belts sort, wash, wax and box the fruit. One belt exists only to compliment each apple.
+Upgrade: Warehouse With Weather | 4M | +25K per second | So big it has its own clouds. Bring a jacket to aisle nine.
+Upgrade: Apple-Hood Trucks | 9M | +40.6K per second + 17.4K per click | Eighteen-wheelers with a giant apple where the hood should be.
+Upgrade: Eye-Level Contracts | 22M | +145K per second | Supermarkets agree to stock apples at eye level. Everyone's eye level.
+
+Stage: National Brand | 70M | A jingle, a mascot and a spot during the big game. The mascot is now running for office.
+Upgrade: Apple Everything Lab | 28M | +68K per click | Apple chips, apple sauce, apple soap, apple soup. The soup is controversial.
+Upgrade: Cannery Network | 70M | +400K per second | Factories that can turn any fruit into an apple. Nobody asks how.
+Upgrade: Unforgettable Jingle | 160M | +665K per second + 285K per click | So catchy it has been banned from three weddings and a funeral.
+Upgrade: Supermarket Takeover | 400M | +2.4M per second | You stopped selling to the stores and bought them. Aisle nine is now a lake of cider.
+
+Stage: Global Exporter | 1.5B | Container ships leave every hour, bound for every ocean and at least one lake.
+Upgrade: Export Desk | 600M | +1.2M per click | Paperwork in nineteen languages, including two invented for the occasion.
+Upgrade: Floating Orchard Ships | 1.5B | +8.5M per second | Ships so large they grow their own apples on deck, mid-voyage.
+Upgrade: Overseas Orchards | 3.4B | +14M per second + 6M per click | One on every continent, plus one added on short notice.
+Upgrade: Fruit Diplomats | 8.5B | +50M per second | Negotiate tariffs with countries and, on Tuesdays, with pears.
+
+Stage: World Apple Conglomerate | 40B | There is an apple in every lunchbox on Earth, and the invoice is yours. The Moon sends its regards.
+Upgrade: Sentient Apple Lab | 15B | +30M per click | Apples that glow, hum and refuse to bruise. One has applied for citizenship.
+Upgrade: Continent-Sized Farms | 40B | +225M per second | Entire regions replanted. Local mountains were asked politely to move.
+Upgrade: Orbital Orchards | 90B | +385M per second + 165M per click | Zero-gravity apples. Nobody asked for them. Everybody buys them.
+Upgrade: Moon Cold Storage | 230B | +1.4B per second | The Moon is now a refrigerator. The Moon has no comment.
+
+Stage: Apples in Space | 1T | Rockets leave the orchard at dawn. The first apple pie in orbit is still in orbit.
+Upgrade: Apple Rocket Crew | 380B | +760M per click | Astronauts train for months to pick one apple in zero gravity. They say it was worth it.
+Upgrade: Orbital Press Station | 1T | +5.8B per second | A cider press that falls around the planet forever. The cider falls upward.
+Upgrade: Asteroid Orchards | 2.2T | +9.1B per second + 3.9B per click | Hollowed-out rocks planted with trees. The trees grow in every direction at once.
+Upgrade: Space Elevator To Aisle Nine | 5.8T | +34B per second | A cable to orbit. The elevator music is the Apple jingle, played much lower.
+
+Stage: Apple Galaxy | 30T | Whole star systems orbit your orchards. One planet is mostly peel.
+Upgrade: Star-Sized Apple Press | 11T | +22B per click | It presses suns. Cider with a little fusion in it.
+Upgrade: Planet-Shaped Apples | 30T | +170B per second | Round, red and four thousand miles across. Please do not bite.
+Upgrade: Black Hole Compost | 68T | +273B per second + 117B per click | Nothing escapes it, especially old apple cores. Mostly cores.
+Upgrade: Galactic Harvest Armada | 170T | +990B per second | A million ships with one job. They have started a choir.
+
+Stage: Universe of Apples | 1Qa | Every galaxy in view carries your logo. Astronomers have filed a polite complaint.
+Upgrade: Cosmic Web Orchard | 380T | +760B per click | Strands of dark matter hung with apples like fairy lights.
+Upgrade: Big Bang Cider Reactor | 1Qa | +5.8T per second | Every morning the universe starts over, but with more cider.
+Upgrade: Dark Matter Barrels | 2.2Qa | +9.1T per second + 3.9T per click | Most of the universe was missing. It was in these barrels.
+Upgrade: Time Dilation Greenhouse | 5.8Qa | +34T per second | Apples ripen in one second inside. Outside it has been four weeks.
+
+Stage: Multiverse of Mapples | 30Qa | In every universe someone is eating a Mapple: the same apple, with a slightly different leaf.
+Upgrade: Portal Picker | 11Qa | +22T per click | A door to another universe. Behind it: more apples. Nobody checks the ones behind that.
+Upgrade: Mapple Exchange Program | 30Qa | +170T per second | Trade apples with alternate versions of yourself. They drive a hard bargain. So do you.
+Upgrade: Infinite Orchard Loop | 68Qa | +273T per second + 117T per click | An orchard that contains itself. Management is still debating whose turn it is to water it.
+Upgrade: Parallel Pie Departments | 170Qa | +990T per second | Millions of Tuesdays baking at once. Every one of them is the best Tuesday.
+
+Stage: Quantum of Apples | 1Qi | The last apple is every apple at once, until somebody looks. Please look.
+Upgrade: Observer Gloves | 380Qa | +760T per click | Pick an apple just by looking at it. Looking makes it more real.
+Upgrade: Superposition Cellar | 1Qi | +5.8Qa per second | The apples are in the cellar and also not. Both counts are billed.
+Upgrade: Entangled Apple Pairs | 2.2Qi | +9.1Qa per second + 3.9Qa per click | Pick one in Michigan and its twin vanishes on Mars. Michigan gets the invoice.
+Upgrade: Planck-Length Orchard | 5.8Qi | +34Qa per second | Infinitely small, infinitely many. Some of them are cider already.
+
+Finish: 30Qi | The Last Apple | Every apple in every universe has been picked, counted and named. There is nothing left to grow, which means it is time to begin again.
+
+# ---- Apple Paradise: a bonus stage after the last one. It only appears once the player
+# ---- buys it in the Extras of the bonus shop (the last Extra to open). Its own finish
+# ---- replaces the one above while it is open.
+Paradise: Apple Paradise | 30Qi | Where good apples go. Soft clouds, warm light and not a single worm. The gates are always open.
+Paradise upgrade: Cloud Orchards | 11Qi | +22Qa per click | Trees rooted in clouds. The apples are lighter than air and twice as sweet.
+Paradise upgrade: Golden Gate Press | 30Qi | +170Qa per second | A press made of sunlight. It hums a hymn while it works.
+Paradise upgrade: Choir of Apples | 68Qi | +273Qa per second + 117Qa per click | Ten thousand apples in tiny robes, singing in perfect harmony.
+Paradise upgrade: Eternal Harvest | 170Qi | +990Qa per second | The harvest never ends here, and nobody ever minds.
+Paradise finish: 1Sx | Paradise Found | Every apple that ever was is resting easy in the clouds, and the gates are wide open. Time to plant again.
+
+# ---- Secret stages: placeholders only. They are written down here so they are not forgotten, but
+# ---- nothing in the game uses them yet, so players cannot reach or see them.
+Secret stage: Mirror Dimension | To be decided | The orchard seen in a mirror: the whole picture flipped, a twin apple pressing from the other side, and everything slightly backwards.
+Secret stage: Jotunheim | To be decided | The icy land of the giants: frosted orchards, enormous apples, and a press the size of a mountain.
+Secret stage: Avalon | To be decided | The legendary isle of apples, wrapped in mist, where the finest cider in all the worlds is pressed.
+Secret stage: Atlantis | To be decided | A sunken orchard under the sea, where the apples float and the fish do the pressing.
+
+# ---- Bonus shop ----
+Credits: 1 | 4 | 7 | 12 | 30 | 80
+Bonus price increase: 60
+# The shop lists them in this order. The pressing and picking boosts come first and cost
+# least; the two auto clickers come last and cost a lot more, so a fresh run starts by hand.
+Bonus: Shiny Polish | 3 | +25% per click | Every press is a little shinier and worth a little more. | max 4
+Bonus: Orchard Tonic | 4 | +15% per second | Secret fertilizer. The trees hum when it is applied. | max 4
+Bonus: Glitter Glue | 5 | bonus apples stay 40% longer | Special apples get stuck in the air a little longer. | max 2
+Bonus: Bargain Hunter | 6 | upgrades cost 10% less | Knows every farm-supply clearance sale in three counties. Haggles with a smile. | max 3
+Bonus: Bee Hotline | 8 | bonus apples come 20% sooner | A direct line to every bee in the county. They hear about special apples first. | max 3
+Bonus: Lucky Charm | 10 | bonus apples pay +50% | A rabbit's foot on a chain, except the rabbit was apple-shaped. | max 3
+Bonus: Apple Radar | 18 | rare apples 30% more often | A spinning dish on the barn roof. Crystal, rainbow, comet and cosmic apples show up more often. | max 3
+Bonus: Auto Clicker | 35 | autoclick 1 per second | A little wooden hand that taps the apple for you. It never asks for a break. | max 5
+Bonus: Robot Arm | 100 | autoclick 5 per second | Built for something else entirely. Now it is extremely committed to apples. | max 3
+</script>

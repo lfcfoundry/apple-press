@@ -1,0 +1,1 @@
+Copied from JS-modules main e8e274d on 2026-10-17: tools/lzma-pack/pack.py (lzma-pack 1.1.0, API 1), modules/lzma-decode/lzma-decode.js (lzma-decode 1.1.0, API 1) and modules/lzma-decode/wasm/lzma-decode.wasm (the WebAssembly decoder, 4,087 bytes). To update: copy the same three files from a newer JS-modules and rebuild.

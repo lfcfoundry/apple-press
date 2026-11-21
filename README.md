@@ -50,7 +50,7 @@ Apple Press is made for children, so it is built to be easy to trust.
 - **No accounts.** No sign-up, no log-in, no email, no age questions. Open it and play.
 - **No data sent anywhere.** Progress stays in your own browser. The game sends nothing to any server, and a grown-up can check that in the open code.
 - **No microtransactions.** Nothing to buy, no coins to top up and no timers that push a purchase. Every upgrade is earned by playing.
-- **Fully open source.** The whole game is free to read, copy and change under the MIT License.
+- **Fully open source.** The whole game is free to read, copy and change under the MIT License. The readable source and build steps are in [`source/`](source/).
 - **Nothing to install.** No download, no installer and no administrator rights. Open the page in your browser and play. No computer know-how needed: if you can tap an apple, you can play.
 - **Works offline.** Once the page is open, or saved to your device as one file, the game needs no internet at all, so it plays on a plane, in a car or anywhere with no signal.
 - **Single player.** One child, one apple. There is no chat, no friends list, no leaderboard and no way to meet strangers.
