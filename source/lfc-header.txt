@@ -1,8 +1,8 @@
     <!--
     ===================================================================================
-    🛠️ APPLICATION : Apple Press
-    🏭 FORGED BY : LFC Foundry (https://github.com)
-    📜 LICENSE : MIT License
+    APPLICATION : Apple Press
+    FORGED BY : LFC Foundry (https://github.com)
+    LICENSE : MIT License
     ===================================================================================
     Copyright (c) 2026 LFC Foundry
 

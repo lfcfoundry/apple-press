@@ -157,6 +157,8 @@
 
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
+/* (WebKitGTK showed a 1-pixel sideways scroll at 768 px wide: the scene scaled inside its box still counted as page overflow) */
+html { overflow-x: clip; }
 body {
   margin: 0;
   background: var(--bg);
@@ -756,7 +758,14 @@ footer { margin-block-start: 2.5rem; display: flex; flex-wrap: wrap; align-items
 /* On a slow device (the frame-rate check below stepped the effects down by itself) the background scene holds still for good, which
    gave about 16% more frames a second while tapping on a midrange-phone-speed processor. Picking an Effects setting by hand undoes it. */
 .wrap[data-slow="on"]:not([data-retro="on"]) #sceneSvg, .wrap[data-slow="on"]:not([data-retro="on"]) #sceneSvg *,
-.wrap[data-slow="on"]:not([data-retro="on"]) .scene-lift * { animation-play-state: paused !important; }
+.wrap[data-slow="on"]:not([data-retro="on"]) .scene-lift *,
+/* The scene rests too: after 30 seconds with no touch, key or mouse move (or while a dialog is open) the page gets data-rest="on" and the scene,
+   the petals and the apple's own looping animations hold still. Any input wakes it. */
+.wrap[data-rest="on"]:not([data-retro="on"]) #sceneSvg, .wrap[data-rest="on"]:not([data-retro="on"]) #sceneSvg *,
+.wrap[data-rest="on"]:not([data-retro="on"]) .scene-lift *, .wrap[data-rest="on"]:not([data-retro="on"]) #pfx *,
+.wrap[data-rest="on"]:not([data-retro="on"]) .apple, .wrap[data-rest="on"]:not([data-retro="on"]) .apple *,
+.wrap[data-rest="on"]:not([data-retro="on"]) .golden *, .wrap[data-rest="on"]:not([data-retro="on"]) .bob,
+.wrap[data-rest="on"]:not([data-retro="on"]) .aura { animation-play-state: paused !important; }
 /* Scene layers: the scene's looping moving parts are copied into small pictures of their own on top of the scene,
    which the graphics chip moves without repainting the big scene picture; the originals are hidden */
 .scene-lift { position: absolute; inset: 0; overflow: hidden; pointer-events: none; transform: scale(1.05); animation: scin 900ms ease both; }
@@ -6209,7 +6218,7 @@ var apFR = FieldReport.start({ name: 'apple-press', version: '__APV__' });
     'Planet-Wide Pantry': 'Moon Cold Storage'
   };
 
-  // Saving, loading and save codes are the save-kit module from JS-modules (version 1.2.1, pasted below with its notice, cut down to the
+  // Saving, loading and save codes are the save-kit module from JS-modules (version 1.4.0, pasted below with its notice, cut down to the
   // parts this game uses). The game keeps its own rules in afterValidate (later in this block) and its own timers. A save is never
   // written when a number in it is broken (a bug would otherwise wipe good progress), and once a minute the last good save is also
   // copied to a backup slot that is used if the main one is ever unreadable. The module's settings keep every save and save code that
@@ -6218,7 +6227,7 @@ var apFR = FieldReport.start({ name: 'apple-press', version: '__APV__' });
    * save-kit.js: safe localStorage saves, a rolling backup slot, and checksummed copy-paste save codes.
    * Part of JS-modules, https://github.com/lfcfoundry/JS-modules
    * Copyright (c) 2026 LFC Foundry. MIT License (see LICENSE at the repository root).
-   * Version 1.2.1 (API 1)
+   * Version 1.4.0 (API 1)
    * LEAN BUILD without: autosave, compact, migrate, nativeBase64, onOtherTab, persist, raw, skipUnchanged, twoTap. Made by modules/save-kit/lean.py; the cut parts are missing on purpose.
    *
    * What it gives you
@@ -6260,6 +6269,7 @@ var apFR = FieldReport.start({ name: 'apple-press', version: '__APV__' });
   })(typeof self !== 'undefined' ? self : this, function () {
     'use strict';
 
+    var trusted = false;                // set only while createLarge().load() rebuilds a state from bytes that passed their check and contain no prototype-pollution key names
     var BAD_KEYS = { '__proto__': 1, 'constructor': 1, 'prototype': 1 };
     var DEFAULT_MAX_KEYS = 1000;        // most names kept in one 'counts' field
     var DEFAULT_MAX_BYTES = 262144;     // biggest unpacked save a code may hold: 256 KiB
@@ -6286,17 +6296,17 @@ var apFR = FieldReport.start({ name: 'apple-press', version: '__APV__' });
         case 'num': return isNum(v) ? v : d;
         case 'int': return isNum(v) ? Math.min(Math.floor(v), spec.max == null ? Number.MAX_SAFE_INTEGER : spec.max) : d;
         case 'flag': return v === 1 ? 1 : v === 0 ? 0 : (d === 1 ? 1 : 0);
-        case 'str': return typeof v === 'string' && v.length <= (spec.max || 200) ? v : (d == null ? '' : d);
+        case 'str': return typeof v === 'string' && v.length <= (spec.max === 0 ? 0 : spec.max || 200) ? v : (d == null ? '' : d);
         case 'counts':
-          var out = bag(), kept = 0, maxKeys = spec.maxKeys > 0 ? spec.maxKeys : DEFAULT_MAX_KEYS;
+          var out = bag(), kept = 0, maxKeys = spec.maxKeys === 0 ? 0 : spec.maxKeys > 0 ? spec.maxKeys : DEFAULT_MAX_KEYS;
           if (!isObj(v)) v = d;   // a missing or broken field starts from its default (1.0.0 always gave an empty map here)
           if (!isObj(v)) return out;
-          var ks = Object.keys(v), cap = spec.max || 1e6, i, k, n;
+          var ks = Object.keys(v), cap = spec.max === 0 ? 0 : spec.max || 1e6, i, k, n;
           for (i = 0; i < ks.length; i++) {
             k = ks[i];
             if (BAD_KEYS[k] || k.length > 200 || kept >= maxKeys) continue;
             n = v[k];
-            if (typeof n === 'number' && isFinite(n) && n > 0) { out[k] = Math.min(Math.floor(n), cap); kept++; }
+            if (cap > 0 && typeof n === 'number' && isFinite(n) && n > 0) { out[k] = Math.min(Math.floor(n), cap); kept++; }
           }
           return out;
         default: return d;
@@ -6389,6 +6399,69 @@ var apFR = FieldReport.start({ name: 'apple-press', version: '__APV__' });
     }
     function escapeRe(t) { return t.replace(/[.*+?^${}()|[\]\\\/-]/g, '\\$&'); }
 
+    // ---- durable mirror (IndexedDB copy of create()'s saves) ----
+    // Each save is also put in IndexedDB with durability 'strict' (written through to disk before the browser says done), newest only:
+    // while one write runs, later saves wait and only the newest is written. The record already there when the page opened is read once
+    // (boot) before any write, so a save made before recover() runs can never cover up the newer copy recover() is looking for.
+    function durableMirror(name, given) {
+      var idb = given !== undefined ? given : typeof indexedDB !== 'undefined' ? indexedDB : null, dbp = null, busy = false, pend = null, waiters = [], boot;
+      function db() {
+        if (!dbp) dbp = new Promise(function (ok) {
+          if (!idb) { ok(null); return; }
+          try {
+            var rq = idb.open(name, 1);
+            rq.onupgradeneeded = function () { rq.result.createObjectStore('slots'); };
+            rq.onsuccess = function () { var d = rq.result; d.onversionchange = d.onclose = function () { try { d.close(); } catch (e) {} dbp = null; }; ok(d); };
+            rq.onerror = rq.onblocked = function () { dbp = null; ok(null); };
+          } catch (e) { dbp = null; ok(null); }
+        });
+        return dbp;
+      }
+      function read() {
+        return db().then(function (d) {
+          return new Promise(function (ok) {
+            if (!d) { ok(null); return; }
+            try { var rq = d.transaction('slots', 'readonly').objectStore('slots').get('main'); rq.onsuccess = function () { ok(rq.result || null); }; rq.onerror = function () { ok(null); }; } catch (e) { ok(null); }
+          });
+        });
+      }
+      function done(r) { var w = waiters; waiters = []; for (var i = 0; i < w.length; i++) w[i](r); }
+      function run() {
+        if (busy || !pend) return;
+        busy = true;
+        var job = pend; pend = null;
+        boot.then(db).then(function (d) {
+          return new Promise(function (ok) {
+            if (!d) { ok(false); return; }
+            try {
+              var t = d.transaction('slots', 'readwrite', { durability: 'strict' });
+              t.objectStore('slots').put(job, 'main');
+              t.oncomplete = function () { ok(true); }; t.onerror = t.onabort = function () { ok(false); };
+            } catch (e) { ok(false); }
+          });
+        }).then(function (r) { busy = false; if (pend) run(); else done(r); });
+      }
+      boot = read();
+      return {
+        boot: boot,
+        write: function (t, at) { pend = { t: t, n: t.length, at: at }; run(); },
+        flushed: function () { return !busy && !pend ? Promise.resolve(true) : new Promise(function (ok) { waiters.push(ok); }); }
+      };
+    }
+    // durableCopy(name, { indexedDB }) -> { write(text, seq), newer(seq), flushed() }: the same strict IndexedDB copy for any text (an app with its
+    // own save format and checks). write() never throws and keeps only the newest waiting text. newer(seq) -> Promise<{ text, seq } or null>:
+    // the copy that was there when this page opened, when its seq is above the given one (the seq of what the app loaded) and its text is whole.
+    function durableCopy(name, o) {
+      var m = durableMirror(String(name || 'save-kit-durable'), o && 'indexedDB' in o ? o.indexedDB : undefined);
+      return {
+        write: function (text, seq) { if (typeof text === 'string' && isNum(seq)) m.write(text, seq); },
+        newer: function (seq) {
+          return m.boot.then(function (r) { return r && typeof r.t === 'string' && r.t.length === r.n && isNum(r.at) && r.at > (isNum(seq) ? seq : -Infinity) ? { text: r.t, seq: r.at } : null; }, function () { return null; });
+        },
+        flushed: m.flushed
+      };
+    }
+
     // ---- the store ----
     // create({ key, schema, defaults, soundKeys, prefix, storage, maxCodeBytes, maxCodeChars, backupEveryMs })
     //   key: localStorage key. schema/defaults: see validate(). soundKeys: numeric fields that must be sound to write a save
@@ -6411,6 +6484,8 @@ var apFR = FieldReport.start({ name: 'apple-press', version: '__APV__' });
       var off = false, backupAt = 0, backupEvery = o.backupEveryMs == null ? 60000 : o.backupEveryMs;
       var stamp = o.stamp || 'seen', bak = o.backupKey || key + '-backup', damaged = o.damagedKey || '', after = typeof o.afterValidate === 'function' ? o.afterValidate : null;
       var orphan = o.readBackupWithoutMain !== false;   // false: a missing main slot never brings back a leftover backup
+      // durable: true (database 'save-kit-durable:<key>') or a database name: every save is also kept in IndexedDB, see recover().
+      var mirror = o.durable ? durableMirror(o.durable === true ? 'save-kit-durable:' + key : String(o.durable), o.indexedDB) : null, loadedAt = null;
 
       function upgrade(raw) { return raw; }
 
@@ -6423,10 +6498,11 @@ var apFR = FieldReport.start({ name: 'apple-press', version: '__APV__' });
       }
       function soundState(x) { return isObj(x) && badFields(x) === 0; }
       function textOf(slot) { try { return storage.getItem(slot); } catch (e) { return undefined; } }   // null = empty slot, undefined = storage refused
+      var plainText = new WeakSet(), hasRaw = kinds('raw').length > 0;   // parsed slots whose text names no __proto__, constructor or prototype key: JSON.parse already made fresh plain objects of them (only looked for when the schema has a raw field)
       function parseSlot(t) {
         try {
           var x = JSON.parse(t || 'null');
-          if (isObj(x)) return x;
+          if (isObj(x)) { if (hasRaw && t.indexOf('__proto__') < 0 && t.indexOf('constructor') < 0 && t.indexOf('prototype') < 0) plainText.add(x); return x; }
         } catch (e) {}
         return null;
       }
@@ -6434,7 +6510,9 @@ var apFR = FieldReport.start({ name: 'apple-press', version: '__APV__' });
       // Schema check, then the game's own afterValidate(clean, raw) if there is one: it may change `clean` in place, return a replacement object, or return
       // false/null to refuse the save. A hook that throws is ignored (the schema-checked state is used). Returns null when refused.
       function finish(raw) {
-        var c = validateWith(fields, defaults, upgrade(raw)), r;
+        var c, r, was = trusted;
+        trusted = plainText.has(raw) && !(typeof migrate !== 'undefined' && migrate && version && isNum(raw.v) && raw.v < version);
+        try { c = validateWith(fields, defaults, upgrade(raw)); } finally { trusted = was; }
         if (!after) return c;
         try { r = after(c, raw); } catch (e) { return c; }
         return r === false || r === null ? null : isObj(r) ? r : c;
@@ -6457,6 +6535,7 @@ var apFR = FieldReport.start({ name: 'apple-press', version: '__APV__' });
               }
             }
             if (damaged && mt && (!a || used !== a)) { try { storage.setItem(damaged, mt); } catch (e) {} }
+            loadedAt = used && isNum(used[stamp]) ? used[stamp] : 0;
             return out;
           } catch (e) { return null; }
         },
@@ -6471,6 +6550,7 @@ var apFR = FieldReport.start({ name: 'apple-press', version: '__APV__' });
             state[stamp] = now;
             var txt = JSON.stringify(state);
             storage.setItem(key, txt);
+            if (mirror) mirror.write(txt, now);
             if (Date.now() - backupAt > backupEvery) {
               try { storage.setItem(bak, txt); backupAt = Date.now(); } catch (e) { /* storage full: the main slot is safe */ }
             }
@@ -6480,6 +6560,29 @@ var apFR = FieldReport.start({ name: 'apple-press', version: '__APV__' });
           }
         },
         forceBackupNext: function () { backupAt = 0; },
+        // With the durable option: -> Promise<clean state or null>, never rejects. Resolves the IndexedDB copy when it is newer (by `seen`)
+        // than the save load() returned (or, before any load(), than the main slot), else null. A browser that crashed can lose the last
+        // stretch of localStorage writes (Chromium about a minute, Firefox about 10 s) while the strict IndexedDB copy keeps every finished
+        // save. load() stays synchronous and fast; call recover() right after it and switch to the state it gives, if any. The newer copy is
+        // also written back to the main slot.
+        recover: function () {
+          if (!mirror) return Promise.resolve(null);
+          return mirror.boot.then(function (rec) {
+            try {
+              if (off || !rec || typeof rec.t !== 'string' || rec.t.length !== rec.n) return null;
+              var base = loadedAt;
+              if (base === null) { var l = readSlot(key); base = l && isNum(l[stamp]) ? l[stamp] : 0; }
+              if (isNum(rec.at) && rec.at <= base) return null;   // the usual case, nothing lost: no need to parse the copy
+              var x = parseSlot(rec.t);
+              if (!x || badFields(x) > 0 || !isNum(x[stamp]) || x[stamp] <= base) return null;
+              var out = finish(x);
+              if (out) { try { storage.setItem(key, rec.t); } catch (e) {} }
+              return out;
+            } catch (e) { return null; }
+          });
+        },
+        // With the durable option: -> Promise<boolean> once the newest save so far is in IndexedDB (false if IndexedDB refused it).
+        flushed: function () { return mirror ? mirror.flushed() : Promise.resolve(false); },
         // Switches saving off (true) or on (false). Used while a loaded save waits for a page reload, so the old game can't overwrite it.
         pause: function (v) { off = v !== false; },
         // -> Promise<string> like 'SK1z.<data>.<check>' (z = squeezed, p = plain; whichever is shorter). Rejects with a message (string)
@@ -6539,9 +6642,181 @@ var apFR = FieldReport.start({ name: 'apple-press', version: '__APV__' });
       return api;
     }
 
+    // ---- large saves (IndexedDB) ----
+    // createLarge({ name, schema, defaults, soundKeys, backupEveryMs, stamp, afterValidate, version, lock, indexedDB })
+    // The same checks and backup slot as create(), over IndexedDB, for saves of a few MB and up (localStorage holds about 5 MB for the whole site).
+    // Every call returns a Promise and never rejects. A save is stored as its JSON text plus the text length, in one transaction with the
+    // backup slot, so a half-written save cannot exist (the browser's own storage adds its own checksums); load() ignores a slot whose
+    // text is cut short or is not a JSON object and falls back to the other slot.
+    // While a write is running, newer saves wait and only the newest is written (each caller's Promise resolves true once that save or a newer one is stored).
+    function createLarge(o) {
+      o = o || {};
+      var dbName = o.name || 'save-kit-large', schema = o.schema || {}, defaults = o.defaults || {}, stamp = o.stamp || 'seen';
+      var fields = fieldsOf(schema), after = typeof o.afterValidate === 'function' ? o.afterValidate : null;
+      var kinds = function (t) { return fields.filter(function (f) { return f[1].type === t; }).map(function (f) { return f[0]; }); };
+      var soundKeys = o.soundKeys || kinds('num').concat(kinds('int')), countKeys = kinds('counts');
+      var version = o.version > 0 ? Math.floor(o.version) : 0;
+      var backupEvery = o.backupEveryMs == null ? 60000 : o.backupEveryMs, backupAt = 0, off = false;
+      var idb = 'indexedDB' in o ? o.indexedDB : typeof indexedDB !== 'undefined' ? indexedDB : null, dbp = null;
+      var plain = new WeakSet();   // parsed states whose text names no prototype-pollution key
+      var chan = null, listeners = [], mine = Math.random().toString(36).slice(2);
+      var useLock = !!o.lock, held = null, first = null, lostCb = null;
+
+      function badFields(x) {
+        var n = 0, i, v;
+        for (i = 0; i < soundKeys.length; i++) { v = x[soundKeys[i]]; if (v !== undefined && !isNum(v)) n++; }
+        for (i = 0; i < countKeys.length; i++) if (!countsSound(x[countKeys[i]])) n++;
+        return n;
+      }
+      function finish(raw) {
+        var c = validateWith(fields, defaults, raw), r;
+        if (!after) return c;
+        try { r = after(c, raw); } catch (e) { return c; }
+        return r === false || r === null ? null : isObj(r) ? r : c;
+      }
+      // finish() for a state that came out of open(): when its text names no __proto__, constructor or prototype key, 'raw' fields skip the deep copy and scrub.
+      function fin(x) { trusted = plain.has(x); try { return finish(x); } finally { trusted = false; } }
+      function db() {
+        if (!dbp) dbp = new Promise(function (ok) {
+          if (!idb) { ok(null); return; }
+          try {
+            var rq = idb.open(dbName, 1);
+            rq.onupgradeneeded = function () { rq.result.createObjectStore('slots'); };
+            rq.onsuccess = function () { var d = rq.result; d.onversionchange = d.onclose = function () { try { d.close(); } catch (e) {} dbp = null; }; ok(d); };
+            rq.onerror = rq.onblocked = function () { dbp = null; ok(null); };
+          } catch (e) { dbp = null; ok(null); }
+        });
+        return dbp;
+      }
+      function tx(d, mode) { return d.transaction('slots', mode); }
+      function get(d, k) {
+        return new Promise(function (ok) {
+          try { var rq = tx(d, 'readonly').objectStore('slots').get(k); rq.onsuccess = function () { ok(rq.result); }; rq.onerror = function () { ok(undefined); }; } catch (e) { ok(undefined); }
+        });
+      }
+      // The state a record holds, or null when the record is missing, has the wrong length, or is not a JSON object.
+      function open(rec) {
+        try {
+          if (!rec || typeof rec.t !== 'string' || rec.t.length !== rec.n) return null;
+          var t = rec.t, x = JSON.parse(t);
+          if (!isObj(x)) return null;
+          if (t.indexOf('__proto__') < 0 && t.indexOf('"constructor"') < 0 && t.indexOf('"prototype"') < 0) plain.add(x);
+          return x;
+        } catch (e) { return null; }
+      }
+      function claim(steal) {
+        if (!(typeof navigator !== 'undefined' && navigator.locks)) return Promise.resolve(true);
+        return new Promise(function (ok) {
+          try {
+            navigator.locks.request('save-kit-large:' + dbName, steal ? { steal: true } : { ifAvailable: true }, function (l) {
+              if (!l) { ok(false); return; }
+              ok(true);
+              return new Promise(function () {});   // held until the page closes (or another tab steals it)
+            }).then(null, function () { held = false; if (lostCb) try { lostCb(); } catch (e) {} });
+          } catch (e) { ok(true); }
+        }).then(function (g) { held = g; return g; });
+      }
+
+      function channel() {
+        if (!chan) { chan = new BroadcastChannel('save-kit-large:' + dbName); chan.onmessage = function (e) { if (e.data && e.data.from !== mine && listeners.length) api.load().then(function (s) { listeners.slice().forEach(function (f) { try { f(s); } catch (x) {} }); }); }; }
+        return chan;
+      }
+      var busy = false, next = null;
+      function put(slot) {
+        var started = slot.at;
+        return db().then(function (d) {
+          if (!d) return false;
+          return new Promise(function (ok) {
+            try {
+              var t = tx(d, 'readwrite'), s = t.objectStore('slots'), now = Date.now(), backup = now - backupAt > backupEvery;
+              s.put(slot.rec, 'main');
+              if (backup) s.put(slot.rec, 'backup');
+              t.oncomplete = function () { if (backup) backupAt = now; try { channel().postMessage({ from: mine, at: started }); } catch (e) {} ok(true); };
+              t.onerror = t.onabort = function () { ok(false); };
+            } catch (e) { ok(false); }
+          });
+        });
+      }
+      function pump() {
+        if (busy || !next) return;
+        var job = next; next = null; busy = true;
+        put(job).then(function (r) { return r; }, function () { return false; }).then(function (r) {
+          busy = false;
+          job.done.forEach(function (f) { f(r); });
+          pump();
+        });
+      }
+      function enqueue(rec) {
+        return new Promise(function (ok) {
+          var done = next ? next.done : [];   // a write waiting behind the running one is replaced; its callers wait for the newer one
+          done.push(ok);
+          next = { rec: rec, at: Date.now(), done: done };
+          pump();
+        });
+      }
+
+      var api = {
+        validate: function (input) { return validateWith(fields, defaults, input); },
+        // -> Promise<clean state or null>: from the main slot, or from the backup when the main slot is missing, damaged or has more broken numbers.
+        load: function () {
+          return db().then(function (d) {
+            if (!d) return null;
+            return get(d, 'main').then(function (mr) {
+              var a = open(mr);
+              if (a && badFields(a) === 0) return fin(a);
+              return get(d, 'backup').then(function (br) {
+                var b = open(br), first = !b ? a : !a ? b : (badFields(b) < badFields(a) ? b : a), out = first ? fin(first) : null, second;
+                if (!out && first) { second = first === a ? b : a; out = second ? fin(second) : null; }
+                return out;
+              });
+            });
+          }).then(null, function () { return null; });
+        },
+        // -> Promise<boolean>. False (and nothing written) when a number is broken, saving is off, another tab holds the lock, or storage fails.
+        save: function (state) {
+          try {
+            if (off || !idb || !isObj(state) || badFields(state) > 0) return Promise.resolve(false);
+            if (version) state.v = version;
+            state[stamp] = Date.now();
+            var t = JSON.stringify(state), rec = { t: t, n: t.length };
+            if (useLock && held === null) return (first || (first = claim(false))).then(function (g) { return g ? enqueue(rec) : false; });
+            return useLock && !held ? Promise.resolve(false) : enqueue(rec);
+          } catch (e) { return Promise.resolve(false); }
+        },
+        // -> Promise<boolean>: removes both slots.
+        clear: function () {
+          return db().then(function (d) {
+            if (!d) return false;
+            return new Promise(function (ok) {
+              try { var t = tx(d, 'readwrite'), s = t.objectStore('slots'); s.delete('main'); s.delete('backup'); t.oncomplete = function () { ok(true); }; t.onerror = t.onabort = function () { ok(false); }; } catch (e) { ok(false); }
+            });
+          });
+        },
+        forceBackupNext: function () { backupAt = 0; },
+        pause: function (v) { off = v !== false; },
+        // With the lock option: -> Promise<boolean>, true when this tab may write. claim(true) takes the lock from the tab that holds it.
+        claim: function (steal) { return claim(steal === true); },
+        // cb() runs when another tab takes the lock from this one (this tab's saves then return false).
+        onLost: function (cb) { lostCb = typeof cb === 'function' ? cb : null; },
+        // cb(cleanState) runs when ANOTHER tab (same name) has stored a save. Returns a function that stops listening.
+        onOtherTab: function (cb) {
+          if (typeof BroadcastChannel === 'undefined' || typeof cb !== 'function') return function () {};
+          channel();
+          listeners.push(cb);
+          return function () { var i = listeners.indexOf(cb); if (i >= 0) listeners.splice(i, 1); };
+        },
+        // Closes the database and the channel (a later call opens them again).
+        close: function () { return db().then(function (d) { if (d) { try { d.close(); } catch (e) {} } dbp = null; if (chan) { try { chan.close(); } catch (e) {} chan = null; } }); }
+      };
+      return api;
+    }
+
 
     return {
-      create: create, validate: validate, isSound: isSound,
+      create: create,
+      durableCopy: durableCopy,
+      createLarge: createLarge,
+      validate: validate, isSound: isSound,
       checksum: checksum, toBase64Url: toB64, fromBase64Url: fromB64,
       bag: bag, has: has
     };
@@ -6556,7 +6831,7 @@ var apFR = FieldReport.start({ name: 'apple-press', version: '__APV__' });
   var kitDefaults = freshState(0);
   kitDefaults.short = 0; kitDefaults.ver = 0; kitDefaults.seen = 0;
   var kit = SaveKit.create({
-    key: KEY, prefix: 'AP1', codeCheck: 'plain36', soundKeys: SAVE_NUMS, backupEveryMs: 60000, defaults: kitDefaults,
+    key: KEY, prefix: 'AP1', codeCheck: 'plain36', durable: true, soundKeys: SAVE_NUMS, backupEveryMs: 60000, defaults: kitDefaults,
     // (one entry per saved field, in the order they are stored; the limits are the ones this game has always applied)
     schema: {
       short: 'flag', count: 'num', total: 'num', owned: CNT, credits: WHOLE, bowned: CNT, caught: WHOLE, runs: WHOLE, secs: 'num',
@@ -6596,6 +6871,20 @@ var apFR = FieldReport.start({ name: 'apple-press', version: '__APV__' });
     } catch (e) {}
   }
   load();
+  // Crash safety: every save is also kept in the browser's own database (save-kit durable). If the browser was killed or crashed before the
+  // newer save reached the page's storage, recover() hands back the newer copy; the page then reloads once (once per tab session) so the game
+  // starts from it. Not used by the test pages (their own storage keys).
+  if (!cfg.testParadise && !cfg.hiddenSpecials && !cfg.seasonPreview && kit.recover) {
+    kit.recover().then(function (got) {
+      var again = false;
+      try { again = sessionStorage.getItem('apple-press-recovered') === '1'; } catch (e) {}
+      if (got && !again) {
+        saveOff = true;
+        try { sessionStorage.setItem('apple-press-recovered', '1'); } catch (e) {}
+        location.reload();
+      }
+    }, function () {});
+  }
   apMarks.state = performance.now();
   requestAnimationFrame(function () { apMarks.frame = performance.now(); apFR.mark('first game frame'); });
 
@@ -7489,25 +7778,11 @@ var apFR = FieldReport.start({ name: 'apple-press', version: '__APV__' });
     var svg = $('sceneSvg'), sr = svg.getBoundingClientRect();
     if (sr.width < 2 || sr.height < 2) return;
     liftN++;
-    // 1. mark what loops (and what holds something that loops)
-    function mark(el) {
-      if (LIFT_SKIP[el.tagName]) return false;
-      // (the old scene still fading out stays as it is)
-      if (el.classList.contains('sc') && !el.classList.contains('on')) return false;
-      // (a part cut to shape by a clip, like the water in the mill stream, stays in the drawing where its clip works;
-      // lifted out on its own, the water flowed right across the grass)
-      if (el.hasAttribute('clip-path')) return false;
-      var cs = getComputedStyle(el);
-      if (cs.display === 'none') return false;
-      el._slB = liftN;
-      if (cs.animationName !== 'none' && cs.animationIterationCount.indexOf('infinite') >= 0) { el._slA = true; return true; }
-      el._slA = false;
-      var any = false;
-      for (var c = el.firstElementChild; c; c = c.nextElementSibling) if (mark(c)) any = true;
-      el._slD = any;
-      return any;
-    }
+    var gen = liftGen;
     for (var c0 = svg.firstElementChild; c0; c0 = c0.nextElementSibling) mark(c0);
+    // Planning runs in its own task, after the marking above, so neither task passes about 8 ms (they used to share one).
+    setTimeout(function () {
+    if (gen !== liftGen) return;
     // 2. the moving parts and the still parts beside them, in drawing order
     var seq = [];
     function plan(E, chain) {
@@ -7559,8 +7834,6 @@ var apFR = FieldReport.start({ name: 'apple-press', version: '__APV__' });
     });
     // The rest of the build runs in two more short tasks, one frame apart, so no task passes about 8 ms (the whole build took 12 to 14 ms in one go).
     // Each task batches its reads before its writes. If the scene changes in between, the generation number changes and the rest is dropped.
-    var gen = liftGen;
-    function later(fn) { requestAnimationFrame(function () { setTimeout(function () { if (gen === liftGen) fn(); }, 0); }); }
     later(function () {
     // 3. the moving parts' resting position and see-through when not moving (their moving copies carry them instead)
     var outers = units.filter(function (u) { return u.move && u.outer; });
@@ -7644,6 +7917,27 @@ var apFR = FieldReport.start({ name: 'apple-press', version: '__APV__' });
     liftPlace();
     });
     });
+    }, 0);
+    // 1. mark what loops (and what holds something that loops)
+    // 1. mark what loops (and what holds something that loops)
+    function mark(el) {
+      if (LIFT_SKIP[el.tagName]) return false;
+      // (the old scene still fading out stays as it is)
+      if (el.classList.contains('sc') && !el.classList.contains('on')) return false;
+      // (a part cut to shape by a clip, like the water in the mill stream, stays in the drawing where its clip works;
+      // lifted out on its own, the water flowed right across the grass)
+      if (el.hasAttribute('clip-path')) return false;
+      var cs = getComputedStyle(el);
+      if (cs.display === 'none') return false;
+      el._slB = liftN;
+      if (cs.animationName !== 'none' && cs.animationIterationCount.indexOf('infinite') >= 0) { el._slA = true; return true; }
+      el._slA = false;
+      var any = false;
+      for (var c = el.firstElementChild; c; c = c.nextElementSibling) if (mark(c)) any = true;
+      el._slD = any;
+      return any;
+    }
+    function later(fn) { requestAnimationFrame(function () { setTimeout(function () { if (gen === liftGen) fn(); }, 0); }); }
   }
   // Builds, rebuilds or removes the layers when the scene, its extras, the look or the effects setting change.
   function sceneLiftSync() {
@@ -8177,6 +8471,27 @@ var apFR = FieldReport.start({ name: 'apple-press', version: '__APV__' });
   // The celebration checks its own smoothness: for its first second it times each frame, and if this computer is
   // drawing slowly (Firefox without the graphics chip, an old laptop) it steps down: first the rays stop turning, then
   // the second ray wheel and the pulsing edges go, then the rays. The step is remembered, so later promotions start there.
+  // The scene rests: after 30 seconds with no pointer, key, wheel or touch input (or while any dialog is open) the page gets data-rest="on",
+  // which pauses the scene, the petals and the apple's own looping animations (see the data-rest rules in the styles). Any input wakes it.
+  (function () {
+    var lastInput = performance.now(), resting = false;
+    function setRest(on) {
+      if (on === resting) return;
+      resting = on;
+      if (on) page.setAttribute('data-rest', 'on'); else page.removeAttribute('data-rest');
+    }
+    function wake() {
+      lastInput = performance.now();
+      if (resting && !document.querySelector('dialog[open]')) setRest(false);
+    }
+    ['pointerdown', 'pointermove', 'keydown', 'wheel', 'touchstart'].forEach(function (ev) {
+      addEventListener(ev, wake, { passive: true, capture: true });
+    });
+    setInterval(function () {
+      if (document.hidden) return;
+      setRest(performance.now() - lastInput > 30000 || !!document.querySelector('dialog[open]'));
+    }, 1000);
+  })();
   var CELEBKEY = 'apple-press-celeb';
   function celebGovern(back) {
     var lv = 0;
@@ -8540,13 +8855,13 @@ var apFR = FieldReport.start({ name: 'apple-press', version: '__APV__' });
         }
         if (job && job.failed) job = null;
         if (job && job.ready) {
-          try { img.data.set(new Uint8ClampedArray(job.buf)); x.putImageData(img, 0, 0); self.engine = 'worker+' + job.engine; self.done = true; return true; } catch (e) { job = null; }
+          try { img.data.set(new Uint8ClampedArray(job.buf)); x.putImageData(img, 0, 0); self.engine = 'worker+' + job.engine; self.done = true; img = null; core = null; job.buf = null; job = null; return true; } catch (e) { job = null; }
         }
         if (job) return false;   // still painting in the worker
         onPage();               // no worker, or it failed: paint here, from the start
       }
       core.step(ms); self.engine = core.engine;
-      if (core.done) { x.putImageData(img, 0, 0); self.done = true; }
+      if (core.done) { x.putImageData(img, 0, 0); self.done = true; img = null; core = null; job = null; }   // (a finished half-curtain lets go of its buffers: about 8 MB in a long session)
       return self.done;
     };
     return self;
@@ -11785,9 +12100,6 @@ var apFR = FieldReport.start({ name: 'apple-press', version: '__APV__' });
     }
   }
   var BOOK_PAGES = [];
-  STICKERS.forEach(function (p) {
-    for (var i = 0; i < p.ids.length; i += 9) BOOK_PAGES.push({ name: p.page, ids: p.ids.slice(i, i + 9), part: Math.floor(i / 9), parts: Math.ceil(p.ids.length / 9) });
-  });
   function gotSticker(id) {
     state.book[id] = 1;
     bookFresh[id] = 1;
@@ -11795,10 +12107,19 @@ var apFR = FieldReport.start({ name: 'apple-press', version: '__APV__' });
     setTimeout(function () { floatWord('New sticker! ' + (STICKER_NAME[id] || id) + ' (+1%)', false, null, 'golden'); }, 400);
     if (book && !book.hidden) renderBook();
   }
+  // Each sticker shows its own copy of the apple, but only the parts its mood and hat make visible. The first time a (mood, hat) pair is
+  // shown, the copy is made whole, one frame later the parts that are not displayed are found, and their positions are remembered here, so
+  // later copies are made without them (about 148 elements instead of 838). The key also holds the apple's size and the page's context
+  // (the attributes up to the page), so a new look or theme builds the list again.
+  var BOOK_HIDE = {};
   function renderBook() {
     var grid = $('bookGrid'), pg = BOOK_PAGES[bookPage];
     grid.textContent = '';
-    var art = $('appleArt');
+    var art = $('appleArt'), sig = art.getElementsByTagName('*').length + '';
+    var p, q;
+    for (p = art; p; p = p === art ? grid : p.parentElement)
+      for (q = 0; q < p.attributes.length; q++) sig += '|' + p.attributes[q].name + '=' + p.attributes[q].value;
+    var pend = [];
     pg.ids.forEach(function (id) {
       var have = !!state.book[id];
       var li = mk('li', (have ? '' : 'miss') + (bookFresh[id] ? ' new' : ''));
@@ -11807,13 +12128,29 @@ var apFR = FieldReport.start({ name: 'apple-press', version: '__APV__' });
       var hat = pg.name === 'Hats';
       ap.setAttribute('data-mood', hat ? 'happy' : id);
       if (hat) ap.setAttribute('data-acc', id === 'party-hat' ? 'party' : id);
-      var c = art.cloneNode(true);
+      var c = art.cloneNode(true), key = sig + '|' + ap.getAttribute('data-mood') + '|' + ap.getAttribute('data-acc'), hidden = BOOK_HIDE[key], j, x;
       c.removeAttribute('id');
+      if (hidden) for (x = c.querySelectorAll('*'), j = hidden.length - 1; j >= 0; j--) x[hidden[j]].remove();
       ap.appendChild(c);
       li.appendChild(ap);
       li.appendChild(have ? document.createTextNode(STICKER_NAME[id] || id) : mk('span', 'book-goal', GOALS[id] ? GOALS[id][0] : '?'));
       if (!have) li.setAttribute('aria-label', 'A sticker to earn: ' + (GOALS[id] ? GOALS[id][0] : ''));
       grid.appendChild(li);
+      if (!hidden) pend.push([c, key]);
+    });
+    if (pend.length) requestAnimationFrame(function () {
+      setTimeout(function () {
+        if (book.hidden) return;
+        pend.forEach(function (v) {
+          var c = v[0], key = v[1], hidden = BOOK_HIDE[key], x, j;
+          if (c.isConnected && getComputedStyle(c).display !== 'none') {
+            x = c.querySelectorAll('*');
+            if (!hidden) for (hidden = [], j = 0; j < x.length; j++) if (getComputedStyle(x[j]).display === 'none') hidden.push(j);
+            for (j = hidden.length - 1; j >= 0; j--) x[hidden[j]].remove();
+            BOOK_HIDE[key] = hidden;
+          }
+        });
+      }, 0);
     });
     var n = bookCount(), all = Object.keys(STICKER_IDS).length;
     $('bookCount').textContent = n + ' of ' + all;
@@ -11823,6 +12160,9 @@ var apFR = FieldReport.start({ name: 'apple-press', version: '__APV__' });
   }
   function openBook() { hideTip(); bookPage = 0; renderBook(); book.hidden = false; try { $('bookClose').focus({ preventScroll: true }); } catch (e) {} }
   function closeBook() { book.hidden = true; $('bookGrid').textContent = ''; bookFresh = bag(); }
+  STICKERS.forEach(function (p) {
+    for (var i = 0; i < p.ids.length; i += 9) BOOK_PAGES.push({ name: p.page, ids: p.ids.slice(i, i + 9), part: Math.floor(i / 9), parts: Math.ceil(p.ids.length / 9) });
+  });
   $('bookBtn').addEventListener('click', openBook);
   $('bookClose').addEventListener('click', closeBook);
   $('bookPrev').addEventListener('click', function () { bookPage = (bookPage + BOOK_PAGES.length - 1) % BOOK_PAGES.length; renderBook(); });

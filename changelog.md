@@ -4,6 +4,10 @@ The newest changes are first. The version number is at the bottom of the page. T
 
 **Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1 and WebKitGTK 2.52.6, one at a time (the newest build, 2026.10.29.2010, passed the full check set in Chromium and a screen-picture comparison in all three).
 
+## November 22
+
+- The readable source now matches the current game (build 2026.10.31.2352), not just the October 24 version. Nothing in the game changes.
+
 ## November 21
 
 - The readable source of the game is now in the open: the `source/` folder holds the game's files and the steps to build it. It is the October 24 version; a formatted copy of the current page is next to it for reading until the last week of changes is rebuilt. Nothing in the game changes.

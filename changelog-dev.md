@@ -2,6 +2,18 @@
 
 What changed on each date, newest first, for developers, in three depths: **Quick** (what changed), **Details** (what each change did, with the test browsers named where measured) and **Deep** (the full entry: reasons, numbers, tests). People who just play read [changelog.md](changelog.md). The game's source is private; this file describes the shipped single file.
 
+## 2026-11-22 · no new build (live page stays 2026.10.31.2352)
+
+### Quick
+
+Source for build 2026.10.31.2352 re-created in `source/` (the Oct 25 to 31 changes on top of the Oct 24 snapshot). The game is unchanged.
+
+### Details
+
+- Found by comparing script structure of a build of the Oct 24 source with the live page: 33 differing places, all Oct 25 to 31 changes. Re-written: save-kit 1.4.0 lean (durable, recover), resting scene, curtain buffers freed, scene-layer build split, sticker-book copy trimming, `html{overflow-x:clip}`, plain characters (notice without emoji).
+- A build is 5 bytes smaller than the live page (local names in the sticker-book function); everything else matches. Screenshots in Firefox 158.0, ungoogled Chromium 156.0.8078.79 and WebKitGTK 2.52.6: sticker book 100% identical; game screen inside the live page's own run-to-run noise (99.15 to 99.90%).
+- The formatted reading copy of the live page (PR 50) is removed, since the real source replaces it.
+
 ## 2026-11-21 · no new build (live page stays 2026.10.31.2352)
 
 ### Quick
