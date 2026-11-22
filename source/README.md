@@ -4,7 +4,9 @@ This folder is the readable source of Apple Press. The game is three files, `wra
 
 ## Which version this is
 
-**This is the 2026.10.24.1419 source snapshot.** The live game (`play/index.html`) is build 2026.10.31.2352. The source files for the last week of changes (Oct 25 to 31) were lost in a shared-folder cleanup and are being re-created from the live page; until that lands, a build from this folder does **not** match the live file byte for byte. See `RECOVERY.md`. For reading the newest logic in the meantime, `live-2026.10.31.2352.formatted.txt` is the live page run through a formatter (shortened variable names, no comments; read-only, not a build input; made by `format-live.js`).
+**This is the source of the live build, 2026.10.31.2352.** It was re-created on 2026-11-22: the 2026.10.24.1419 source plus the Oct 25 to 31 changes (crash-safe saves with save-kit 1.4.0, the resting scene, the smaller curtain buffers, the split scene-layer build, the sticker-book copy trimming, the sideways-scroll fix and the plain-characters pass), checked against the live page.
+
+A build from here is **not byte for byte** the live page: it is 5 bytes smaller (747,462 against 747,467), because the live page's sticker-book function was written with different short local names. Comparing the code structure of the two (every script token, with short names ignored) shows no other difference. Screenshots of the live page and a build from here match in Firefox 158.0, ungoogled Chromium 156 and WebKitGTK 2.52.6 (the sticker book 100%; the game screen within the live page's own run-to-run noise). Details: `RECOVERY.md`. The earlier private source (with the QA suites) is in the private knowledge base up to 2026.10.24.1419.
 
 ## Build
 
@@ -13,7 +15,7 @@ Needs Node 22 or newer, Python 3.9 or newer with `zopfli` (`pip install zopfli f
 ```
 cd source
 npm ci            # or: npm install
-STAMP=2026.10.24.1419 ./build.sh     # leave STAMP out to stamp the current US Eastern time
+./build.sh     # stamps the build time (US Eastern); STAMP=2026.10.31.2352 ./build.sh only to compare with the live page
 ```
 
 Output goes to `source/out/`: `apple-press.html` (player copy), `apple-press-small.html` (gzip self-extracting copy), `apple-press-full.html` (readable, unminified) and `version.txt`. Set `LZMA=1` to also build `apple-press-smallest.html` (needs the lzma-pack tool from [JS-modules](https://github.com/lfcfoundry/JS-modules) `tools/lzma-pack/`; the copy bundled here is newer than the one used for the live page, so the output may differ).
@@ -31,7 +33,8 @@ Edit only `wrap-head.html`, `head.html` and `rest.html`, never the built files. 
 | `latin1.py` | Copy of JS-modules `single-file-tools/latin1.py` |
 | `pack.py`, `pack_lzma.py`, `vendor/lzma-pack/` | The two self-extracting small copies |
 | `check.js` | Syntax check of the page scripts |
+| `vendor/save-kit.js` | The save-kit 1.4.0 lean build that is pasted into `rest.html` (section on saving) |
 
-The test suites and picture checks are not in this folder yet (they were part of the lost working folder; the 2026.10.24.1419 snapshot of them is in the private knowledge base).
+The test suites and picture checks are not in this folder (they are in the private knowledge base at the 2026.10.24.1419 snapshot).
 
 Copyright (c) 2026 LFC Foundry. MIT License (see `LICENSE` at the top of the repository).
