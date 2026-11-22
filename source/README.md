@@ -4,7 +4,7 @@ This folder is the readable source of Apple Press. The game is three files, `wra
 
 ## Which version this is
 
-**This is the 2026.10.24.1419 source snapshot.** The live game (`play/index.html`) is build 2026.10.31.2352. The source files for the last week of changes (Oct 25 to 31) were lost in a shared-folder cleanup and are being re-created from the live page; until that lands, a build from this folder does **not** match the live file byte for byte. See `RECOVERY.md`.
+**This is the 2026.10.24.1419 source snapshot.** The live game (`play/index.html`) is build 2026.10.31.2352. The source files for the last week of changes (Oct 25 to 31) were lost in a shared-folder cleanup and are being re-created from the live page; until that lands, a build from this folder does **not** match the live file byte for byte. See `RECOVERY.md`. For reading the newest logic in the meantime, `live-2026.10.31.2352.formatted.txt` is the live page run through a formatter (shortened variable names, no comments; read-only, not a build input; made by `format-live.js`).
 
 ## Build
 
