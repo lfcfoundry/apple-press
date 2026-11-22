@@ -4,6 +4,10 @@ The newest changes are first. The version number is at the bottom of the page. T
 
 **Tested in:** Firefox 158.0, ungoogled Chromium 155.0.8059.39-1 and WebKitGTK 2.52.6, one at a time (the newest build, 2026.10.29.2010, passed the full check set in Chromium and a screen-picture comparison in all three).
 
+## November 21
+
+- The readable source of the game is now in the open: the `source/` folder holds the game's files and the steps to build it. It is the October 24 version; a formatted copy of the current page is next to it for reading until the last week of changes is rebuilt. Nothing in the game changes.
+
 ## October 31
 
 - The sticker book opens and turns pages faster: each sticker now copies only the apple face and hat it shows, not every face and hat. Reopening the book went from about 56 to 17 ms in Chromium, 26 to 16 ms in Firefox and 90 to 33 ms in WebKitGTK. It looks exactly the same.

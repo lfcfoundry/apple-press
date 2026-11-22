@@ -2,6 +2,17 @@
 
 What changed on each date, newest first, for developers, in three depths: **Quick** (what changed), **Details** (what each change did, with the test browsers named where measured) and **Deep** (the full entry: reasons, numbers, tests). People who just play read [changelog.md](changelog.md). The game's source is private; this file describes the shipped single file.
 
+## 2026-11-21 · no new build (live page stays 2026.10.31.2352)
+
+### Quick
+
+PR 49 and PR 50: readable source published in `source/` (2026.10.24.1419 snapshot plus build scripts) and a formatted copy of the live page. The game is unchanged.
+
+### Details
+
+- The private source zips from 2026-10-25 to 2026-10-31 were lost in a shared-folder cleanup; the newest surviving source is the 2026-10-24 snapshot. `source/RECOVERY.md` says that a build from `source/` is not byte for byte the live page; `source/live-2026.10.31.2352.formatted.txt` (made by `source/format-live.js`) is a read-only reference.
+- The three copies were timed once in Firefox 158.0, ungoogled Chromium 156.0.8078.79 and WebKitGTK 2.52.6 (file open, 7 fresh runs, software drawing): apple on screen 210 to 271 ms in Firefox and Chromium for all three; in WebKitGTK 626 ms (full), 388 (small), 437 (smallest). No change made.
+
 ## 2026-10-31 · build 2026.10.31.2352
 
 ### Quick
